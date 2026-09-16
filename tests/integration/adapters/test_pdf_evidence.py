@@ -101,6 +101,5 @@ def test_pdf_evidence_is_deterministic_per_extraction_profile(tmp_path: Path):
 
     assert lean.snapshot_digest != first.snapshot_digest
     assert lean.partition_refs[0].digest != first.partition_refs[0].digest
-    assert store.path_for(
-        BlobRef(first.partition_refs[0].digest, store.path_for)
-    ) if False else True
+    assert adapter.load_partition(first.partition_refs[0])[0].partition_digest == first.partition_refs[0].digest
+    assert adapter.load_partition(lean.partition_refs[0])[0].partition_digest == lean.partition_refs[0].digest
