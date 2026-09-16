@@ -33,6 +33,17 @@ class MetadataStore:
         with self.engine.connect() as connection:
             connection.exec_driver_sql("PRAGMA foreign_keys=ON")
 
+    def get_artifact(self, artifact_id: str) -> ArtifactRef | None:
+        with self.engine.connect() as connection:
+            row = connection.execute(
+                select(artifacts.c.id, artifacts.c.digest, artifacts.c.kind).where(
+                    artifacts.c.id == artifact_id
+                )
+            ).one_or_none()
+        if row is None:
+            return None
+        return ArtifactRef(id=row.id, digest=row.digest, kind=row.kind)
+
     def register_artifact(self, record: ArtifactRef) -> None:
         with self.engine.begin() as connection:
             connection.execute(
