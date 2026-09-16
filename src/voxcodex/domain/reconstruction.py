@@ -18,6 +18,14 @@ ReconstructionClass = Literal[
 ]
 
 
+class ReconstructionProfile(FrozenModel):
+    id: str
+    version: str
+    baseline_tolerance: float = Field(default=0.02, gt=0.0, le=1.0)
+    max_inline_gap: float = Field(default=0.08, gt=0.0, le=1.0)
+    region_x_tolerance: float = Field(default=0.08, ge=0.0, le=1.0)
+
+
 class ReconstructionUnit(FrozenModel):
     id: str
     reconstruction_snapshot_ref: str
