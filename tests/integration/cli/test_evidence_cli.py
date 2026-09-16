@@ -90,3 +90,16 @@ def test_pdf_build_scope_selects_requested_page(tmp_path: Path, monkeypatch):
     )
     assert built.exit_code == 0, built.output
     assert _value(built.output, "partitions") == "1"
+
+
+def test_direct_corpus_source_path_is_rejected(tmp_path: Path, monkeypatch):
+    home = tmp_path / "workspace"
+    monkeypatch.setenv("VOXCODEX_HOME", str(home))
+    source_path = tmp_path / "corpus" / "compatibility" / "CC-01" / "source" / "book.pdf"
+    source_path.parent.mkdir(parents=True)
+    source_path.write_bytes(b"not-opened-as-a-corpus-shortcut")
+
+    result = runner.invoke(app, ["ingest", str(source_path)])
+
+    assert result.exit_code != 0
+    assert "corpus ingest" in result.output.lower()
