@@ -24,6 +24,7 @@ class ReconstructionProfile(FrozenModel):
     baseline_tolerance: float = Field(default=0.02, gt=0.0, le=1.0)
     max_inline_gap: float = Field(default=0.08, gt=0.0, le=1.0)
     region_x_tolerance: float = Field(default=0.08, ge=0.0, le=1.0)
+    layout_dehyphenation: bool = False
 
 
 class ReconstructionUnit(FrozenModel):
