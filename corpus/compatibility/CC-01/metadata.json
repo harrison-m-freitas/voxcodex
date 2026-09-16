@@ -1,0 +1,74 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-01",
+  "title": "Constituição Federal de 1988 — texto atualizado",
+  "creators": [
+    "Brasil"
+  ],
+  "language": "pt-BR",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "deep_legal_hierarchy",
+    "articles_incises_letters",
+    "cross_references",
+    "amendment_markers"
+  ],
+  "planned_manifestation_format": "HTML",
+  "acquired_manifestation_format": "HTML saved-page bundle",
+  "format_deviation_from_initial_curation": true,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": "Constitui#U00e7#U00e3o Federal de 1988/Constitui#U00e7#U00e3o.html",
+  "source_artifacts": [
+    {
+      "relative_path": "Constitui#U00e7#U00e3o Federal de 1988/Constitui#U00e7#U00e3o.html",
+      "byte_size": 1990495,
+      "sha256": "6904b1b98a21964edbb563f067b13fefa6f419b9c3a345b6a49d23f3cf8927e3",
+      "media_type": "text/html"
+    },
+    {
+      "relative_path": "Constitui#U00e7#U00e3o Federal de 1988/Constitui#U00e7#U00e3o_files/Brastra.gif",
+      "byte_size": 40003,
+      "sha256": "2a265565cc655b620f2bea77524474000a62e9f261e636087eca804a495a8a63",
+      "media_type": "image/gif"
+    },
+    {
+      "relative_path": "Constitui#U00e7#U00e3o Federal de 1988/Constitui#U00e7#U00e3o_files/all.min.css",
+      "byte_size": 57333,
+      "sha256": "9a680b90260b5106d79f4075491ab31daafa7429eff686453c40b58357309649",
+      "media_type": "text/css"
+    },
+    {
+      "relative_path": "Constitui#U00e7#U00e3o Federal de 1988/Constitui#U00e7#U00e3o_files/alvorada.css",
+      "byte_size": 266,
+      "sha256": "8379040495baab292cab5371c7097d43631d68602e3774344a6774973fac30d7",
+      "media_type": "text/css"
+    },
+    {
+      "relative_path": "Constitui#U00e7#U00e3o Federal de 1988/Constitui#U00e7#U00e3o_files/stf.js",
+      "byte_size": 688,
+      "sha256": "22cff02074d8a4e5c39873603a5e6cdd0e9b991d5a0ce6ecee9d67dec3779de9",
+      "media_type": "text/javascript"
+    },
+    {
+      "relative_path": "Constitui#U00e7#U00e3o Federal de 1988/Constitui#U00e7#U00e3o_files/style.css",
+      "byte_size": 210,
+      "sha256": "f6fcb8645d1554ccd4cc6b88738cbc94bceb33281fdaed3fef4dbaadf4db999c",
+      "media_type": "text/css"
+    }
+  ],
+  "source_bundle_digest_sha256": "80e82f00505900be06a4bc4c20afb4a4a15912e210ff50bda8df6361c9ececd0",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Concrete acquired manifestation differs from the initial curation proposal; the acquired manifestation is authoritative for this CorpusCase until explicitly revised.",
+    "Browser-saved HTML page plus companion assets are retained as an acquisition bundle; the HTML file is the entrypoint."
+  ]
+}

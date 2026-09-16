@@ -1,0 +1,47 @@
+{
+  "type": "M2.4-M2.6 design registration snapshot",
+  "date": "2026-09-11",
+  "status": "registered_approved_not_frozen",
+  "baseline": {
+    "cbm_schema_version": "0.1",
+    "cbm_sha256": "788c2a8e6229d2141346f46cc80928d8df3c4ed6a2f323770865dab94ab12dd3",
+    "m2_frozen_through": "M2.3",
+    "prior_freeze_manifest_sha256": "bcd3cb3d0d19b41fa272607e705838b06c9c342948eb303f61c7381a45cdc426"
+  },
+  "sections": {
+    "M2.4": "approved_not_frozen",
+    "M2.5": "approved_not_frozen",
+    "M2.6": "approved_not_frozen"
+  },
+  "invariants": {
+    "M": "M01-M14",
+    "P": "P01-P16",
+    "C": "C01-C14"
+  },
+  "next_gate": "consolidated_review_M2.1-M2.6_then_freeze_M2_Design_v0.1",
+  "files": {
+    "planning/M2-DOCUMENT-RECONSTRUCTION.md": "77362dcaaa0f96df67314b7bedddf04edf9d8a14064478d2401a18f161affb8a",
+    "planning/COMPATIBILITY-CORPUS.md": "506dc389fd0c856ec25cf5e92bf53344fb6e83759078c1c429a1d555e772258e",
+    "decisions/ADR-LOG.md": "a691d95ddb554db1a69396bdda6aa326ccac9d1d190664b690855298de5aaa18",
+    "risks/RISK-REGISTER.md": "45d63c681c31aec7d559a9765d8f5fda3e7381b58a131146934e5533d1a64d29",
+    "requirements/REQUIREMENTS.md": "871665a12510fc14e27968a42eb958e4e66f8952b8c1540aca14d24f4cbab4ae",
+    "planning/OPEN-QUESTIONS.md": "322018dbbdf6872a6dc19e13292e4dd108fb15fd98922d7589ad70ac9d90798c",
+    "architecture/ARCHITECTURE.md": "d0297ffe811c59f293a5d19c32417ef0c9176e7fc44be068cf4bee5fe04d36a0",
+    "PROJECT_CONTEXT.md": "32a5e644ae1ef39da60610866415c795d13e1d803fa848ebbc10f578d54875e0",
+    "README.md": "cbc7811bd8997100081f7944b15af5b7faf6b0c79ffcbe5df3f64a3734b4761c",
+    "STATUS.json": "2a7ca9932dcd5ef76d44ec794637350173f2d948c7979df4e7309904a9fa56c1",
+    "CHANGELOG.md": "97b80b239c797fc63c00a597da90bb9511cef79f364cedcf6704bf1ed98f9203",
+    "architecture/CBM-V0.1.md": "788c2a8e6229d2141346f46cc80928d8df3c4ed6a2f323770865dab94ab12dd3",
+    "M2-DESIGN-FREEZE-MANIFEST.json": "bcd3cb3d0d19b41fa272607e705838b06c9c342948eb303f61c7381a45cdc426"
+  },
+  "data_files": {
+    "data/Calculus 8Ed James Stewart.pdf": "2fea1e1ff4cf35eefecd608f334818dab805935f9640c4b8a6d3242f6712a344",
+    "data/Eternally Regressing Knight - Novel/capitulo_1_ptbr.md": "903df834731679195ece84198f9ffa55ab30afedbaa986101ebe39a78907671c",
+    "data/Eternally Regressing Knight - Novel/capitulo_1_ptbr.pdf": "ec412835b7eb6a2d873c6aa51b26f4a0bd357bc46f6532151c6643965fda4696",
+    "data/Eternally Regressing Knight - Novel/chapter_1_original_en.md": "ba51f66f3cd6acd7d2511c7de4278bbe6ee44903b95b6526afbc180c3baeecd0",
+    "data/Eternally Regressing Knight - Novel/chapter_1_original_en.pdf": "8f2346eafa180e53bc4a924e39d732d7090403a47f00a9f95a349688940400ac",
+    "data/Fedra - Jean Racine - 2013.pdf": "ec048480453a3e04d54188d06fac15b55dea8270f7f971acf2d0bbcfd6c5ef59",
+    "data/Leandro Lima - As Grandes Doutrinas da Graça, Vols. 1–2 (Agathos, 2017).pdf": "061cd9543cf17e643bb434dfb88d5625ddddf8197914a0bde6faa7e0bc13a9e9",
+    "data/Testes de Invasão Uma introdução prática ao hacking (Weidman, G.).pdf": "db06828cb749082e0885060f2a3ff23ee8a175b78f7d6dfefe184bb172b735bd"
+  }
+}

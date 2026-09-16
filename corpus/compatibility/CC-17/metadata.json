@@ -1,0 +1,48 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-17",
+  "title": "Dracula — HTML manifestation",
+  "creators": [
+    "Bram Stoker"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "cross_format_equivalence",
+    "epistolary_narrative",
+    "embedded_documents"
+  ],
+  "planned_manifestation_format": "HTML",
+  "acquired_manifestation_format": "HTML download bundle (ZIP)",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "Project Gutenberg source states public domain in the USA; verify applicable local law before redistribution.",
+  "source_entrypoint": "Dracula — rendered.zip",
+  "source_artifacts": [
+    {
+      "relative_path": "Dracula — rendered.zip",
+      "byte_size": 728710,
+      "sha256": "dba4b4a2a6747de39637220c494d66319ba3ded655d60d22ad0e2258598189f4",
+      "media_type": "application/zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "e510e418be842592d170593ac8c44d6ddb9dbdadef953e1e83659eb7eb913f00",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Downloaded HTML manifestation retained in its distribution ZIP as the primary SourceArtifact bundle."
+  ],
+  "source_candidate": {
+    "url": "https://www.gutenberg.org/ebooks/45839",
+    "source_type": "project_gutenberg",
+    "verification_date": "2026-09-14",
+    "note": "Dracula page with HTML download"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

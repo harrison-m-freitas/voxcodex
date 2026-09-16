@@ -1,0 +1,21 @@
+# Funcionalidades Futuras
+
+- audiobook Enriquecido;
+- modo Estudo;
+- tradução;
+- áudio bilíngue;
+- tradução sincronizada;
+- perguntas e respostas sobre a obra;
+- pesquisa semântica;
+- sincronização texto-áudio;
+- flashcards;
+- resumos;
+- revisão por capítulo;
+- pronúncia personalizada;
+- casts alternativos;
+- múltiplas edições sonoras;
+- comparação de versões;
+- workflows colaborativos;
+- matemática avançada;
+- interpretação de diagramas;
+- suporte ampliado de formatos.

@@ -1,0 +1,44 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-12",
+  "title": "Histories, Vol. 1",
+  "creators": [
+    "Herodotus"
+  ],
+  "language": "pt",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Tier 1",
+  "structural_features": [
+    "history",
+    "names_places",
+    "citations",
+    "episodic_narrative",
+    "long_document"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "PDF",
+  "format_deviation_from_initial_curation": true,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "Her#U00f3doto - Histories, Vol. 1.pdf",
+      "byte_size": 3467905,
+      "sha256": "c7314d0e4cf0d9f39f65708a28bad3d67442da79908d53c684275a496979ac73",
+      "media_type": "application/pdf"
+    }
+  ],
+  "source_bundle_digest_sha256": "1b144dbd83786077aa35a68cf3a3a962edb46db5bc89f69764d5003ae7e0fcc2",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Concrete acquired manifestation differs from the initial curation proposal; the acquired manifestation is authoritative for this CorpusCase until explicitly revised."
+  ]
+}

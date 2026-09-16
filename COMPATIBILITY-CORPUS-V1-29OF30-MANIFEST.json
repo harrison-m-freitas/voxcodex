@@ -1,0 +1,174 @@
+{
+  "schema": "voxcodex.compatibility_corpus_snapshot_manifest.v1",
+  "version": "1.0-acquisition-29of30",
+  "date": "2026-09-14",
+  "status": "ACQUISITION_ONE_PENDING",
+  "total_cases": 30,
+  "acquired_cases": 29,
+  "shortlist_acquired": 12,
+  "remaining_case_ids": [
+    "CC-15"
+  ],
+  "registry": {
+    "path": "corpus/COMPATIBILITY-CORPUS-V1.json",
+    "sha256": "581530eeeb394e4d143797b7aa1b9ce4c1ca8ef1b74643e65eaa71db26b967f2"
+  },
+  "acquisition_manifests": [
+    {
+      "path": "corpus/manifests/ACQUISITION-20260914.json",
+      "sha256": "0ec19c9335944722daad03e9e6aae37d0fbd1d26ccb8f7e0da447148785e2b1d"
+    },
+    {
+      "path": "corpus/manifests/ACQUISITION-20260914-BATCH2.json",
+      "sha256": "bcd2614c4f81f5c3a36b4d2c09c5b9e94c916f6a58471e95fa6602e34c033999"
+    },
+    {
+      "path": "corpus/manifests/ACQUISITION-20260914-BATCH3.json",
+      "sha256": "1b8e3968a3fa5e3b1f9ed5160d2f05eb9c1d6e06e9b144606e25df00a5246460"
+    }
+  ],
+  "blind_holdouts": {
+    "status": "FROZEN_UNREVEALED",
+    "selection_manifest_path": "corpus/manifests/M2-BLIND-HOLDOUT-SELECTION-V1.json",
+    "selection_manifest_sha256": "c60a47d12e60fe1891b4cd94824ec2f98d0d19b3b6c460b435f0ff3764bc00c1",
+    "quarantined_case_ids": [
+      "CC-05",
+      "CC-07",
+      "CC-14",
+      "CC-18"
+    ]
+  },
+  "frozen_baselines": {
+    "cbm_v0_1_sha256": "788c2a8e6229d2141346f46cc80928d8df3c4ed6a2f323770865dab94ab12dd3",
+    "m2_design_v0_1_sha256": "2f5f19ba237a60e7312e17d06e0f309d11cb02f37a3a8adaf2ebd5a5142bc3ce"
+  },
+  "case_metadata": [
+    {
+      "corpus_case_id": "CC-01",
+      "sha256": "e788ec3a377e648cb6e2d96cd214f4235dcc7c60f7fc0c032dc504c6096a5a0c"
+    },
+    {
+      "corpus_case_id": "CC-02",
+      "sha256": "b44b8a23d74af88b1d02380f1b3918aa126abde3476c9789384dd642d07854a8"
+    },
+    {
+      "corpus_case_id": "CC-03",
+      "sha256": "cc35b010258e95d04e827510e501dff0a1119cf85a47f0b9b286512c0ae75b79"
+    },
+    {
+      "corpus_case_id": "CC-04",
+      "sha256": "b276f1df989f076a179742efc7bc693a0cfdafcc91734d4b84c890d04e4690ef"
+    },
+    {
+      "corpus_case_id": "CC-05",
+      "sha256": "4caae96baa321dbee1cf9a541d852f30be42233b195c686cca5914fb9d47065a"
+    },
+    {
+      "corpus_case_id": "CC-06",
+      "sha256": "38e4b1a19175d296be024faf426938c83a442ca450df68396b4ef5607c9de523"
+    },
+    {
+      "corpus_case_id": "CC-07",
+      "sha256": "b32970c7fc14594305e56615a53b9c6567fb6b5279ef21d2f465bc6ac3eac55f"
+    },
+    {
+      "corpus_case_id": "CC-08",
+      "sha256": "878249319bbe7a00ca8d3da310940e8de50eaaad50ae1b208678b9e11a1b8b25"
+    },
+    {
+      "corpus_case_id": "CC-09",
+      "sha256": "a8691aa151aaa4e5fdd641d8932124c96c5bab195b685ef2dc4c17be03a78cff"
+    },
+    {
+      "corpus_case_id": "CC-10",
+      "sha256": "84439da7ee56a5842fcea7bf979c5eefc41f64c55c688b7d4291730b28179002"
+    },
+    {
+      "corpus_case_id": "CC-11",
+      "sha256": "87e0b14884ce3ae6327fc34bfd1a0c27f365733b57f98321db308e748ba9d5f9"
+    },
+    {
+      "corpus_case_id": "CC-12",
+      "sha256": "d0b1be83045e3fb59d4952f9a8b02c63cfc7fbef326e9fa7c7f6447552ef7a55"
+    },
+    {
+      "corpus_case_id": "CC-13",
+      "sha256": "59320b5a4cdd83a2b18f63913557858c496b1d261d3bd50b2fd268f653fc79b8"
+    },
+    {
+      "corpus_case_id": "CC-14",
+      "sha256": "901a9c8bd57fc0af75195fd23cf5f97deee7b29850b270f3d2bb1bb132fc0b6a"
+    },
+    {
+      "corpus_case_id": "CC-15",
+      "sha256": "1beadc0126d3ec5afa2141976b2fd6805556905a3a51c9b92c0cf3f4f368f322"
+    },
+    {
+      "corpus_case_id": "CC-16",
+      "sha256": "c916ab02e895c37f06fa467a91ff6e181699a51d6d64ba880384b4795beecdcb"
+    },
+    {
+      "corpus_case_id": "CC-17",
+      "sha256": "313408eb9a9961bcf2718f3885e7560a0d82297796c3031bb25ab2cf5cdc73ff"
+    },
+    {
+      "corpus_case_id": "CC-18",
+      "sha256": "a20a57de275f004c5eb52d2150848f35a30c32ed7ea4d2fb377d4ccde0550f43"
+    },
+    {
+      "corpus_case_id": "CC-19",
+      "sha256": "658b304f0f211942bb45d1be211fe8f78cc217368866dff8394f657f65ff6890"
+    },
+    {
+      "corpus_case_id": "CC-20",
+      "sha256": "1a71d34bd9dce28dffe07dab4edb9a353e5c88eb6008ac6b63f6d53d27c637ac"
+    },
+    {
+      "corpus_case_id": "CC-21",
+      "sha256": "e2d7d98041effb9d3db424e9679895573fc5330f954aa7b50103de12840f16a9"
+    },
+    {
+      "corpus_case_id": "CC-22",
+      "sha256": "0aa2a621d13de5c2dfbd4ae2517ce228c29cfa8dd85738fec6466b50260b13c1"
+    },
+    {
+      "corpus_case_id": "CC-23",
+      "sha256": "9d0cd11b6dc6f4522f1a37362f307a9999b94ac359494c5028dc847d40879088"
+    },
+    {
+      "corpus_case_id": "CC-24",
+      "sha256": "ffe9264ef94b0f0ec07d60fd7073310fc2b77447657bf77564899caae58d60d9"
+    },
+    {
+      "corpus_case_id": "CC-25",
+      "sha256": "75082ec7cb1d4b40663d38fb8bae110adc18ad03894ba09bfa938dc40275d218"
+    },
+    {
+      "corpus_case_id": "CC-26",
+      "sha256": "f6275db4edcc89491cc1c7b0327fe5dfd7bdf0ac308623dab8e23412124b04d5"
+    },
+    {
+      "corpus_case_id": "CC-27",
+      "sha256": "60e4ae8158f50dcbb849c7e326131f6540425436f6de6f166294eb9ff6e92582"
+    },
+    {
+      "corpus_case_id": "CC-28",
+      "sha256": "b323beef9770fa915f96b1c051915e29b02a37829fe6e1970bc460617643222e"
+    },
+    {
+      "corpus_case_id": "CC-29",
+      "sha256": "9c8bd4a2af5a36ec6c5469eed67a7ac1303206895340f9b9b1f3da76931f38a1"
+    },
+    {
+      "corpus_case_id": "CC-30",
+      "sha256": "2b6b6e36d6c38960625782e558a658662fcc8bacd1d62b3d591ac4adba00b3a3"
+    }
+  ],
+  "notes": [
+    "This snapshot is not the final 30/30 corpus freeze.",
+    "CC-08 is acquired as the explicitly approved eMAG v3.1 HTML substitution.",
+    "CC-15 remains the only pending CorpusCase.",
+    "Blind holdout SourceArtifacts remain quarantined and unrevealed.",
+    "Historical data/ is unchanged from the M2 Holdouts v1 frozen baseline."
+  ]
+}

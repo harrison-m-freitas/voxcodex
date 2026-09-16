@@ -1,0 +1,43 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-18",
+  "title": "Attention Is All You Need",
+  "creators": [
+    "Ashish Vaswani et al."
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Tier 1",
+  "structural_features": [
+    "scientific_paper",
+    "two_columns",
+    "equations",
+    "tables",
+    "figures",
+    "references"
+  ],
+  "planned_manifestation_format": "PDF",
+  "acquired_manifestation_format": "PDF",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "Attention Is All You Need #U2014 PDF original.pdf",
+      "byte_size": 2215244,
+      "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "media_type": "application/pdf"
+    }
+  ],
+  "source_bundle_digest_sha256": "a21ea774f404b3da2f5ff5d76daee63fe8486526a33a3fd3d463146d05bb6fc8",
+  "auxiliary_artifacts": [],
+  "notes": []
+}

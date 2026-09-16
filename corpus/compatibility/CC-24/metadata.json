@@ -1,0 +1,46 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-24",
+  "title": "Alice's Adventures in Wonderland — EPUB",
+  "creators": [
+    "Lewis Carroll"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "cross_format_equivalence",
+    "reflowable_text",
+    "illustrations"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "EPUB3",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "Project Gutenberg source states public domain in the USA; verify applicable local law before redistribution.",
+  "source_entrypoint": "Alice's Adventures in Wonderland.epub",
+  "source_artifacts": [
+    {
+      "relative_path": "Alice's Adventures in Wonderland.epub",
+      "byte_size": 139324,
+      "sha256": "709acc7d367a0502ad983821c146b83d111a9051d31ae835a69dfdf4fed90147",
+      "media_type": "application/epub+zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "8dd21c26eda4ba2665df64bf4200706f5b5642eeba10d2b706ee6a13b1d3e1eb",
+  "auxiliary_artifacts": [],
+  "notes": [],
+  "source_candidate": {
+    "url": "https://www.gutenberg.org/ebooks/11",
+    "source_type": "project_gutenberg",
+    "verification_date": "2026-09-14",
+    "note": "Alice page with EPUB3"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

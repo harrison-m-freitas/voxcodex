@@ -1,0 +1,57 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-15",
+  "title": "The Rust Programming Language — rendered",
+  "creators": [],
+  "language": "en",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "cross_format_equivalence",
+    "technical_documentation",
+    "code",
+    "navigation"
+  ],
+  "planned_manifestation_format": "HTML",
+  "acquired_manifestation_format": "Rendered HTML documentation archive (ZIP)",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided as CC-15-rust-book-stable-html.zip; produced from the local stable rust-docs distribution via rustup according to the agreed acquisition procedure, independently of quarantined CC-14",
+  "original_download_url_status": "No browser download URL applies to the acquired bytes; canonical rendered documentation source is https://doc.rust-lang.org/book/ and the bundle was exported from the installed stable rust-docs distribution.",
+  "rights_status": "Rendered Rust Book documentation from the official Rust toolchain distribution. Public redistribution terms should be re-verified before publishing the repository; no rights conclusion is inferred solely from the uploaded ZIP.",
+  "source_entrypoint": "CC-15-rust-book-stable-html.zip::index.html",
+  "source_artifacts": [
+    {
+      "relative_path": "CC-15-rust-book-stable-html.zip",
+      "byte_size": 7878684,
+      "sha256": "8f1853ec314206b15d56a10797daa0b62e2f782cdbd9068c45fef7395b88ec07",
+      "media_type": "application/zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "f30eb87b83aa2b7994baaa32d219e70a9b61eab3ff006fc3a8c44d2d5ed786fb",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Acquired as an already-rendered HTML documentation archive; CC-15 was not built from quarantined CC-14.",
+    "Archive inventory at registration: 676 entries, 462 HTML files, root entrypoint 'index.html'.",
+    "The root HTML contains an mdBook generation marker and identifies Rust 1.90.0.",
+    "The raw ZIP is the authoritative SourceArtifact for this CorpusCase; deterministic unpacking is a future processing derivation."
+  ],
+  "source_candidate": {
+    "url": "https://doc.rust-lang.org/book/",
+    "source_type": "official_project_source_and_toolchain_distribution",
+    "verification_date": "2026-09-14",
+    "note": "Official rendered Rust Book; acquired from installed stable rust-docs distribution rather than from quarantined source Markdown."
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)",
+  "archive_inventory": {
+    "zip_entries": 676,
+    "html_files": 462,
+    "root_index": "index.html",
+    "rust_version_marker": "1.90.0",
+    "contains_mdbook_marker": true
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "voxcodex.compatibility_corpus_acquisition_manifest.v1",
+  "batch_id": "ACQUISITION-20260914-BATCH4",
+  "date": "2026-09-14",
+  "status": "COMPLETE",
+  "source_upload": "CC-15-rust-book-stable-html.zip",
+  "cases_added": [
+    "CC-15"
+  ],
+  "cases_updated": [],
+  "corpus_state_after": {
+    "acquired": 30,
+    "total": 30,
+    "shortlist_acquired": 12,
+    "remaining_case_ids": []
+  },
+  "holdout_policy": {
+    "status": "FROZEN_UNREVEALED",
+    "quarantined_case_ids": [
+      "CC-05",
+      "CC-07",
+      "CC-14",
+      "CC-18"
+    ],
+    "cc15_independent_of_cc14": true
+  },
+  "artifacts": [
+    {
+      "corpus_case_id": "CC-15",
+      "relative_path": "corpus/compatibility/CC-15/source/CC-15-rust-book-stable-html.zip",
+      "byte_size": 7878684,
+      "sha256": "8f1853ec314206b15d56a10797daa0b62e2f782cdbd9068c45fef7395b88ec07",
+      "media_type": "application/zip",
+      "entrypoint": "index.html",
+      "archive_inventory": {
+        "zip_entries": 676,
+        "html_files": 462,
+        "root_index": "index.html",
+        "rust_version_marker": "1.90.0",
+        "contains_mdbook_marker": true
+      }
+    }
+  ],
+  "notes": [
+    "CC-15 closes the planned 30-case acquisition. The final corpus freeze is recorded separately."
+  ]
+}

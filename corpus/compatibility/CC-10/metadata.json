@@ -1,0 +1,48 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-10",
+  "title": "Hamlet: Drama em cinco Actos",
+  "creators": [
+    "William Shakespeare"
+  ],
+  "language": "pt",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "drama",
+    "characters",
+    "scenes",
+    "speaker_cues",
+    "plain_text_reconstruction"
+  ],
+  "planned_manifestation_format": "TXT",
+  "acquired_manifestation_format": "Plain text (TXT)",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "Project Gutenberg source states public domain in the USA; verify applicable local law before redistribution.",
+  "source_entrypoint": "Hamlet: Drama em cinco Actos.txt",
+  "source_artifacts": [
+    {
+      "relative_path": "Hamlet: Drama em cinco Actos.txt",
+      "byte_size": 222101,
+      "sha256": "847f07a6c93a7af3e091f0a0f5aa63a335893eae9de66b888c53691351a318b3",
+      "media_type": "text/plain"
+    }
+  ],
+  "source_bundle_digest_sha256": "a4da6fc9ce52afb03338ad2fcbcdb9dfc8cab093b6cc85546eebf3c5309e377f",
+  "auxiliary_artifacts": [],
+  "notes": [],
+  "source_candidate": {
+    "url": "https://www.gutenberg.org/ebooks/25667",
+    "source_type": "project_gutenberg",
+    "verification_date": "2026-09-14",
+    "note": "Portuguese translation by Luís I; page offers plain text"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

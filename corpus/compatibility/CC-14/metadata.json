@@ -1,0 +1,48 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-14",
+  "title": "The Rust Programming Language — source",
+  "creators": [
+    "Steve Klabnik",
+    "Carol Nichols",
+    "Rust Community"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Tier 1",
+  "structural_features": [
+    "markdown_headings",
+    "code_fences",
+    "inline_code",
+    "links",
+    "lists",
+    "technical_documentation"
+  ],
+  "planned_manifestation_format": "Markdown",
+  "acquired_manifestation_format": "Markdown source bundle (ZIP)",
+  "format_deviation_from_initial_curation": true,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": "book-main.zip::book-main/src/SUMMARY.md",
+  "source_artifacts": [
+    {
+      "relative_path": "book-main.zip",
+      "byte_size": 7222679,
+      "sha256": "d35f720111568484d3aa9aa427611b6c8d0df1b4df5215141012672a20191140",
+      "media_type": "application/zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "a265f319972270e1c4e344306ad32115b39a360adde163d58c119cd93d53a736",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Concrete acquired manifestation differs from the initial curation proposal; the acquired manifestation is authoritative for this CorpusCase until explicitly revised.",
+    "Acquired as repository ZIP; Markdown content is under book-main/src/ and must be deterministically unpacked before Tier 1 Markdown processing."
+  ]
+}

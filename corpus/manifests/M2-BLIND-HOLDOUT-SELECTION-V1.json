@@ -1,0 +1,166 @@
+{
+  "schema": "voxcodex.m2_blind_holdout_selection.v1",
+  "version": "1.0-frozen",
+  "date": "2026-09-14",
+  "status": "FROZEN_UNREVEALED",
+  "baseline_m2_design": "architecture/M2-DESIGN-V0.1.md",
+  "baseline_cbm": "architecture/CBM-V0.1.md",
+  "selection_seed_sha256": "2d38b66c1a05ff9f19e4f35e468d941bcc457f86b0d93bc022a5b5a40713c5df",
+  "selection_content_policy": "No selected page/member content was extracted, rendered, visually inspected, summarized, or semantically analyzed during selection. Only file metadata/page counts/ZIP member metadata and mechanical hashes were used.",
+  "reveal_gate": "Only after an M2 implementation candidate manifest freezes build/package identity, baseline, semantic configuration, processors/models/providers, ValidationPolicy, assertion version, and support-tier/capability claims.",
+  "post_failure_policy": "A revealed failed holdout becomes regression; tuning on it requires a new candidate and a new blind holdout for the affected claim.",
+  "holdout_count": 4,
+  "holdouts": [
+    {
+      "holdout_id": "M2-H1",
+      "corpus_case_id": "CC-07",
+      "title": "Memórias Póstumas de Brás Cubas",
+      "support_tier": "Tier 1",
+      "coverage_class": "literary_prose_pdf",
+      "format": "PDF",
+      "language": "pt-BR",
+      "source_artifact": {
+        "relative_path": "corpus/compatibility/CC-07/source/memoriasBras.pdf",
+        "sha256": "9e1b1e310299323a8bfe519a7bc299f6a846e432eb4518108e4b47362b03f493",
+        "byte_size": 517329,
+        "source_bundle_digest_sha256": "0a470d3ba1682f53ec491e65d54dfbef61ccb40a5fefe38ee77201d346e9bf7e",
+        "page_count": 140
+      },
+      "selection": {
+        "method": "deterministic_sha256_seed_modulo_eligible_pdf_window",
+        "seed_sha256": "2d38b66c1a05ff9f19e4f35e468d941bcc457f86b0d93bc022a5b5a40713c5df",
+        "eligible_scope": {
+          "physical_pdf_pages_1_based": [
+            15,
+            126
+          ],
+          "excluded_each_end_pages": 14
+        },
+        "selected_scope": {
+          "physical_pdf_pages_1_based": [
+            57,
+            58
+          ]
+        },
+        "window_pages": 2,
+        "content_inspected_for_selection": false
+      },
+      "quarantine": {
+        "entire_source_artifact_reserved_until_reveal": true,
+        "reason": "prevent whole-document processing or adjacent-context inspection from contaminating the selected blind scope"
+      }
+    },
+    {
+      "holdout_id": "M2-H2",
+      "corpus_case_id": "CC-18",
+      "title": "Attention Is All You Need",
+      "support_tier": "Tier 1",
+      "coverage_class": "technical_scientific_pdf",
+      "format": "PDF",
+      "language": "en",
+      "source_artifact": {
+        "relative_path": "corpus/compatibility/CC-18/source/Attention Is All You Need #U2014 PDF original.pdf",
+        "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+        "byte_size": 2215244,
+        "source_bundle_digest_sha256": "a21ea774f404b3da2f5ff5d76daee63fe8486526a33a3fd3d463146d05bb6fc8",
+        "page_count": 15
+      },
+      "selection": {
+        "method": "deterministic_sha256_seed_modulo_eligible_pdf_window",
+        "seed_sha256": "2d38b66c1a05ff9f19e4f35e468d941bcc457f86b0d93bc022a5b5a40713c5df",
+        "eligible_scope": {
+          "physical_pdf_pages_1_based": [
+            3,
+            13
+          ],
+          "excluded_each_end_pages": 2
+        },
+        "selected_scope": {
+          "physical_pdf_pages_1_based": [
+            9,
+            10
+          ]
+        },
+        "window_pages": 2,
+        "content_inspected_for_selection": false
+      },
+      "quarantine": {
+        "entire_source_artifact_reserved_until_reveal": true,
+        "reason": "prevent whole-document processing or adjacent-context inspection from contaminating the selected blind scope"
+      }
+    },
+    {
+      "holdout_id": "M2-H3",
+      "corpus_case_id": "CC-05",
+      "title": "Novo dicionário da língua portuguesa",
+      "support_tier": "Tier 1",
+      "coverage_class": "structured_reference_pdf",
+      "format": "PDF",
+      "language": "pt",
+      "source_artifact": {
+        "relative_path": "corpus/compatibility/CC-05/source/Novo dicion#U00e1rio da l#U00edngua portuguesa.pdf",
+        "sha256": "acf31020fd2b217d0fde0f47fc1f6d75d747ed224d173ade4539e35ff047caf7",
+        "byte_size": 17767147,
+        "source_bundle_digest_sha256": "f9169d8340397e3a201148f2b91856b59d0cd43d594d41657b095123eb240477",
+        "page_count": 2164
+      },
+      "selection": {
+        "method": "deterministic_sha256_seed_modulo_eligible_pdf_window",
+        "seed_sha256": "2d38b66c1a05ff9f19e4f35e468d941bcc457f86b0d93bc022a5b5a40713c5df",
+        "eligible_scope": {
+          "physical_pdf_pages_1_based": [
+            217,
+            1948
+          ],
+          "excluded_each_end_pages": 216
+        },
+        "selected_scope": {
+          "physical_pdf_pages_1_based": [
+            834,
+            835
+          ]
+        },
+        "window_pages": 2,
+        "content_inspected_for_selection": false
+      },
+      "quarantine": {
+        "entire_source_artifact_reserved_until_reveal": true,
+        "reason": "prevent whole-document processing or adjacent-context inspection from contaminating the selected blind scope"
+      }
+    },
+    {
+      "holdout_id": "M2-H4",
+      "corpus_case_id": "CC-14",
+      "title": "The Rust Programming Language — source",
+      "support_tier": "Tier 1",
+      "coverage_class": "tier1_markdown_technical",
+      "format": "Markdown source bundle (ZIP)",
+      "language": "en",
+      "source_artifact": {
+        "relative_path": "corpus/compatibility/CC-14/source/book-main.zip",
+        "sha256": "d35f720111568484d3aa9aa427611b6c8d0df1b4df5215141012672a20191140",
+        "byte_size": 7222679,
+        "source_bundle_digest_sha256": "a265f319972270e1c4e344306ad32115b39a360adde163d58c119cd93d53a736",
+        "entrypoint": "book-main.zip::book-main/src/SUMMARY.md"
+      },
+      "selection": {
+        "method": "deterministic_sha256_seed_modulo_sorted_markdown_members",
+        "seed_sha256": "2d38b66c1a05ff9f19e4f35e468d941bcc457f86b0d93bc022a5b5a40713c5df",
+        "eligible_member_rule": "book-main/src/**/*.md; exclude SUMMARY.md; file_size 1024..40000 bytes",
+        "eligible_member_count": 102,
+        "selected_member_index_zero_based": 65,
+        "selected_scope": {
+          "zip_member_path": "book-main/src/ch15-01-box.md",
+          "member_byte_size": 13269,
+          "member_sha256": "67822be0c96dcae16057dadf4cb17d685586a8165f42134871c3e0590b5adf09"
+        },
+        "content_inspected_for_selection": false
+      },
+      "quarantine": {
+        "entire_source_artifact_reserved_until_reveal": true,
+        "reason": "prevent repository-wide unpack/processing from exposing the selected Markdown member before candidate freeze"
+      },
+      "coverage_note": "The frozen design recommends narrative Markdown; no new blind narrative Markdown was available in the acquired corpus. This holdout covers Tier 1 Markdown mechanics/technical structure. C2 remains regression for narrative Markdown, not blind evidence."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "project": "VoxCodex",
+  "freeze": "CBM v0.1 candidate",
+  "schema_version": "0.1-candidate",
+  "freeze_date": "2026-09-11",
+  "status": "frozen_for_blind_holdout_conformance",
+  "normative_spec": {
+    "path": "architecture/CBM-V0.1-CANDIDATE.md",
+    "sha256": "22392650f6a63531bb7cb034c55c68e612970df13557747787050f84269aed58"
+  },
+  "freeze_review": {
+    "path": "planning/M1-CBM-FREEZE-REVIEW.md",
+    "sha256": "36a41db7765dc3430b147486fc671b449f2ef46f65007fd4d45a63e9e0ced334"
+  },
+  "predecessor_spec": "architecture/CBM-V0.1-ALPHA.md",
+  "architecture_invariants": 18,
+  "schema_invariants": 56,
+  "adr_last": "AD-083",
+  "cross_genre": {
+    "C1": "PASS_WITH_EXTENSION",
+    "C2": "PASS_WITH_EXTENSION",
+    "C3": "PASS_WITH_EXTENSION",
+    "universal_core_changes": 0,
+    "model_gap": 0,
+    "model_failure": 0
+  },
+  "blind_holdouts": {
+    "opened": false,
+    "fedra_pdf_page": 33,
+    "weidman_pdf_page": 558
+  },
+  "data_sha256": {
+    "data/Calculus 8Ed James Stewart.pdf": "2fea1e1ff4cf35eefecd608f334818dab805935f9640c4b8a6d3242f6712a344",
+    "data/Eternally Regressing Knight - Novel/capitulo_1_ptbr.md": "903df834731679195ece84198f9ffa55ab30afedbaa986101ebe39a78907671c",
+    "data/Eternally Regressing Knight - Novel/capitulo_1_ptbr.pdf": "ec412835b7eb6a2d873c6aa51b26f4a0bd357bc46f6532151c6643965fda4696",
+    "data/Eternally Regressing Knight - Novel/chapter_1_original_en.md": "ba51f66f3cd6acd7d2511c7de4278bbe6ee44903b95b6526afbc180c3baeecd0",
+    "data/Eternally Regressing Knight - Novel/chapter_1_original_en.pdf": "8f2346eafa180e53bc4a924e39d732d7090403a47f00a9f95a349688940400ac",
+    "data/Fedra - Jean Racine - 2013.pdf": "ec048480453a3e04d54188d06fac15b55dea8270f7f971acf2d0bbcfd6c5ef59",
+    "data/Leandro Lima - As Grandes Doutrinas da Graça, Vols. 1–2 (Agathos, 2017).pdf": "061cd9543cf17e643bb434dfb88d5625ddddf8197914a0bde6faa7e0bc13a9e9",
+    "data/Testes de Invasão Uma introdução prática ao hacking (Weidman, G.).pdf": "db06828cb749082e0885060f2a3ff23ee8a175b78f7d6dfefe184bb172b735bd"
+  },
+  "freeze_rule": "Holdout-driven normative changes must create a new explicitly versioned candidate; this frozen contract is not edited retroactively."
+}

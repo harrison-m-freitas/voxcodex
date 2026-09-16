@@ -1,0 +1,48 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-19",
+  "title": "CommonMark Specification — source spec.txt",
+  "creators": [
+    "CommonMark contributors"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Tier 1",
+  "structural_features": [
+    "nested_examples",
+    "code",
+    "expected_output",
+    "syntax_markers",
+    "specification"
+  ],
+  "planned_manifestation_format": "Markdown-like",
+  "acquired_manifestation_format": "Markdown-like source text (TXT)",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "CommonMark Spec page states CC BY-SA 4.0.",
+  "source_entrypoint": "CommonMark Specification — source.txt",
+  "source_artifacts": [
+    {
+      "relative_path": "CommonMark Specification — source.txt",
+      "byte_size": 204857,
+      "sha256": "bfef4ddc97276b6ab6c2a28ace48478e35b1c50e60cde9f517ab8ab030aa3b82",
+      "media_type": "text/plain"
+    }
+  ],
+  "source_bundle_digest_sha256": "64485129bb76798973046c99e547e2b59c5a23f169b92c0b1a3b0a9a54cdd242",
+  "auxiliary_artifacts": [],
+  "notes": [],
+  "source_candidate": {
+    "url": "https://spec.commonmark.org/0.31.2/spec.txt",
+    "source_type": "official_spec_source",
+    "verification_date": "2026-09-14",
+    "note": "CommonMark 0.31.2 source spec.txt"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

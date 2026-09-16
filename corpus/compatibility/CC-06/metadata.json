@@ -1,0 +1,40 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-06",
+  "title": "Dom Casmurro",
+  "creators": [
+    "Machado de Assis"
+  ],
+  "language": "pt-BR",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "short_chapters",
+    "narrative",
+    "dialogue",
+    "chapter_titles"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "EPUB3",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "dom_casmurro_assis.epub",
+      "byte_size": 643428,
+      "sha256": "1125bdc6594a474cf454a51291825deccf32e6280e9af0f2a50a2c327a302c98",
+      "media_type": "application/epub+zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "ce0242d3163fd75efe0caceced5a06c060507dcede432235c62309d0e3f786cb",
+  "auxiliary_artifacts": [],
+  "notes": []
+}

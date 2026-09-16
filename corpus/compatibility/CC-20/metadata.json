@@ -1,0 +1,61 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-20",
+  "title": "CommonMark Specification — rendered",
+  "creators": [
+    "CommonMark contributors"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "cross_format_equivalence",
+    "specification",
+    "examples",
+    "code"
+  ],
+  "planned_manifestation_format": "HTML",
+  "acquired_manifestation_format": "HTML saved-page bundle",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "CommonMark Spec page states CC BY-SA 4.0.",
+  "source_entrypoint": "CommonMark Specification — rendered/CommonMark Spec.html",
+  "source_artifacts": [
+    {
+      "relative_path": "CommonMark Specification — rendered/CommonMark Spec.html",
+      "byte_size": 571492,
+      "sha256": "aa18e4a34a9c82ed8ec320f6d85d434bbb61522dd399b3e9ad1a94fad10a1567",
+      "media_type": "text/html"
+    },
+    {
+      "relative_path": "CommonMark Specification — rendered/CommonMark Spec_files/80x15.png",
+      "byte_size": 434,
+      "sha256": "4f63cfda6d32f33a6e3d9b3b855826327d5f844fa83aae18df79f97d7afddf20",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "CommonMark Specification — rendered/CommonMark Spec_files/jquery-2.2.0.min.js",
+      "byte_size": 85589,
+      "sha256": "8a102873a33f24f7eb22221e6b23c4f718e29f85168ecc769a35bfaed9b12cce",
+      "media_type": "text/javascript"
+    }
+  ],
+  "source_bundle_digest_sha256": "277b118071d171d755ee1b5d20ce0a55ce4217f3b52d7967977db128c5af57ae",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Browser-saved rendered HTML plus companion assets retained as one acquisition bundle."
+  ],
+  "source_candidate": {
+    "url": "https://spec.commonmark.org/0.31.2/",
+    "source_type": "official_spec_source",
+    "verification_date": "2026-09-14",
+    "note": "Rendered CommonMark 0.31.2 HTML"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

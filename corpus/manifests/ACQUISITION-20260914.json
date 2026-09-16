@@ -1,0 +1,79 @@
+{
+  "schema": "voxcodex.corpus_acquisition_manifest.v1",
+  "date": "2026-09-14",
+  "source_upload": "VoxCodex-20260914-154105.zip",
+  "acquired_case_count": 14,
+  "shortlist_complete": true,
+  "cases": [
+    {
+      "corpus_case_id": "CC-01",
+      "metadata_sha256": "e788ec3a377e648cb6e2d96cd214f4235dcc7c60f7fc0c032dc504c6096a5a0c",
+      "source_bundle_digest_sha256": "80e82f00505900be06a4bc4c20afb4a4a15912e210ff50bda8df6361c9ececd0"
+    },
+    {
+      "corpus_case_id": "CC-03",
+      "metadata_sha256": "cc35b010258e95d04e827510e501dff0a1119cf85a47f0b9b286512c0ae75b79",
+      "source_bundle_digest_sha256": "e9d461038697ccbb230a9f62df26295ea8076ee14f317a5dad0cb476683f7029"
+    },
+    {
+      "corpus_case_id": "CC-04",
+      "metadata_sha256": "b276f1df989f076a179742efc7bc693a0cfdafcc91734d4b84c890d04e4690ef",
+      "source_bundle_digest_sha256": "03f9efcb95cd5c0f2112b47c2ed093d08980bf25865ccbb2102c91b13f57b460"
+    },
+    {
+      "corpus_case_id": "CC-05",
+      "metadata_sha256": "4caae96baa321dbee1cf9a541d852f30be42233b195c686cca5914fb9d47065a",
+      "source_bundle_digest_sha256": "f9169d8340397e3a201148f2b91856b59d0cd43d594d41657b095123eb240477"
+    },
+    {
+      "corpus_case_id": "CC-06",
+      "metadata_sha256": "38e4b1a19175d296be024faf426938c83a442ca450df68396b4ef5607c9de523",
+      "source_bundle_digest_sha256": "ce0242d3163fd75efe0caceced5a06c060507dcede432235c62309d0e3f786cb"
+    },
+    {
+      "corpus_case_id": "CC-07",
+      "metadata_sha256": "b32970c7fc14594305e56615a53b9c6567fb6b5279ef21d2f465bc6ac3eac55f",
+      "source_bundle_digest_sha256": "0a470d3ba1682f53ec491e65d54dfbef61ccb40a5fefe38ee77201d346e9bf7e"
+    },
+    {
+      "corpus_case_id": "CC-09",
+      "metadata_sha256": "a8691aa151aaa4e5fdd641d8932124c96c5bab195b685ef2dc4c17be03a78cff",
+      "source_bundle_digest_sha256": "c52906ff26b0fd578688b79fa787b1adf33a6db36881317610829b40a74140b8"
+    },
+    {
+      "corpus_case_id": "CC-11",
+      "metadata_sha256": "87e0b14884ce3ae6327fc34bfd1a0c27f365733b57f98321db308e748ba9d5f9",
+      "source_bundle_digest_sha256": "ba2e11222ca4ff5fa6f60803d64cd34764d9c815b9bd32fddc07a2490963daca"
+    },
+    {
+      "corpus_case_id": "CC-12",
+      "metadata_sha256": "d0b1be83045e3fb59d4952f9a8b02c63cfc7fbef326e9fa7c7f6447552ef7a55",
+      "source_bundle_digest_sha256": "1b144dbd83786077aa35a68cf3a3a962edb46db5bc89f69764d5003ae7e0fcc2"
+    },
+    {
+      "corpus_case_id": "CC-13",
+      "metadata_sha256": "59320b5a4cdd83a2b18f63913557858c496b1d261d3bd50b2fd268f653fc79b8",
+      "source_bundle_digest_sha256": "6e45266d95d8165fea1b1b4821c4ecbcae363a77c4e14e51676c362e6cfe8208"
+    },
+    {
+      "corpus_case_id": "CC-14",
+      "metadata_sha256": "901a9c8bd57fc0af75195fd23cf5f97deee7b29850b270f3d2bb1bb132fc0b6a",
+      "source_bundle_digest_sha256": "a265f319972270e1c4e344306ad32115b39a360adde163d58c119cd93d53a736"
+    },
+    {
+      "corpus_case_id": "CC-16",
+      "metadata_sha256": "c916ab02e895c37f06fa467a91ff6e181699a51d6d64ba880384b4795beecdcb",
+      "source_bundle_digest_sha256": "4a5185736921ebfe27a4f3bbaa2ff3d29bdfb91f9d1fd8036473b39c45a180b7"
+    },
+    {
+      "corpus_case_id": "CC-18",
+      "metadata_sha256": "a20a57de275f004c5eb52d2150848f35a30c32ed7ea4d2fb377d4ccde0550f43",
+      "source_bundle_digest_sha256": "a21ea774f404b3da2f5ff5d76daee63fe8486526a33a3fd3d463146d05bb6fc8"
+    },
+    {
+      "corpus_case_id": "CC-23",
+      "metadata_sha256": "9d0cd11b6dc6f4522f1a37362f307a9999b94ac359494c5028dc847d40879088",
+      "source_bundle_digest_sha256": "9155547eb5e8dc9aae48f66e4b56e5b61c55c3ac95c399dddef4e282b3e29eec"
+    }
+  ]
+}

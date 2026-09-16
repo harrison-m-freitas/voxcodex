@@ -1,0 +1,17 @@
+{
+  "schema": "voxcodex.compatibility_corpus_acquisition_state.v1",
+  "date": "2026-09-14",
+  "total_cases": 30,
+  "acquired": 30,
+  "shortlist_acquired": 12,
+  "remaining_case_ids": [],
+  "blind_holdouts_status": "FROZEN_UNREVEALED",
+  "quarantined_case_ids": [
+    "CC-05",
+    "CC-07",
+    "CC-14",
+    "CC-18"
+  ],
+  "latest_acquisition_manifest": "corpus/manifests/ACQUISITION-20260914-BATCH4.json",
+  "corpus_freeze_status": "FROZEN_V1"
+}

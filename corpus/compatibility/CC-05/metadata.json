@@ -1,0 +1,39 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-05",
+  "title": "Novo dicionário da língua portuguesa",
+  "creators": [],
+  "language": "pt",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Tier 1",
+  "structural_features": [
+    "dictionary_entries",
+    "subentries",
+    "abbreviations",
+    "dense_reference_layout"
+  ],
+  "planned_manifestation_format": "PDF",
+  "acquired_manifestation_format": "PDF",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "Novo dicion#U00e1rio da l#U00edngua portuguesa.pdf",
+      "byte_size": 17767147,
+      "sha256": "acf31020fd2b217d0fde0f47fc1f6d75d747ed224d173ade4539e35ff047caf7",
+      "media_type": "application/pdf"
+    }
+  ],
+  "source_bundle_digest_sha256": "f9169d8340397e3a201148f2b91856b59d0cd43d594d41657b095123eb240477",
+  "auxiliary_artifacts": [],
+  "notes": []
+}

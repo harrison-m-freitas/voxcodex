@@ -1,0 +1,42 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-07",
+  "title": "Memórias Póstumas de Brás Cubas",
+  "creators": [
+    "Machado de Assis"
+  ],
+  "language": "pt-BR",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Tier 1",
+  "structural_features": [
+    "irregular_chapters",
+    "digression",
+    "experimental_narrative",
+    "headings"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "PDF",
+  "format_deviation_from_initial_curation": true,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "memoriasBras.pdf",
+      "byte_size": 517329,
+      "sha256": "9e1b1e310299323a8bfe519a7bc299f6a846e432eb4518108e4b47362b03f493",
+      "media_type": "application/pdf"
+    }
+  ],
+  "source_bundle_digest_sha256": "0a470d3ba1682f53ec491e65d54dfbef61ccb40a5fefe38ee77201d346e9bf7e",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Concrete acquired manifestation differs from the initial curation proposal; the acquired manifestation is authoritative for this CorpusCase until explicitly revised."
+  ]
+}

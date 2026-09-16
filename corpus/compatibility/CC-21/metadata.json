@@ -1,0 +1,62 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-21",
+  "title": "RFC 9110 — HTTP Semantics",
+  "creators": [
+    "IETF"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "normative_sections",
+    "abnf",
+    "examples",
+    "cross_references",
+    "deep_hierarchy"
+  ],
+  "planned_manifestation_format": "HTML",
+  "acquired_manifestation_format": "HTML saved-page bundle",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "Official source verified; redistribution/licensing status still requires explicit confirmation if repository becomes public.",
+  "source_entrypoint": "RFC 9110 — HTTP Semantics/RFC 9110 — HTTP Semantics.html",
+  "source_artifacts": [
+    {
+      "relative_path": "RFC 9110 — HTTP Semantics/RFC 9110 — HTTP Semantics.html",
+      "byte_size": 1533933,
+      "sha256": "bb6f695538e58af83f2be152100d0eeac8a2693c19445ea10b47e1c6752e35c5",
+      "media_type": "text/html"
+    },
+    {
+      "relative_path": "RFC 9110 — HTTP Semantics/RFC 9110_ HTTP Semantics_files/metadata.min.js",
+      "byte_size": 3184,
+      "sha256": "b5222eec167e86fd118f06db853a7ba190747fbf10f17cafff2119b334bf165b",
+      "media_type": "text/javascript"
+    },
+    {
+      "relative_path": "RFC 9110 — HTTP Semantics/RFC 9110_ HTTP Semantics_files/rfc-local.css",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "media_type": "text/css"
+    }
+  ],
+  "source_bundle_digest_sha256": "29faca4d36d6344bad20e2f6cce712c51281947db530c488a6c1182179ae41b0",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Browser-saved RFC HTML plus companion assets retained as one acquisition bundle."
+  ],
+  "source_candidate": {
+    "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+    "source_type": "official_standard_source",
+    "verification_date": "2026-09-14",
+    "note": "RFC Editor HTML"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

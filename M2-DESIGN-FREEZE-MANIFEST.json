@@ -1,0 +1,218 @@
+{
+  "project": "VoxCodex",
+  "freeze": "M2 design through M2.3",
+  "date": "2026-09-11",
+  "baseline_cbm": "architecture/CBM-V0.1.md",
+  "baseline_cbm_sha256": "788c2a8e6229d2141346f46cc80928d8df3c4ed6a2f323770865dab94ab12dd3",
+  "approved_sections": [
+    "M2.1",
+    "M2.2",
+    "M2.3"
+  ],
+  "next_gate": "M2.4 — CBM Materialization & Validation",
+  "evidence_invariants": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10"
+  ],
+  "reconstruction_invariants": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12"
+  ],
+  "file_count": 35,
+  "repository_snapshot_sha256": "93f25d57f8eea310abc442193fc46fd279c0945caf44df9b9a396fc608e63918",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "19d8e45c6d43f7577d7ff2d871d16c222b9d999a2eccaf5a606b7a498ef2362a",
+      "bytes": 11657
+    },
+    {
+      "path": "FREEZE-MANIFEST.json",
+      "sha256": "650f170fbb27ac70a81d2750b4a0355ea483641889f060ad9eb21e8af1fa2efe",
+      "bytes": 2201
+    },
+    {
+      "path": "HOLDOUT-CONFORMANCE-MANIFEST.json",
+      "sha256": "068f16a48a9b22449f0857c073e94a0c6471bd91fdcfbcd78b312678fb146445",
+      "bytes": 1129
+    },
+    {
+      "path": "PROJECT_CONTEXT.md",
+      "sha256": "6b4e8a5366a38522b7a0d4ac01d6454e01fbf1cc256d2d46faaeb7b07abd042d",
+      "bytes": 8690
+    },
+    {
+      "path": "PROMOTION-MANIFEST.json",
+      "sha256": "35bdf536d5cef847bdc4103f8fb06a11f969c82cd367551600890f5cf64f0905",
+      "bytes": 3082
+    },
+    {
+      "path": "README.md",
+      "sha256": "64806a53a9bd9630afd726a0a86d810e0d8b336b89a99eabfa55b45e8f9d17fd",
+      "bytes": 3217
+    },
+    {
+      "path": "STATUS.json",
+      "sha256": "3a9722de2d94075a9db55313a4a1aa0978a11f3f49df82273a40853d1436ed5c",
+      "bytes": 4914
+    },
+    {
+      "path": "architecture/ARCHITECTURE.md",
+      "sha256": "456ea9916e8809932a1e70c803efcbc814c09843d2de7bb70fb000a430a102dd",
+      "bytes": 6640
+    },
+    {
+      "path": "architecture/CANONICAL-BOOK-MODEL.md",
+      "sha256": "a8aa928118f510dcde6cfc9770aba81df2aec9eff94ce45fef5b516287ce6f4f",
+      "bytes": 5175
+    },
+    {
+      "path": "architecture/CBM-V0.1-ALPHA.md",
+      "sha256": "59994bb397f92b5cc9fbe1d5d58d05234b5d7971843b5d5589c9d7ef571867a5",
+      "bytes": 37049
+    },
+    {
+      "path": "architecture/CBM-V0.1-CANDIDATE.md",
+      "sha256": "22392650f6a63531bb7cb034c55c68e612970df13557747787050f84269aed58",
+      "bytes": 39243
+    },
+    {
+      "path": "architecture/CBM-V0.1.md",
+      "sha256": "788c2a8e6229d2141346f46cc80928d8df3c4ed6a2f323770865dab94ab12dd3",
+      "bytes": 41140
+    },
+    {
+      "path": "data/Calculus 8Ed James Stewart.pdf",
+      "sha256": "2fea1e1ff4cf35eefecd608f334818dab805935f9640c4b8a6d3242f6712a344",
+      "bytes": 124718910
+    },
+    {
+      "path": "data/Eternally Regressing Knight - Novel/capitulo_1_ptbr.md",
+      "sha256": "903df834731679195ece84198f9ffa55ab30afedbaa986101ebe39a78907671c",
+      "bytes": 13747
+    },
+    {
+      "path": "data/Eternally Regressing Knight - Novel/capitulo_1_ptbr.pdf",
+      "sha256": "ec412835b7eb6a2d873c6aa51b26f4a0bd357bc46f6532151c6643965fda4696",
+      "bytes": 32774
+    },
+    {
+      "path": "data/Eternally Regressing Knight - Novel/chapter_1_original_en.md",
+      "sha256": "ba51f66f3cd6acd7d2511c7de4278bbe6ee44903b95b6526afbc180c3baeecd0",
+      "bytes": 12218
+    },
+    {
+      "path": "data/Eternally Regressing Knight - Novel/chapter_1_original_en.pdf",
+      "sha256": "8f2346eafa180e53bc4a924e39d732d7090403a47f00a9f95a349688940400ac",
+      "bytes": 31623
+    },
+    {
+      "path": "data/Fedra - Jean Racine - 2013.pdf",
+      "sha256": "ec048480453a3e04d54188d06fac15b55dea8270f7f971acf2d0bbcfd6c5ef59",
+      "bytes": 355446
+    },
+    {
+      "path": "data/Leandro Lima - As Grandes Doutrinas da Graça, Vols. 1–2 (Agathos, 2017).pdf",
+      "sha256": "061cd9543cf17e643bb434dfb88d5625ddddf8197914a0bde6faa7e0bc13a9e9",
+      "bytes": 1526468
+    },
+    {
+      "path": "data/Testes de Invasão Uma introdução prática ao hacking (Weidman, G.).pdf",
+      "sha256": "db06828cb749082e0885060f2a3ff23ee8a175b78f7d6dfefe184bb172b735bd",
+      "bytes": 12857472
+    },
+    {
+      "path": "decisions/ADR-LOG.md",
+      "sha256": "5d2a981a5278c8222b6eb0a5e4c46decbdd14a78c8f4480c95126bfd99f6871f",
+      "bytes": 19965
+    },
+    {
+      "path": "planning/COMPATIBILITY-CORPUS.md",
+      "sha256": "d161c6a1f5d89f767e13dc8e4a4b7090e273c348f70e69af0fdbfa9b66b2d904",
+      "bytes": 4102
+    },
+    {
+      "path": "planning/FUTURE.md",
+      "sha256": "90c7e8041d1b7d380ffe11fba3377fd97b932d3b790744b949ce6653bd814fda",
+      "bytes": 498
+    },
+    {
+      "path": "planning/M1-CANONICAL-REPRESENTATION.md",
+      "sha256": "abd08dfd8698ab962c73aa4d264325408bd051e769b5e7d665b98e90a632bf0f",
+      "bytes": 28771
+    },
+    {
+      "path": "planning/M1-CBM-FREEZE-REVIEW.md",
+      "sha256": "36a41db7765dc3430b147486fc671b449f2ef46f65007fd4d45a63e9e0ced334",
+      "bytes": 4614
+    },
+    {
+      "path": "planning/M1-CROSS-GENRE-VALIDATION.md",
+      "sha256": "3d1507f141944899ceb137870b5816ede25b337be26845efc624d025e9a10dea",
+      "bytes": 10344
+    },
+    {
+      "path": "planning/M1-HOLDOUT-CONFORMANCE.md",
+      "sha256": "b0b86ec17a1872660a5a9ff60215c9ccfac3f6544bc63a2f510403529d075202",
+      "bytes": 8795
+    },
+    {
+      "path": "planning/M1-PROMOTION-REVIEW.md",
+      "sha256": "b358c0ca2cb4f2cf78bb0a598a664d94c937b8b9cd2acfdd61f3750ef7cf2779",
+      "bytes": 5026
+    },
+    {
+      "path": "planning/M2-DESIGN-FREEZE-REVIEW.md",
+      "sha256": "e7fe83fea20ee60efd27766f2c4e64afbdff31bf8a60b440d555c89755d37a45",
+      "bytes": 1632
+    },
+    {
+      "path": "planning/M2-DOCUMENT-RECONSTRUCTION.md",
+      "sha256": "915f09343b7569ff6f2080d39327bf71226994b5a295a471c972eb61f6cee7ee",
+      "bytes": 20200
+    },
+    {
+      "path": "planning/OPEN-QUESTIONS.md",
+      "sha256": "d8b7ef81f28667fc9f3d036d87ebf2e7bb0d236ea73db81165cdc7078a760d4d",
+      "bytes": 3213
+    },
+    {
+      "path": "poc/POC.md",
+      "sha256": "5c5863e04d6e1144be238f152d0c7f48872f49a61f72a5395f612b41e42baec0",
+      "bytes": 4812
+    },
+    {
+      "path": "requirements/REQUIREMENTS.md",
+      "sha256": "71e43a6e27a66600e74e9658a3f5aea0548a6210e4efc27cfdf65e90e2a4df1f",
+      "bytes": 8830
+    },
+    {
+      "path": "risks/RISK-REGISTER.md",
+      "sha256": "24213e6cb6212b6adb487e3aaba8defda7a6a4adae4dcceb071cd072167f0d68",
+      "bytes": 5023
+    },
+    {
+      "path": "source/00-original-requirements.md",
+      "sha256": "b2b837eefa49b50d68684b8d78057d85b0315360dcab330a8f66887b93f9f440",
+      "bytes": 21857
+    }
+  ]
+}

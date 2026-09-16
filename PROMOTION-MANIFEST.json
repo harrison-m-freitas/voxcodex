@@ -1,0 +1,72 @@
+{
+  "project": "VoxCodex",
+  "gate": "M1 CBM v0.1 promotion",
+  "date": "2026-09-11",
+  "result": "PASS",
+  "m1_status": "complete",
+  "promoted_contract": {
+    "schema_version": "0.1",
+    "path": "architecture/CBM-V0.1.md",
+    "sha256": "788c2a8e6229d2141346f46cc80928d8df3c4ed6a2f323770865dab94ab12dd3",
+    "status": "PROMOTED"
+  },
+  "candidate_evidence": {
+    "path": "architecture/CBM-V0.1-CANDIDATE.md",
+    "sha256": "22392650f6a63531bb7cb034c55c68e612970df13557747787050f84269aed58",
+    "freeze_sha256": "22392650f6a63531bb7cb034c55c68e612970df13557747787050f84269aed58",
+    "unchanged_from_freeze": true
+  },
+  "promotion_review": {
+    "path": "planning/M1-PROMOTION-REVIEW.md",
+    "sha256": "b358c0ca2cb4f2cf78bb0a598a664d94c937b8b9cd2acfdd61f3750ef7cf2779"
+  },
+  "prior_manifests": {
+    "freeze": {
+      "path": "FREEZE-MANIFEST.json",
+      "sha256": "650f170fbb27ac70a81d2750b4a0355ea483641889f060ad9eb21e8af1fa2efe"
+    },
+    "holdout": {
+      "path": "HOLDOUT-CONFORMANCE-MANIFEST.json",
+      "sha256": "068f16a48a9b22449f0857c073e94a0c6471bd91fdcfbcd78b312678fb146445"
+    }
+  },
+  "evidence_summary": {
+    "golden_slices": [
+      "F1",
+      "F2",
+      "W1",
+      "W2"
+    ],
+    "cross_genre": {
+      "C1": "PASS_WITH_EXTENSION",
+      "C2": "PASS_WITH_EXTENSION",
+      "C3": "PASS_WITH_EXTENSION"
+    },
+    "blind_holdouts": {
+      "F-RND": "PASS",
+      "W-RND": "PASS_WITH_EXTENSION"
+    },
+    "promoted_extensions": [
+      "technical.terminal_input",
+      "editorial.omission_marker"
+    ],
+    "universal_core_changes_after_freeze": 0,
+    "schema_invariant_changes_after_freeze": 0,
+    "model_gap": 0,
+    "model_failure": 0,
+    "architecture_invariants": 18,
+    "schema_invariants": 56,
+    "adr_last": "AD-090"
+  },
+  "data_sha256": {
+    "data/Calculus 8Ed James Stewart.pdf": "2fea1e1ff4cf35eefecd608f334818dab805935f9640c4b8a6d3242f6712a344",
+    "data/Eternally Regressing Knight - Novel/capitulo_1_ptbr.md": "903df834731679195ece84198f9ffa55ab30afedbaa986101ebe39a78907671c",
+    "data/Eternally Regressing Knight - Novel/capitulo_1_ptbr.pdf": "ec412835b7eb6a2d873c6aa51b26f4a0bd357bc46f6532151c6643965fda4696",
+    "data/Eternally Regressing Knight - Novel/chapter_1_original_en.md": "ba51f66f3cd6acd7d2511c7de4278bbe6ee44903b95b6526afbc180c3baeecd0",
+    "data/Eternally Regressing Knight - Novel/chapter_1_original_en.pdf": "8f2346eafa180e53bc4a924e39d732d7090403a47f00a9f95a349688940400ac",
+    "data/Fedra - Jean Racine - 2013.pdf": "ec048480453a3e04d54188d06fac15b55dea8270f7f971acf2d0bbcfd6c5ef59",
+    "data/Leandro Lima - As Grandes Doutrinas da Graça, Vols. 1–2 (Agathos, 2017).pdf": "061cd9543cf17e643bb434dfb88d5625ddddf8197914a0bde6faa7e0bc13a9e9",
+    "data/Testes de Invasão Uma introdução prática ao hacking (Weidman, G.).pdf": "db06828cb749082e0885060f2a3ff23ee8a175b78f7d6dfefe184bb172b735bd"
+  },
+  "promotion_rule": "The frozen candidate and validation manifests remain historical evidence; future normative changes require explicit schema versioning and must not rewrite M1 audit artifacts."
+}

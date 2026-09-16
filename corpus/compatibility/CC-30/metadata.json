@@ -1,0 +1,48 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-30",
+  "title": "Mrs. Beeton's Book of Household Management",
+  "creators": [
+    "Isabella Beeton"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "recipes",
+    "procedures",
+    "enumerations",
+    "reference_content",
+    "heterogeneous_content"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "EPUB3",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "Project Gutenberg source states public domain in the USA; verify applicable local law before redistribution.",
+  "source_entrypoint": "Mrs. Beeton — Book of Household Management.epub",
+  "source_artifacts": [
+    {
+      "relative_path": "Mrs. Beeton — Book of Household Management.epub",
+      "byte_size": 1239824,
+      "sha256": "4b5bcd2e6f3316541ff88c68febbdd9de2bde6b38a2e5dd5022c2483748c7622",
+      "media_type": "application/epub+zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "2b9776c708fdaec194f95414962e2b8eb2447cf2cd3525e1f69c7d67c55a9c6a",
+  "auxiliary_artifacts": [],
+  "notes": [],
+  "source_candidate": {
+    "url": "https://www.gutenberg.org/ebooks/10136",
+    "source_type": "project_gutenberg",
+    "verification_date": "2026-09-14",
+    "note": "Book of Household Management"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

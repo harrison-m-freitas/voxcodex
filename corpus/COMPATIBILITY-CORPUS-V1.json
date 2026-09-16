@@ -1,0 +1,500 @@
+{
+  "schema": "voxcodex.compatibility_corpus_registry.v1",
+  "version": "1.0-frozen",
+  "date": "2026-09-14",
+  "status": "FROZEN_30_OF_30",
+  "total_cases": 30,
+  "shortlist_case_ids": [
+    "CC-01",
+    "CC-03",
+    "CC-04",
+    "CC-05",
+    "CC-09",
+    "CC-11",
+    "CC-12",
+    "CC-13",
+    "CC-14",
+    "CC-16",
+    "CC-18",
+    "CC-23"
+  ],
+  "shortlist_target": 12,
+  "shortlist_acquired": 12,
+  "total_acquired": 30,
+  "remaining_case_ids": [],
+  "cases": [
+    {
+      "corpus_case_id": "CC-01",
+      "title": "Constituição Federal de 1988 — texto atualizado",
+      "language": "pt-BR",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "HTML",
+      "acquired_manifestation_format": "HTML saved-page bundle",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "80e82f00505900be06a4bc4c20afb4a4a15912e210ff50bda8df6361c9ececd0"
+    },
+    {
+      "corpus_case_id": "CC-02",
+      "title": "Código Civil — Lei 10.406 compilada",
+      "language": "pt-BR",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "HTML",
+      "acquired_manifestation_format": "HTML saved-page bundle",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "6f8cedf32d765e70e572c62fd7812f0cb71c04dc37a37b8e5da88e35bccf2ee9"
+    },
+    {
+      "corpus_case_id": "CC-03",
+      "title": "Tutorial oficial Python 3.14 em português",
+      "language": "pt-BR",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "HTML",
+      "acquired_manifestation_format": "HTML documentation archive",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "e9d461038697ccbb230a9f62df26295ea8076ee14f317a5dad0cb476683f7029"
+    },
+    {
+      "corpus_case_id": "CC-04",
+      "title": "Os Lusíadas",
+      "language": "pt",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "PDF",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "03f9efcb95cd5c0f2112b47c2ed093d08980bf25865ccbb2102c91b13f57b460"
+    },
+    {
+      "corpus_case_id": "CC-05",
+      "title": "Novo dicionário da língua portuguesa",
+      "language": "pt",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "PDF",
+      "acquired_manifestation_format": "PDF",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "f9169d8340397e3a201148f2b91856b59d0cd43d594d41657b095123eb240477",
+      "holdout_reservation": {
+        "holdout_id": "M2-H3",
+        "status": "quarantined_unrevealed",
+        "entire_source_artifact_reserved": true
+      }
+    },
+    {
+      "corpus_case_id": "CC-06",
+      "title": "Dom Casmurro",
+      "language": "pt-BR",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "ce0242d3163fd75efe0caceced5a06c060507dcede432235c62309d0e3f786cb"
+    },
+    {
+      "corpus_case_id": "CC-07",
+      "title": "Memórias Póstumas de Brás Cubas",
+      "language": "pt-BR",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "PDF",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "0a470d3ba1682f53ec491e65d54dfbef61ccb40a5fefe38ee77201d346e9bf7e",
+      "holdout_reservation": {
+        "holdout_id": "M2-H1",
+        "status": "quarantined_unrevealed",
+        "entire_source_artifact_reserved": true
+      }
+    },
+    {
+      "corpus_case_id": "CC-08",
+      "title": "eMAG — Modelo de Acessibilidade em Governo Eletrônico, versão 3.1",
+      "language": "pt-BR",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "PDF (historical curation candidate: Cartilha de Acessibilidade gov.br)",
+      "acquired_manifestation_format": "HTML saved-page bundle",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "54a12dfd657b2cbf8dd83a34989f201db48de02e0f564e8d39f3be229d09ca4f"
+    },
+    {
+      "corpus_case_id": "CC-09",
+      "title": "Guia Prático de Direitos de Acessibilidade",
+      "language": "pt-BR",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "DOCX",
+      "acquired_manifestation_format": "DOCX",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "c52906ff26b0fd578688b79fa787b1adf33a6db36881317610829b40a74140b8"
+    },
+    {
+      "corpus_case_id": "CC-10",
+      "title": "Hamlet: Drama em cinco Actos",
+      "language": "pt",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "TXT",
+      "acquired_manifestation_format": "Plain text (TXT)",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "a4da6fc9ce52afb03338ad2fcbcdb9dfc8cab093b6cc85546eebf3c5309e377f"
+    },
+    {
+      "corpus_case_id": "CC-11",
+      "title": "The Republic of Plato",
+      "language": "en",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "ba2e11222ca4ff5fa6f60803d64cd34764d9c815b9bd32fddc07a2490963daca"
+    },
+    {
+      "corpus_case_id": "CC-12",
+      "title": "Histories, Vol. 1",
+      "language": "pt",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "PDF",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "1b144dbd83786077aa35a68cf3a3a962edb46db5bc89f69764d5003ae7e0fcc2"
+    },
+    {
+      "corpus_case_id": "CC-13",
+      "title": "The Souls of Black Folk",
+      "language": "en",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "6e45266d95d8165fea1b1b4821c4ecbcae363a77c4e14e51676c362e6cfe8208"
+    },
+    {
+      "corpus_case_id": "CC-14",
+      "title": "The Rust Programming Language — source",
+      "language": "en",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "Markdown",
+      "acquired_manifestation_format": "Markdown source bundle (ZIP)",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "a265f319972270e1c4e344306ad32115b39a360adde163d58c119cd93d53a736",
+      "holdout_reservation": {
+        "holdout_id": "M2-H4",
+        "status": "quarantined_unrevealed",
+        "entire_source_artifact_reserved": true
+      }
+    },
+    {
+      "corpus_case_id": "CC-15",
+      "title": "The Rust Programming Language — rendered",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "HTML",
+      "acquired_manifestation_format": "Rendered HTML documentation archive (ZIP)",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "f30eb87b83aa2b7994baaa32d219e70a9b61eab3ff006fc3a8c44d2d5ed786fb"
+    },
+    {
+      "corpus_case_id": "CC-16",
+      "title": "Dracula",
+      "language": "en",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "4a5185736921ebfe27a4f3bbaa2ff3d29bdfb91f9d1fd8036473b39c45a180b7"
+    },
+    {
+      "corpus_case_id": "CC-17",
+      "title": "Dracula — HTML manifestation",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "HTML",
+      "acquired_manifestation_format": "HTML download bundle (ZIP)",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "e510e418be842592d170593ac8c44d6ddb9dbdadef953e1e83659eb7eb913f00"
+    },
+    {
+      "corpus_case_id": "CC-18",
+      "title": "Attention Is All You Need",
+      "language": "en",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "PDF",
+      "acquired_manifestation_format": "PDF",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "a21ea774f404b3da2f5ff5d76daee63fe8486526a33a3fd3d463146d05bb6fc8",
+      "holdout_reservation": {
+        "holdout_id": "M2-H2",
+        "status": "quarantined_unrevealed",
+        "entire_source_artifact_reserved": true
+      }
+    },
+    {
+      "corpus_case_id": "CC-19",
+      "title": "CommonMark Specification — source spec.txt",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "Markdown-like",
+      "acquired_manifestation_format": "Markdown-like source text (TXT)",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "64485129bb76798973046c99e547e2b59c5a23f169b92c0b1a3b0a9a54cdd242"
+    },
+    {
+      "corpus_case_id": "CC-20",
+      "title": "CommonMark Specification — rendered",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "HTML",
+      "acquired_manifestation_format": "HTML saved-page bundle",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "277b118071d171d755ee1b5d20ce0a55ce4217f3b52d7967977db128c5af57ae"
+    },
+    {
+      "corpus_case_id": "CC-21",
+      "title": "RFC 9110 — HTTP Semantics",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "HTML",
+      "acquired_manifestation_format": "HTML saved-page bundle",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "29faca4d36d6344bad20e2f6cce712c51281947db530c488a6c1182179ae41b0"
+    },
+    {
+      "corpus_case_id": "CC-22",
+      "title": "Euclid — First Six Books of the Elements",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "PDF",
+      "acquired_manifestation_format": "PDF",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "1df319313be39dbbfc817daf50c7e0502e3f6000c51be093deb69b7a626543ea"
+    },
+    {
+      "corpus_case_id": "CC-23",
+      "title": "Alice's Adventures in Wonderland — scanned edition",
+      "language": "en",
+      "corpus_roles": [
+        "compatibility_shortlist",
+        "discovery"
+      ],
+      "shortlist": true,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "Scanned PDF",
+      "acquired_manifestation_format": "Scanned PDF",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "9155547eb5e8dc9aae48f66e4b56e5b61c55c3ac95c399dddef4e282b3e29eec"
+    },
+    {
+      "corpus_case_id": "CC-24",
+      "title": "Alice's Adventures in Wonderland — EPUB",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "8dd21c26eda4ba2665df64bf4200706f5b5642eeba10d2b706ee6a13b1d3e1eb"
+    },
+    {
+      "corpus_case_id": "CC-25",
+      "title": "NASA Systems Engineering Handbook",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Tier 1",
+      "planned_manifestation_format": "PDF",
+      "acquired_manifestation_format": "PDF",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "ef2123506e5d05f12585b096b3b786abcbcf22271ab1697ba9825656b80e365a"
+    },
+    {
+      "corpus_case_id": "CC-26",
+      "title": "The Life and Opinions of Tristram Shandy, Gentleman",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "6199d435560af7ec68a501e3c0b68958654f71cbef3a7a292b3b0dd3464cfff7"
+    },
+    {
+      "corpus_case_id": "CC-27",
+      "title": "The Divine Comedy — illustrated edition",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "e9443fd2282db6002e1e9277e163878c1556cf5eb1927155405c49446e0fb194"
+    },
+    {
+      "corpus_case_id": "CC-28",
+      "title": "Leaves of Grass",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "60b140d4570c346fc4a2e61424ae615181120220aa8ee3207570fcc159096821"
+    },
+    {
+      "corpus_case_id": "CC-29",
+      "title": "King James Bible",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "4dba91f95a6dbf5a7d7d61ec3884762432b1c360d27ac13998b5f31b0c034921"
+    },
+    {
+      "corpus_case_id": "CC-30",
+      "title": "Mrs. Beeton's Book of Household Management",
+      "language": "en",
+      "corpus_roles": [
+        "discovery"
+      ],
+      "shortlist": false,
+      "support_tier": "Experimental",
+      "planned_manifestation_format": "EPUB3",
+      "acquired_manifestation_format": "EPUB3",
+      "acquisition_status": "acquired",
+      "source_bundle_digest_sha256": "2b9776c708fdaec194f95414962e2b8eb2447cf2cd3525e1f69c7d67c55a9c6a"
+    }
+  ],
+  "blind_holdouts": {
+    "status": "selected_frozen_unrevealed",
+    "version": "1.0-frozen",
+    "selection_manifest": "corpus/manifests/M2-BLIND-HOLDOUT-SELECTION-V1.json",
+    "regression_assertions_manifest": "corpus/manifests/M2-REGRESSION-ASSERTIONS-V1.json",
+    "holdout_ids": [
+      "M2-H1",
+      "M2-H2",
+      "M2-H3",
+      "M2-H4"
+    ],
+    "reserved_case_ids": [
+      "CC-07",
+      "CC-18",
+      "CC-05",
+      "CC-14"
+    ],
+    "whole_source_quarantine": true,
+    "content_revealed": false
+  },
+  "historical_data_policy": "Existing data/ corpus from M1/M2 remains untouched; new compatibility acquisitions live under corpus/compatibility/."
+}

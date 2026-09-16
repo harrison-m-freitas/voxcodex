@@ -1,0 +1,41 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-11",
+  "title": "The Republic of Plato",
+  "creators": [
+    "Plato"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "philosophical_dialogue",
+    "interlocutors",
+    "long_speeches",
+    "book_divisions"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "EPUB3",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "The Republic of Plato by Plato.epub",
+      "byte_size": 727993,
+      "sha256": "f8a8f4508a2019b0a5e4b3f34f0e7e64d617188bcfe17ca19ea344cac4d5a35d",
+      "media_type": "application/epub+zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "ba2e11222ca4ff5fa6f60803d64cd34764d9c815b9bd32fddc07a2490963daca",
+  "auxiliary_artifacts": [],
+  "notes": []
+}

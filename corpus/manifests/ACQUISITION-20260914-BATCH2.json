@@ -1,0 +1,114 @@
+{
+  "schema": "voxcodex.corpus_acquisition_manifest.v1",
+  "batch": "2026-09-14-batch2",
+  "date": "2026-09-14",
+  "source_upload": "VoxCodex-20260914-163637.zip",
+  "baseline": "VoxCodex-20260914-M2-Holdouts-v1-frozen.zip",
+  "acquired_in_this_batch": 14,
+  "total_acquired_after_batch": 28,
+  "total_cases": 30,
+  "shortlist_acquired_after_batch": 12,
+  "remaining_case_ids": [
+    "CC-08",
+    "CC-15"
+  ],
+  "holdout_quarantine_preserved": true,
+  "quarantined_case_ids": [
+    "CC-05",
+    "CC-07",
+    "CC-14",
+    "CC-18"
+  ],
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)",
+  "cases": [
+    {
+      "corpus_case_id": "CC-02",
+      "metadata_sha256": "b44b8a23d74af88b1d02380f1b3918aa126abde3476c9789384dd642d07854a8",
+      "source_bundle_digest_sha256": "6f8cedf32d765e70e572c62fd7812f0cb71c04dc37a37b8e5da88e35bccf2ee9",
+      "artifact_count": 6
+    },
+    {
+      "corpus_case_id": "CC-10",
+      "metadata_sha256": "84439da7ee56a5842fcea7bf979c5eefc41f64c55c688b7d4291730b28179002",
+      "source_bundle_digest_sha256": "a4da6fc9ce52afb03338ad2fcbcdb9dfc8cab093b6cc85546eebf3c5309e377f",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-17",
+      "metadata_sha256": "313408eb9a9961bcf2718f3885e7560a0d82297796c3031bb25ab2cf5cdc73ff",
+      "source_bundle_digest_sha256": "e510e418be842592d170593ac8c44d6ddb9dbdadef953e1e83659eb7eb913f00",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-19",
+      "metadata_sha256": "658b304f0f211942bb45d1be211fe8f78cc217368866dff8394f657f65ff6890",
+      "source_bundle_digest_sha256": "64485129bb76798973046c99e547e2b59c5a23f169b92c0b1a3b0a9a54cdd242",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-20",
+      "metadata_sha256": "1a71d34bd9dce28dffe07dab4edb9a353e5c88eb6008ac6b63f6d53d27c637ac",
+      "source_bundle_digest_sha256": "277b118071d171d755ee1b5d20ce0a55ce4217f3b52d7967977db128c5af57ae",
+      "artifact_count": 3
+    },
+    {
+      "corpus_case_id": "CC-21",
+      "metadata_sha256": "e2d7d98041effb9d3db424e9679895573fc5330f954aa7b50103de12840f16a9",
+      "source_bundle_digest_sha256": "29faca4d36d6344bad20e2f6cce712c51281947db530c488a6c1182179ae41b0",
+      "artifact_count": 3
+    },
+    {
+      "corpus_case_id": "CC-22",
+      "metadata_sha256": "0aa2a621d13de5c2dfbd4ae2517ce228c29cfa8dd85738fec6466b50260b13c1",
+      "source_bundle_digest_sha256": "1df319313be39dbbfc817daf50c7e0502e3f6000c51be093deb69b7a626543ea",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-24",
+      "metadata_sha256": "ffe9264ef94b0f0ec07d60fd7073310fc2b77447657bf77564899caae58d60d9",
+      "source_bundle_digest_sha256": "8dd21c26eda4ba2665df64bf4200706f5b5642eeba10d2b706ee6a13b1d3e1eb",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-25",
+      "metadata_sha256": "75082ec7cb1d4b40663d38fb8bae110adc18ad03894ba09bfa938dc40275d218",
+      "source_bundle_digest_sha256": "ef2123506e5d05f12585b096b3b786abcbcf22271ab1697ba9825656b80e365a",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-26",
+      "metadata_sha256": "f6275db4edcc89491cc1c7b0327fe5dfd7bdf0ac308623dab8e23412124b04d5",
+      "source_bundle_digest_sha256": "6199d435560af7ec68a501e3c0b68958654f71cbef3a7a292b3b0dd3464cfff7",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-27",
+      "metadata_sha256": "60e4ae8158f50dcbb849c7e326131f6540425436f6de6f166294eb9ff6e92582",
+      "source_bundle_digest_sha256": "e9443fd2282db6002e1e9277e163878c1556cf5eb1927155405c49446e0fb194",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-28",
+      "metadata_sha256": "b323beef9770fa915f96b1c051915e29b02a37829fe6e1970bc460617643222e",
+      "source_bundle_digest_sha256": "60b140d4570c346fc4a2e61424ae615181120220aa8ee3207570fcc159096821",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-29",
+      "metadata_sha256": "9c8bd4a2af5a36ec6c5469eed67a7ac1303206895340f9b9b1f3da76931f38a1",
+      "source_bundle_digest_sha256": "4dba91f95a6dbf5a7d7d61ec3884762432b1c360d27ac13998b5f31b0c034921",
+      "artifact_count": 1
+    },
+    {
+      "corpus_case_id": "CC-30",
+      "metadata_sha256": "2b6b6e36d6c38960625782e558a658662fcc8bacd1d62b3d591ac4adba00b3a3",
+      "source_bundle_digest_sha256": "2b9776c708fdaec194f95414962e2b8eb2447cf2cd3525e1f69c7d67c55a9c6a",
+      "artifact_count": 1
+    }
+  ],
+  "notes": [
+    "Only newly pending CorpusCases were imported from the user upload; duplicate copies of quarantined holdout SourceArtifacts in data/ were ignored.",
+    "The baseline data/ tree was not modified.",
+    "CC-08 and CC-15 were not present in the upload and remain pending."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-09",
+  "title": "Guia Prático de Direitos de Acessibilidade",
+  "creators": [
+    "Ministério dos Direitos Humanos e da Cidadania"
+  ],
+  "language": "pt-BR",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "docx_structure",
+    "headings",
+    "lists",
+    "legal_citations",
+    "footnotes_or_endnotes",
+    "embedded_image"
+  ],
+  "planned_manifestation_format": "DOCX",
+  "acquired_manifestation_format": "DOCX",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "Guia_Direitos_Acessibilidade___acessivel_defeso_eleitoral.docx",
+      "byte_size": 182806,
+      "sha256": "6798468bed8ca37edf23883bc2a3a22b41f68bda53146029e2545793320e487e",
+      "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    }
+  ],
+  "source_bundle_digest_sha256": "c52906ff26b0fd578688b79fa787b1adf33a6db36881317610829b40a74140b8",
+  "auxiliary_artifacts": [],
+  "notes": []
+}

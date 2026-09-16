@@ -1,0 +1,42 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-13",
+  "title": "The Souls of Black Folk",
+  "creators": [
+    "W. E. B. Du Bois"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "essay",
+    "epigraphs",
+    "notes",
+    "editorial_elements",
+    "mixed_prose"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "EPUB3",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "Du Bois #U2014 The Souls of Black Folk.epub",
+      "byte_size": 2007278,
+      "sha256": "9662e4d417a0f967342590e3f0e008a47adab50d89dba2a967d8cbe998297b7d",
+      "media_type": "application/epub+zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "6e45266d95d8165fea1b1b4821c4ecbcae363a77c4e14e51676c362e6cfe8208",
+  "auxiliary_artifacts": [],
+  "notes": []
+}

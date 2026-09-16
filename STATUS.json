@@ -1,0 +1,282 @@
+{
+  "project": "Plataforma de Audiobooks Inteligentes",
+  "version": "1.1",
+  "updated_at": "2026-09-14",
+  "stage": "m2_plan01_implemented_environment_gate_pending",
+  "stack_selected": true,
+  "poc": {
+    "corpus": [
+      "Fedra — Jean Racine",
+      "Testes de Invasão: Uma introdução prática ao hacking — Georgia Weidman"
+    ],
+    "primary_language": "pt",
+    "secondary_language_policy": "en opportunistic",
+    "base_mode": "fiel"
+  },
+  "next_step": "Executar o gate exato do Plan 01 em Python 3.14.7 + uv 0.12.x, gerar/validar uv.lock e rerodar a suíte; somente então iniciar Plan 02.",
+  "source_of_truth": "PROJECT_CONTEXT.md",
+  "m1": {
+    "status": "complete",
+    "scope": "4 golden slices + cross-genre validation corpus + 2 blind holdout pages",
+    "completed": [
+      "F1",
+      "F2",
+      "W1",
+      "W2",
+      "C1",
+      "C2",
+      "C3",
+      "F-RND",
+      "W-RND"
+    ],
+    "next": "complete",
+    "blind_holdouts": {
+      "fedra_pdf_page": 33,
+      "weidman_pdf_page": 558
+    },
+    "approved_invariants": 18,
+    "progress_document": "planning/M1-CANONICAL-REPRESENTATION.md",
+    "cross_genre_validation": {
+      "status": "complete",
+      "timing": "after W1/W2 and before blind holdouts",
+      "results": {
+        "C1": "PASS_WITH_EXTENSION",
+        "C2": "PASS_WITH_EXTENSION",
+        "C3": "PASS_WITH_EXTENSION"
+      },
+      "universal_core_changes": 0,
+      "report": "planning/M1-CROSS-GENRE-VALIDATION.md"
+    },
+    "golden_slices_status": "complete",
+    "schema_invariants": 56,
+    "cbm_candidate": {
+      "status": "historical_frozen_holdout_conformance_passed",
+      "schema_version": "0.1-candidate",
+      "predecessor_spec": "architecture/CBM-V0.1-ALPHA.md",
+      "freeze_review": "planning/M1-CBM-FREEZE-REVIEW.md",
+      "freeze_date": "2026-09-11",
+      "approved_sections": 7,
+      "schema_invariants": 56,
+      "frozen": true,
+      "holdouts_opened": true,
+      "holdout_result": "PASS_WITH_EXTENSION_OVERALL",
+      "promoted_to": "0.1",
+      "candidate_spec": "architecture/CBM-V0.1-CANDIDATE.md"
+    },
+    "holdout_conformance": {
+      "status": "complete",
+      "results": {
+        "F-RND": "PASS",
+        "W-RND": "PASS_WITH_EXTENSION"
+      },
+      "extensions_observed": [
+        "technical.terminal_input",
+        "editorial.omission_marker"
+      ],
+      "universal_core_changes": 0,
+      "schema_invariant_changes": 0,
+      "model_gap": 0,
+      "model_failure": 0,
+      "adjacent_pages_opened": false,
+      "report": "planning/M1-HOLDOUT-CONFORMANCE.md",
+      "manifest": "HOLDOUT-CONFORMANCE-MANIFEST.json"
+    },
+    "promotion": {
+      "status": "PASS",
+      "schema_version": "0.1",
+      "normative_spec": "architecture/CBM-V0.1.md",
+      "review": "planning/M1-PROMOTION-REVIEW.md",
+      "date": "2026-09-11",
+      "m1_closed": true,
+      "universal_core_changes_after_freeze": 0,
+      "schema_invariant_changes_after_freeze": 0,
+      "model_gap": 0,
+      "model_failure": 0,
+      "promoted_holdout_extensions": [
+        "technical.terminal_input",
+        "editorial.omission_marker"
+      ]
+    }
+  },
+  "m2": {
+    "name": "Document Reconstruction & CBM Materialization",
+    "status": "design_v0.1_frozen_implementation_started",
+    "baseline_cbm": "0.1",
+    "m2_1": {
+      "status": "approved_frozen",
+      "name": "Boundary & Success Contract",
+      "boundary": "SourceArtifact -> validated/frozen CanonicalRevision CBM v0.1",
+      "tier_1_formats": [
+        "PDF textual",
+        "Markdown"
+      ],
+      "tier_1_5_formats": [
+        "PDF mixed/parcialmente visual"
+      ],
+      "deferred_initial_formats": [
+        "PDF OCR-heavy",
+        "EPUB",
+        "HTML",
+        "DOCX"
+      ],
+      "semantic_enrichment_interpretive": "downstream",
+      "narration_performance_audio": "downstream"
+    },
+    "design_document": "planning/M2-DOCUMENT-RECONSTRUCTION.md",
+    "compatibility_corpus": {
+      "strategy_document": "planning/COMPATIBILITY-CORPUS.md",
+      "regression_shortlist_target": "8-12",
+      "discovery_corpus_target": "~30 total",
+      "result_classes": [
+        "PASS",
+        "PASS_WITH_EXTENSION",
+        "PROCESSING_FAILURE",
+        "MODEL_GAP",
+        "MODEL_FAILURE"
+      ],
+      "schema_evolution_log_required": true
+    },
+    "next": "Plan 01 funcionalmente implementado; gate ambiental Python 3.14.7/uv lock pendente antes do Plan 02. Blind holdouts permanecem frozen/unrevealed.",
+    "m2_2": {
+      "status": "approved_frozen",
+      "name": "Source Artifact & Evidence Model",
+      "core": "SourceArtifact -> SourceProfile -> EvidenceSnapshot -> EvidenceUnit",
+      "evidence_invariants": 10,
+      "logical_reading_order": "deferred_to_m2_3"
+    },
+    "m2_3": {
+      "status": "approved_frozen",
+      "name": "Reconstruction Pipeline",
+      "core": "EvidenceSnapshot -> ReconstructionSnapshot/ReconstructionUnit -> reconstructed document",
+      "reconstruction_invariants": 13,
+      "open_structural_state": true,
+      "reconstruction_issue": true,
+      "genre_primary_router": false
+    },
+    "frozen_through": "M2.6",
+    "m2_4": {
+      "status": "approved_frozen",
+      "name": "CBM Materialization & Validation",
+      "core": "ReconstructionSnapshot -> CanonicalDraft -> CanonicalRevision CBM v0.1 -> Validation/freeze",
+      "materialization_invariants": 14,
+      "idempotence_required": true,
+      "evidence_accountability_required": true
+    },
+    "m2_5": {
+      "status": "approved_frozen",
+      "name": "Reprocessing, Confidence & Provenance",
+      "processing_invariants": 16,
+      "activity_fingerprint": true,
+      "dependency_driven_invalidation": true,
+      "execution_plan_cost_estimation": true,
+      "risk_based_human_review": true
+    },
+    "m2_6": {
+      "status": "approved_frozen",
+      "name": "Compatibility Corpus & Exit Criteria",
+      "compatibility_invariants": 16,
+      "corpus_roles": [
+        "regression",
+        "compatibility",
+        "discovery",
+        "holdout"
+      ],
+      "new_blind_holdouts_required": true,
+      "silent_significant_loss_blocks_exit": true
+    },
+    "approved_sections": 6,
+    "design_review_state": "resolved_and_frozen",
+    "consolidated_review": {
+      "status": "PASS_AFTER_CORRECTIONS",
+      "report": "planning/M2-CONSOLIDATED-DESIGN-REVIEW.md",
+      "normative_blockers": 0,
+      "required_clarifications": 0,
+      "cbm_core_changes_required": 0,
+      "resolution": "planning/M2-CONSOLIDATED-DESIGN-RESOLUTION.md"
+    },
+    "normative_design": "architecture/M2-DESIGN-V0.1.md",
+    "freeze_review": "planning/M2-FINAL-FREEZE-REVIEW.md",
+    "freeze_manifest": "M2-DESIGN-V0.1-FREEZE-MANIFEST.json",
+    "compatibility_corpus_v1": {
+      "status": "frozen_30_of_30",
+      "registry": "corpus/COMPATIBILITY-CORPUS-V1.json",
+      "human_registry": "planning/COMPATIBILITY-CORPUS-V1.md",
+      "total_cases": 30,
+      "shortlist_cases": 12,
+      "shortlist_acquired": 12,
+      "total_acquired": 30,
+      "remaining": 0,
+      "remaining_case_ids": [],
+      "historical_data_untouched": true,
+      "blind_holdouts": "selected_frozen_unrevealed",
+      "acquisition_queue": "planning/COMPATIBILITY-CORPUS-ACQUISITION-QUEUE.md",
+      "blind_holdout_count": 4,
+      "blind_holdout_selection_manifest": "corpus/manifests/M2-BLIND-HOLDOUT-SELECTION-V1.json",
+      "regression_assertions_manifest": "corpus/manifests/M2-REGRESSION-ASSERTIONS-V1.json",
+      "quarantined_case_ids": [
+        "CC-07",
+        "CC-18",
+        "CC-05",
+        "CC-14"
+      ],
+      "acquisition_manifest_batch2": "corpus/manifests/ACQUISITION-20260914-BATCH2.json",
+      "acquisition_manifest_batch3": "corpus/manifests/ACQUISITION-20260914-BATCH3.json",
+      "freeze_manifest": "COMPATIBILITY-CORPUS-V1-FREEZE-MANIFEST.json"
+    },
+    "implementation_plan": {
+      "status": "execution_in_progress",
+      "roadmap": "docs/superpowers/plans/2026-09-14-m2-master-implementation-roadmap.md",
+      "subplans": [
+        "docs/superpowers/plans/2026-09-14-m2-01-foundation-and-contracts.md",
+        "docs/superpowers/plans/2026-09-14-m2-02-source-evidence.md",
+        "docs/superpowers/plans/2026-09-14-m2-03-reconstruction.md",
+        "docs/superpowers/plans/2026-09-14-m2-04-materialization-validation.md",
+        "docs/superpowers/plans/2026-09-14-m2-05-reprocessing-provenance.md",
+        "docs/superpowers/plans/2026-09-14-m2-06-corpus-candidate-freeze.md"
+      ],
+      "tech_baseline": {
+        "python": "3.14.x",
+        "package_manager": "uv 0.12.x",
+        "models": "Pydantic 2.13.x",
+        "metadata": "SQLite + SQLAlchemy 2.0.x + Alembic 1.20.x",
+        "blob_store": "local content-addressed filesystem",
+        "pdf": "PyMuPDF 1.28.x",
+        "markdown": "markdown-it-py 4.2.x",
+        "cli": "Typer 0.27.x",
+        "testing": "pytest 9.1.x + Hypothesis 6.168+",
+        "canonical_json": "RFC 8785 via rfc8785 0.1.4"
+      },
+      "execution_mode": "inline",
+      "plan_01": {
+        "status": "functional_implemented_environment_gate_pending",
+        "branch": "m2-plan01",
+        "sandbox_python": "3.13.5",
+        "required_python": "3.14.7",
+        "sandbox_uv": "0.10.0",
+        "required_uv": "0.12.x",
+        "verified_tests": "18 passed, 1 skipped (Hypothesis unavailable)",
+        "migration": "PASS using compatible installed Alembic/SQLAlchemy",
+        "holdout_source_reads": 0,
+        "uv_lock": "pending exact environment",
+        "next_gate": "Python 3.14.7 + uv 0.12.x exact sync/lock/test"
+      }
+    }
+  },
+  "compatibility_corpus": {
+    "version": "v1",
+    "status": "FROZEN",
+    "total_cases": 30,
+    "acquired_cases": 30,
+    "shortlist_cases": 12,
+    "shortlist_acquired": 12,
+    "remaining_case_ids": [],
+    "freeze_manifest": "COMPATIBILITY-CORPUS-V1-FREEZE-MANIFEST.json",
+    "blind_holdouts_status": "FROZEN_UNREVEALED",
+    "quarantined_case_ids": [
+      "CC-05",
+      "CC-07",
+      "CC-14",
+      "CC-18"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-27",
+  "title": "The Divine Comedy — illustrated edition",
+  "creators": [
+    "Dante Alighieri"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "poetry",
+    "cantos",
+    "images",
+    "captions"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "EPUB3",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "Project Gutenberg source states public domain in the USA; verify applicable local law before redistribution.",
+  "source_entrypoint": "The Divine Comedy, ilustrada por Doré.epub",
+  "source_artifacts": [
+    {
+      "relative_path": "The Divine Comedy, ilustrada por Doré.epub",
+      "byte_size": 30745849,
+      "sha256": "90954b2d177a4412dcc9e499e4e704a1ebcfaaabd2c9fde6f51f5ca01823ebf0",
+      "media_type": "application/epub+zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "e9443fd2282db6002e1e9277e163878c1556cf5eb1927155405c49446e0fb194",
+  "auxiliary_artifacts": [],
+  "notes": [],
+  "source_candidate": {
+    "url": "https://www.gutenberg.org/ebooks/8800",
+    "source_type": "project_gutenberg",
+    "verification_date": "2026-09-14",
+    "note": "Illustrated Divine Comedy, Doré; EPUB3 offered"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

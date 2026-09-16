@@ -1,0 +1,42 @@
+{
+  "schema": "voxcodex.corpus_acquisition_manifest.v1",
+  "batch": "2026-09-14-batch3",
+  "date": "2026-09-14",
+  "source_upload": "VoxCodex-20260914-173247.zip",
+  "baseline": "VoxCodex-20260914-Compatibility-Corpus-v1-28of30.zip",
+  "acquired_in_this_batch": 1,
+  "total_acquired_after_batch": 29,
+  "total_cases": 30,
+  "shortlist_acquired_after_batch": 12,
+  "remaining_case_ids": [
+    "CC-15"
+  ],
+  "holdout_quarantine_preserved": true,
+  "quarantined_case_ids": [
+    "CC-05",
+    "CC-07",
+    "CC-14",
+    "CC-18"
+  ],
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)",
+  "cases": [
+    {
+      "corpus_case_id": "CC-08",
+      "metadata_sha256": "878249319bbe7a00ca8d3da310940e8de50eaaad50ae1b208678b9e11a1b8b25",
+      "source_bundle_digest_sha256": "54a12dfd657b2cbf8dd83a34989f201db48de02e0f564e8d39f3be229d09ca4f",
+      "artifact_count": 54,
+      "substitution": {
+        "from": "Cartilha de Acessibilidade gov.br — PDF (unavailable acquisition candidate)",
+        "to": "eMAG — Modelo de Acessibilidade em Governo Eletrônico 3.1 — HTML saved-page bundle",
+        "reason": "original CC-08 download candidate was unavailable; user explicitly approved substitution",
+        "support_tier_change": "Tier 1 -> Experimental because HTML is outside M2 Tier 1"
+      }
+    }
+  ],
+  "notes": [
+    "CC-08 substitution was explicitly approved before registration.",
+    "Official eMAG page identifies version 3.1 (April 2014) and CC BY 4.0 licensing.",
+    "Baseline data/ and quarantined holdout SourceArtifacts were not modified.",
+    "CC-15 remains the only pending CorpusCase."
+  ]
+}

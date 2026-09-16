@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+*.db
+*.sqlite
+*.sqlite3
+artifacts/
+
+# VoxCodex local source corpus — never publish
+/data/
+/corpus/compatibility/*/source/

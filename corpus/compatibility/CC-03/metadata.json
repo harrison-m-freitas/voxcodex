@@ -1,0 +1,53 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-03",
+  "title": "Tutorial oficial Python 3.14 em português",
+  "creators": [
+    "Python Software Foundation"
+  ],
+  "language": "pt-BR",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "technical_prose",
+    "code_blocks",
+    "inline_code",
+    "prompts_outputs",
+    "links",
+    "navigation"
+  ],
+  "planned_manifestation_format": "HTML",
+  "acquired_manifestation_format": "HTML documentation archive",
+  "format_deviation_from_initial_curation": true,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": "python-3.14-docs-html.zip",
+  "source_artifacts": [
+    {
+      "relative_path": "python-3.14-docs-html.zip",
+      "byte_size": 17453993,
+      "sha256": "ad366accdf8a18b2649fc0653259fb4d09ae6333dfdfa11a6b6bcceccf34f017",
+      "media_type": "application/zip"
+    }
+  ],
+  "source_bundle_digest_sha256": "e9d461038697ccbb230a9f62df26295ea8076ee14f317a5dad0cb476683f7029",
+  "auxiliary_artifacts": [
+    {
+      "relative_path": "python-3.14-docs.epub",
+      "byte_size": 9520461,
+      "sha256": "31e81ab226d111a858ffa7a6d81b8dbf8eb63e64f09857c7339085ef811e711e",
+      "media_type": "application/epub+zip"
+    }
+  ],
+  "notes": [
+    "Concrete acquired manifestation differs from the initial curation proposal; the acquired manifestation is authoritative for this CorpusCase until explicitly revised.",
+    "EPUB download retained as auxiliary, non-normative artifact; the CorpusCase primary manifestation is the HTML documentation archive."
+  ]
+}

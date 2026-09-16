@@ -1,0 +1,43 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-23",
+  "title": "Alice's Adventures in Wonderland — scanned edition",
+  "creators": [
+    "Lewis Carroll",
+    "John Tenniel"
+  ],
+  "language": "en",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "scanned_pages",
+    "ocr_pressure",
+    "illustrations",
+    "historical_layout",
+    "physical_page_structure"
+  ],
+  "planned_manifestation_format": "Scanned PDF",
+  "acquired_manifestation_format": "Scanned PDF",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "Alice's Adventures in Wonderland #U2014 scanned PDF.pdf",
+      "byte_size": 22254417,
+      "sha256": "90adcee73b539373147c20dfe131657931713410003fade0ff87f86bd52ae3da",
+      "media_type": "application/pdf"
+    }
+  ],
+  "source_bundle_digest_sha256": "9155547eb5e8dc9aae48f66e4b56e5b61c55c3ac95c399dddef4e282b3e29eec",
+  "auxiliary_artifacts": [],
+  "notes": []
+}

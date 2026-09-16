@@ -1,0 +1,8 @@
+{
+  "schema": "voxcodex.holdout_quarantine.v1",
+  "status": "DO_NOT_INSPECT_OR_PROCESS_BEFORE_M2_CANDIDATE_FREEZE",
+  "holdout_id": "M2-H3",
+  "selection_manifest": "corpus/manifests/M2-BLIND-HOLDOUT-SELECTION-V1.json",
+  "entire_source_artifact_quarantined": true,
+  "reveal_gate": "Only after an M2 implementation candidate manifest freezes build/package identity, baseline, semantic configuration, processors/models/providers, ValidationPolicy, assertion version, and support-tier/capability claims."
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-02",
+  "title": "Código Civil — Lei 10.406 compilada",
+  "creators": [
+    "Brasil"
+  ],
+  "language": "pt-BR",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "deep_legal_hierarchy",
+    "cross_references",
+    "amendments",
+    "revocations"
+  ],
+  "planned_manifestation_format": "HTML",
+  "acquired_manifestation_format": "HTML saved-page bundle",
+  "format_deviation_from_initial_curation": false,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-163637.zip",
+  "original_download_url_status": "not embedded in uploaded artifact; verified source_candidate retained",
+  "rights_status": "Official source verified; redistribution/licensing status still requires explicit confirmation if repository becomes public.",
+  "source_entrypoint": "Código Civil — Lei 10.406 compilada/L10406compilada.html",
+  "source_artifacts": [
+    {
+      "relative_path": "Código Civil — Lei 10.406 compilada/L10406compilada.html",
+      "byte_size": 977533,
+      "sha256": "961938e8ce4634ff38c2ae391af4d65ff939c3cec3267b24c3cbaffa5073c3c8",
+      "media_type": "text/html"
+    },
+    {
+      "relative_path": "Código Civil — Lei 10.406 compilada/L10406compilada_files/Brastra.gif",
+      "byte_size": 99473,
+      "sha256": "62766d22d2cd66f5e1fc6dc360815da25b675c67c17c76a787b60f857a966c12",
+      "media_type": "image/gif"
+    },
+    {
+      "relative_path": "Código Civil — Lei 10.406 compilada/L10406compilada_files/font(1).css",
+      "byte_size": 710,
+      "sha256": "b36a17ed840633a95e20e3f954500fb3c22daafbe0aae151c98ce9a0772c9708",
+      "media_type": "text/css"
+    },
+    {
+      "relative_path": "Código Civil — Lei 10.406 compilada/L10406compilada_files/font.css",
+      "byte_size": 710,
+      "sha256": "b36a17ed840633a95e20e3f954500fb3c22daafbe0aae151c98ce9a0772c9708",
+      "media_type": "text/css"
+    },
+    {
+      "relative_path": "Código Civil — Lei 10.406 compilada/L10406compilada_files/header(1).css",
+      "byte_size": 664,
+      "sha256": "670665778fb5c2c931ce5417b52f5115adf8ecefdc2d4dc18f11e9c9ef316ef1",
+      "media_type": "text/css"
+    },
+    {
+      "relative_path": "Código Civil — Lei 10.406 compilada/L10406compilada_files/header.css",
+      "byte_size": 664,
+      "sha256": "670665778fb5c2c931ce5417b52f5115adf8ecefdc2d4dc18f11e9c9ef316ef1",
+      "media_type": "text/css"
+    }
+  ],
+  "source_bundle_digest_sha256": "6f8cedf32d765e70e572c62fd7812f0cb71c04dc37a37b8e5da88e35bccf2ee9",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Browser-saved official HTML page plus companion assets retained as one acquisition bundle."
+  ],
+  "source_candidate": {
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm",
+    "source_type": "official_government_source",
+    "verification_date": "2026-09-14",
+    "note": "Lei 10.406 compiled HTML from Planalto"
+  },
+  "source_bundle_digest_algorithm": "sha256(sorted UTF-8 records: relative_path NUL byte_size NUL file_sha256 LF)"
+}

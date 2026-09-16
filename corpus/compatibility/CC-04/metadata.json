@@ -1,0 +1,44 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-04",
+  "title": "Os Lusíadas",
+  "creators": [
+    "Luís de Camões"
+  ],
+  "language": "pt",
+  "corpus_roles": [
+    "compatibility_shortlist",
+    "discovery"
+  ],
+  "shortlist": true,
+  "support_tier": "Tier 1",
+  "structural_features": [
+    "poetry",
+    "cantos",
+    "stanzas",
+    "verse_lines",
+    "historical_orthography"
+  ],
+  "planned_manifestation_format": "EPUB3",
+  "acquired_manifestation_format": "PDF",
+  "format_deviation_from_initial_curation": true,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-154105.zip",
+  "original_download_url_status": "not captured in uploaded artifact",
+  "rights_status": "pending source/jurisdiction verification",
+  "source_entrypoint": null,
+  "source_artifacts": [
+    {
+      "relative_path": "Os Lusiadas - Luis de Camoes.pdf",
+      "byte_size": 2325464,
+      "sha256": "da9dbb9206539fbb7348948a85ba9ae2b1368cb024145182a9e5321f45140ea2",
+      "media_type": "application/pdf"
+    }
+  ],
+  "source_bundle_digest_sha256": "03f9efcb95cd5c0f2112b47c2ed093d08980bf25865ccbb2102c91b13f57b460",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "Concrete acquired manifestation differs from the initial curation proposal; the acquired manifestation is authoritative for this CorpusCase until explicitly revised."
+  ]
+}

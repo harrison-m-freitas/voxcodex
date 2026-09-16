@@ -1,0 +1,372 @@
+{
+  "schema": "voxcodex.corpus_case.v1",
+  "corpus_case_id": "CC-08",
+  "title": "eMAG — Modelo de Acessibilidade em Governo Eletrônico, versão 3.1",
+  "creators": [
+    "Governo Federal do Brasil — Departamento de Governo Eletrônico"
+  ],
+  "language": "pt-BR",
+  "corpus_roles": [
+    "discovery"
+  ],
+  "shortlist": false,
+  "support_tier": "Experimental",
+  "structural_features": [
+    "deep_heading_hierarchy",
+    "numbered_recommendations",
+    "lists",
+    "technical_examples",
+    "html_code_examples",
+    "images",
+    "links_and_references",
+    "institutional_document"
+  ],
+  "planned_manifestation_format": "PDF (historical curation candidate: Cartilha de Acessibilidade gov.br)",
+  "acquired_manifestation_format": "HTML saved-page bundle",
+  "format_deviation_from_initial_curation": true,
+  "acquisition_status": "acquired",
+  "acquisition_date": "2026-09-14",
+  "acquisition_provenance": "user-provided in VoxCodex-20260914-173247.zip; acquired candidate explicitly substituted after original CC-08 source became unavailable",
+  "original_download_url_status": "official eMAG page verified; exact browser-save transaction not independently provable from uploaded bytes",
+  "rights_status": "Official eMAG 3.1 page states Creative Commons Attribution 4.0 International (CC BY 4.0).",
+  "source_entrypoint": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico.html",
+  "source_artifacts": [
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico.html",
+      "byte_size": 259708,
+      "sha256": "8e3dad229af2972b5bb6d30baeb175a1cb004f7f322487b58c905740f5f740fb",
+      "media_type": "text/html"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/SyntaxHighlighter.css",
+      "byte_size": 3767,
+      "sha256": "f2944496ffdf3cb290d7afa9511a3667c096083501ec7fb886436521a5e4d031",
+      "media_type": "text/css"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/areas.png",
+      "byte_size": 8943,
+      "sha256": "0f276f667625ec1cd536c919dc34104d690e48d8488cac4015d4451d370a2552",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/barra.js",
+      "byte_size": 28411,
+      "sha256": "bfbc4b63edfe347df07a21f6de6111916212ed86dd88d7c9d6646678598949b7",
+      "media_type": "text/javascript"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/bootstrap.min.css",
+      "byte_size": 153182,
+      "sha256": "6b3bef53dc4a96ec07149d02a60b5fd026332bbce0b4ece79f3c55e3ddb85f5c",
+      "media_type": "text/css"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/bootstrap.min.js",
+      "byte_size": 55775,
+      "sha256": "eb795deda8983fa5310627c9584cf3f3b95d272567113500059018b3941cb267",
+      "media_type": "text/javascript"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/camadas.png",
+      "byte_size": 17232,
+      "sha256": "03f6d8dacda392a7fb76bc1836a0b75c341b70e5299c48905cee87e82edbf436",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/contraste1.png",
+      "byte_size": 961,
+      "sha256": "0d1fe71c3bf984655a53c4bd1a025add39d32ffcc671903e8420b33a8577e6b7",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/contraste2.png",
+      "byte_size": 1001,
+      "sha256": "4ff030a0eb7745dc5f0bb97ff408b452b8ad1e67b36ff8f96655dcf43aeda21c",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/contraste3.png",
+      "byte_size": 967,
+      "sha256": "7195fb06bc4a6f1a0ed02f187f1d71fec6a442ee232f4fd2cfc872af009978c0",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/email.png",
+      "byte_size": 26762,
+      "sha256": "1e6add549838f4958fd9553ba737b8a9f609d0eb5242b5c7ce493a6b7cc0c79d",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/estrutura_html5.png",
+      "byte_size": 6503,
+      "sha256": "b749af2a7fb8f7abc27b334a194f31a763387d16f140a6dbaa6d78d2007d1829",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura10.jpg",
+      "byte_size": 25413,
+      "sha256": "3d7525e7ef0fff4b0bab430cdeb4b9af38cde985365dbd9e3d519e15f22c30b4",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura11.jpg",
+      "byte_size": 7246,
+      "sha256": "8475f51cfa459e9ce3dcae2137bba995ab5e311df9d30e05fbbe75d3d07e577c",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura12.jpg",
+      "byte_size": 46610,
+      "sha256": "0546a23f4aba7ea44c377a00c47a2dbac4706f3c01052b2a9a0659cd3a65e79a",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura13.png",
+      "byte_size": 15712,
+      "sha256": "5c6a91a5314746c503df43ceb4d7ad14d697ded2f562d0056ceb4832fdb4e077",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura14.jpg",
+      "byte_size": 26567,
+      "sha256": "0e0c6ddc5b30903a770433216aaff0355a084e8ac6d2ac26f9cdac49db898a37",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura15.png",
+      "byte_size": 1973,
+      "sha256": "4ac0bc5b42dea47869d95fe06534c70218cbe0c92ce2c51bab4009871256f354",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura20.png",
+      "byte_size": 6714,
+      "sha256": "07ca13e784feb3c75f3f1dbadf6c62cc229b54b21294ea7d6418a171f16bd2ea",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura21.png",
+      "byte_size": 1824,
+      "sha256": "cdcf44c18e49f5b2ff140743421b3d02b2e64bba29fa981eef8f648b52e9ed31",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura22.jpg",
+      "byte_size": 27304,
+      "sha256": "b73f5b29be760e44240a5a9cc7cc24a56aec8536cb46cde5cb8a8b524b1e869b",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura23.jpg",
+      "byte_size": 62063,
+      "sha256": "a16fd1e2f77a40b1087c1319aa8db02de6494e7e1093eea6b587bc4de0a15226",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura24.png",
+      "byte_size": 5564,
+      "sha256": "029af5f7fc80cd509d6a9b4ae30c15191fca65bb4a671654db2aa70f6c234064",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura28.jpg",
+      "byte_size": 32096,
+      "sha256": "a6aab7df65faa31a3b9e578dbbcb3df228ed790ef748f169e09b9f073a9c5567",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura29.jpg",
+      "byte_size": 26073,
+      "sha256": "ab7efc28464edd25c1f0289efc0d2f2be570239509d07ba4dc9a2b694587bf7d",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura30.png",
+      "byte_size": 1980,
+      "sha256": "a3bbbbb17c14a700eca7287a1eaa1a7c05937a0e20188733e7a61f396454d89f",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura31.jpg",
+      "byte_size": 47320,
+      "sha256": "7d033ae1bdf6e18beb89657a5ac1eb22bece9e43f15efcd6b34978d3bc40ebe0",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura36.png",
+      "byte_size": 2587,
+      "sha256": "0de74501c27f16748df0115378b3e74d1f4fc1aea0a9f43e2569bb91626c0546",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura37.png",
+      "byte_size": 1477,
+      "sha256": "db57889bdcf067951ba63d2d27c30dc433c616b8579375530d43e95342a532c7",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura38.png",
+      "byte_size": 4991,
+      "sha256": "e8da4b08a2d822cfae15a90a96c81082a368835dfa921b64eeb072ebf33d3d4c",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura39.png",
+      "byte_size": 37654,
+      "sha256": "f36fa6ed593f2a924c572a63dd472ecbe2bd37ff569b47a3644b7b8a29e9fa70",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura40.png",
+      "byte_size": 6910,
+      "sha256": "061323cd5358c0b13d6f4842c7c741fb09b0d31649a45d1fbc8b755f94623de1",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura41.png",
+      "byte_size": 1979,
+      "sha256": "2649e96b272fa488c5f044959d28074dac249b161a3bc4d63de05d0bede5352b",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura44.png",
+      "byte_size": 12311,
+      "sha256": "d768e0607e6ee27b6cb2d0d734c2d5bd4e68e844afa1fb8b15bff9f0320f1eb4",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura45.png",
+      "byte_size": 27911,
+      "sha256": "69f25227610a77ce1d2874a3514a9f6134425db19dee49ac1ed1abe7ba5737a2",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura46.png",
+      "byte_size": 10787,
+      "sha256": "4599db1f3d53d013d7d0c3410721337023e45ee85908e0bc5b1e586696482a75",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/figura47.png",
+      "byte_size": 7062,
+      "sha256": "ac69efef0b0f7993ad81ff3f2a966c17dbfeea73394343f60f2f71fa2ea6a648",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/foco.png",
+      "byte_size": 2850,
+      "sha256": "9a2a4ab82488ea3377df76deca8f2553986dcc1ad77ef35e96677283dc7d6ef3",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/ilustracao1.jpg",
+      "byte_size": 50155,
+      "sha256": "ce71792b21ecc5436266736cb4a32ab309b99d7f3a082cf111a56e2d9e87631a",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/intermitencia.png",
+      "byte_size": 3176,
+      "sha256": "5b820312af6844d4548fd6241fb40b107eab03461aa94732bf8f2da7f0cc9b91",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/jquery-1.11.3.min.js",
+      "byte_size": 95957,
+      "sha256": "ecb916133a9376911f10bc5c659952eb0031e457f5df367cde560edbfba38fb8",
+      "media_type": "text/javascript"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/jquery.min.js",
+      "byte_size": 86927,
+      "sha256": "160a426ff2894252cd7cebbdd6d6b7da8fcd319c65b70468f10b6690c45d02ef",
+      "media_type": "text/javascript"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/modal.png",
+      "byte_size": 19617,
+      "sha256": "e65e98f8091576cdff1f3743dc65968fbbc37b7b69197fdb27f0f2fa89b19000",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/popper.min.js",
+      "byte_size": 20973,
+      "sha256": "587c080125b135d29a931ed371e50ffc1a9641831c1087de2cd74532815f4560",
+      "media_type": "text/javascript"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/recomendacao_21_exemplo_cliente.png",
+      "byte_size": 3721,
+      "sha256": "837b5ca876988b5037b2d78882ac60480ca0f0461834c924fa695fc38a337744",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/recomendacao_21_exemplo_servidor.png",
+      "byte_size": 30354,
+      "sha256": "45f3473e6ed8c00c410a76d3c132a4840f8b7ec502060fb05fc0f5f54be9c226",
+      "media_type": "image/png"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/recomendacao_33a.jpg",
+      "byte_size": 17126,
+      "sha256": "f8dea6a8298cac25132be20572cf4421f6b23d67a09b17bb5d48db99b988fb8d",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/recomendacao_33b.jpg",
+      "byte_size": 28472,
+      "sha256": "53b9d0a673c62fc30fdd98d11baacd51bd05b7217b6953f419cdd7c27ebaaa6c",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/recomendacao_38_enviar.jpg",
+      "byte_size": 1579,
+      "sha256": "081a4664cc08d0dffcb7df18d76eb47da86a28dc964ed70e159081acda1ad33b",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/recomendacao_38_limpar.jpg",
+      "byte_size": 1562,
+      "sha256": "53bff970544d9e7632b30afec51325ca33ed2d8f27bb0e515acf0f4f9c1c45e7",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/show_img.jpg",
+      "byte_size": 69453,
+      "sha256": "afb724ea1ab7f72dfcf2960ff8e987d1e76e63112616a9af1cd28bdbd033114c",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/slideshow.jpg",
+      "byte_size": 36193,
+      "sha256": "dab08eb67bf38f3e2e1f0cdf33eae4954f72621e2668c7a423465aa2b5d58402",
+      "media_type": "image/jpeg"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/style.css",
+      "byte_size": 15484,
+      "sha256": "313dc85b6a2c42911eae4c37ec7fde16c72ca6aa289ae2d4266bbf59a49c06ab",
+      "media_type": "text/css"
+    },
+    {
+      "relative_path": "eMAG: Modelo de Acessibilidade em Governo Eletrônico/eMAG - Modelo de Acessibilidade em Governo Eletrônico_files/vlibras-plugin.js",
+      "byte_size": 2368,
+      "sha256": "267ba6e2b10110cdd5bfb2d6bd4ad35398707d24222fd02d83c121509182e6f7",
+      "media_type": "text/javascript"
+    }
+  ],
+  "source_bundle_digest_sha256": "54a12dfd657b2cbf8dd83a34989f201db48de02e0f564e8d39f3be229d09ca4f",
+  "auxiliary_artifacts": [],
+  "notes": [
+    "CC-08 was explicitly substituted from the unavailable Cartilha de Acessibilidade gov.br PDF to the official eMAG 3.1 HTML manifestation.",
+    "The substitution preserves the accessibility/institutional/structured-document stress objective while changing support tier to Experimental because HTML is outside M2 Tier 1.",
+    "Browser-saved HTML page plus companion assets are retained as the raw acquisition bundle; the HTML file is the entrypoint."
+  ],
+  "source_candidate": {
+    "url": "https://emag.governoeletronico.gov.br/",
+    "source_type": "official_government_source",
+    "verification_date": "2026-09-14",
+    "note": "Official eMAG 3.1 page; page identifies version 3.1 (April 2014) and CC BY 4.0 licensing."
+  }
+}

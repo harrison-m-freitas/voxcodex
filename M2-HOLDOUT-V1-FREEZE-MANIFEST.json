@@ -1,0 +1,90 @@
+{
+  "schema": "voxcodex.m2_holdout_freeze_manifest.v1",
+  "version": "1.0-frozen",
+  "date": "2026-09-14",
+  "status": "FROZEN_UNREVEALED",
+  "holdout_selection_manifest_sha256": "c60a47d12e60fe1891b4cd94824ec2f98d0d19b3b6c460b435f0ff3764bc00c1",
+  "regression_assertions_manifest_sha256": "60cadbb29497e07c7c9a622337fd4c19df0afd7822948b43c442d3312e8ede9c",
+  "selection_seed_sha256": "2d38b66c1a05ff9f19e4f35e468d941bcc457f86b0d93bc022a5b5a40713c5df",
+  "content_inspected": false,
+  "quarantine_required": true,
+  "tracked_contract_files": [
+    {
+      "path": "architecture/CBM-V0.1.md",
+      "sha256": "788c2a8e6229d2141346f46cc80928d8df3c4ed6a2f323770865dab94ab12dd3",
+      "byte_size": 41140
+    },
+    {
+      "path": "architecture/M2-DESIGN-V0.1.md",
+      "sha256": "2f5f19ba237a60e7312e17d06e0f309d11cb02f37a3a8adaf2ebd5a5142bc3ce",
+      "byte_size": 44874
+    },
+    {
+      "path": "corpus/manifests/M2-BLIND-HOLDOUT-SELECTION-V1.json",
+      "sha256": "c60a47d12e60fe1891b4cd94824ec2f98d0d19b3b6c460b435f0ff3764bc00c1",
+      "byte_size": 7164
+    },
+    {
+      "path": "corpus/manifests/M2-REGRESSION-ASSERTIONS-V1.json",
+      "sha256": "60cadbb29497e07c7c9a622337fd4c19df0afd7822948b43c442d3312e8ede9c",
+      "byte_size": 11459
+    },
+    {
+      "path": "planning/M2-BLIND-HOLDOUT-SELECTION.md",
+      "sha256": "eb95a8a25d30a0c06648990b7054392ec31afc537eca1fedf8aa37ab97395d1b",
+      "byte_size": 2844
+    },
+    {
+      "path": "planning/M2-REGRESSION-ASSERTIONS-V1.md",
+      "sha256": "46de91632dc048bb3f77c89a6e46bd60cbb4cff472f55eb07163b2a249910c8a",
+      "byte_size": 5614
+    },
+    {
+      "path": "corpus/compatibility/CC-07/HOLDOUT-QUARANTINE.json",
+      "sha256": "90901c50dc17bab31347e0b8b32f94698451f5b76d27e938fc06b49299590c32",
+      "byte_size": 506
+    },
+    {
+      "path": "corpus/compatibility/CC-18/HOLDOUT-QUARANTINE.json",
+      "sha256": "68a21332caa2ba8fa60eff26a4676a1689e6b4b1072b9d9c2cd3313309a075dd",
+      "byte_size": 506
+    },
+    {
+      "path": "corpus/compatibility/CC-05/HOLDOUT-QUARANTINE.json",
+      "sha256": "9e0b2d496761ee700220f0d900dcdee2b9ec7b0a95291f0a6c2fff9ea649f474",
+      "byte_size": 506
+    },
+    {
+      "path": "corpus/compatibility/CC-14/HOLDOUT-QUARANTINE.json",
+      "sha256": "d7c57599101bd01d262a61489df3cb1734af2b8430c21f76597143fd3d64fa02",
+      "byte_size": 506
+    }
+  ],
+  "reserved_source_artifacts": [
+    {
+      "holdout_id": "M2-H1",
+      "path": "corpus/compatibility/CC-07/source/memoriasBras.pdf",
+      "sha256": "9e1b1e310299323a8bfe519a7bc299f6a846e432eb4518108e4b47362b03f493",
+      "byte_size": 517329
+    },
+    {
+      "holdout_id": "M2-H2",
+      "path": "corpus/compatibility/CC-18/source/Attention Is All You Need #U2014 PDF original.pdf",
+      "sha256": "bdfaa68d8984f0dc02beaca527b76f207d99b666d31d1da728ee0728182df697",
+      "byte_size": 2215244
+    },
+    {
+      "holdout_id": "M2-H3",
+      "path": "corpus/compatibility/CC-05/source/Novo dicion#U00e1rio da l#U00edngua portuguesa.pdf",
+      "sha256": "acf31020fd2b217d0fde0f47fc1f6d75d747ed224d173ade4539e35ff047caf7",
+      "byte_size": 17767147
+    },
+    {
+      "holdout_id": "M2-H4",
+      "path": "corpus/compatibility/CC-14/source/book-main.zip",
+      "sha256": "d35f720111568484d3aa9aa427611b6c8d0df1b4df5215141012672a20191140",
+      "byte_size": 7222679
+    }
+  ],
+  "reveal_gate": "Only after an M2 implementation candidate manifest freezes build/package identity, baseline, semantic configuration, processors/models/providers, ValidationPolicy, assertion version, and support-tier/capability claims."
+}

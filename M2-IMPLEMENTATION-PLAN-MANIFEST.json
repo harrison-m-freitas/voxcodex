@@ -1,0 +1,80 @@
+{
+  "manifest": "M2 Implementation Plan",
+  "version": "v1-draft",
+  "date": "2026-09-14",
+  "status": "authored_pending_human_review",
+  "normative_design": {
+    "path": "architecture/M2-DESIGN-V0.1.md",
+    "sha256": "2f5f19ba237a60e7312e17d06e0f309d11cb02f37a3a8adaf2ebd5a5142bc3ce"
+  },
+  "baseline_cbm": {
+    "path": "architecture/CBM-V0.1.md",
+    "sha256": "788c2a8e6229d2141346f46cc80928d8df3c4ed6a2f323770865dab94ab12dd3"
+  },
+  "compatibility_corpus": {
+    "path": "corpus/COMPATIBILITY-CORPUS-V1.json",
+    "sha256": "9e4c27e9ac7cb000e23698256ba8aaec593c1da0fb1d686ba21645721d440983",
+    "status": "FROZEN_30_OF_30"
+  },
+  "blind_holdouts": {
+    "status": "FROZEN_UNREVEALED",
+    "case_ids": [
+      "CC-05",
+      "CC-07",
+      "CC-14",
+      "CC-18"
+    ]
+  },
+  "tech_baseline": {
+    "python": "3.14.7",
+    "uv": "0.12.x",
+    "pydantic": "2.13.x",
+    "typer": "0.27.x",
+    "sqlalchemy": "2.0.x",
+    "alembic": "1.20.x",
+    "sqlite": "stdlib/runtime",
+    "rfc8785": "0.1.4",
+    "pymupdf": "1.28.x",
+    "markdown_it_py": "4.2.x",
+    "pytest": "9.1.x",
+    "hypothesis": "6.168+"
+  },
+  "plan_files": [
+    {
+      "path": "docs/superpowers/plans/2026-09-14-m2-01-foundation-and-contracts.md",
+      "sha256": "ff7f2120cba40b8568c599bdcb1867c095d18082dfa4acc98a356818d2ec967f",
+      "bytes": 13700
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-14-m2-02-source-evidence.md",
+      "sha256": "f2411062c2ce3b381cf00d453fcfa556ff79873f8dd9bf7f634f5a34c9264546",
+      "bytes": 10008
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-14-m2-03-reconstruction.md",
+      "sha256": "81a62484842f7d152e8b0216db3661d0257ee48bbc8a9ff1d2bea58c1153f128",
+      "bytes": 13004
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-14-m2-04-materialization-validation.md",
+      "sha256": "0901dae6971b5d5f4f41abc74ac503b0c55a94117535b972e10c63f642b6dd63",
+      "bytes": 10769
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-14-m2-05-reprocessing-provenance.md",
+      "sha256": "c8b1af5852660e5a7ffe77730b605594a2d39d3e30727f3801a4ed24395997ed",
+      "bytes": 10988
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-14-m2-06-corpus-candidate-freeze.md",
+      "sha256": "9e452eff1c2a1ebe440b9f623046ffeba42589044e572bcff94eac34cf12df8a",
+      "bytes": 12281
+    },
+    {
+      "path": "docs/superpowers/plans/2026-09-14-m2-master-implementation-roadmap.md",
+      "sha256": "40ac998723b7fb7b91f4b53379f49e603f4b4e37c4d5c6fe0a3b9702583d625a",
+      "bytes": 9072
+    }
+  ],
+  "task_count": 41
+}

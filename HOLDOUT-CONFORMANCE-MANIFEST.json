@@ -1,0 +1,38 @@
+{
+  "project": "VoxCodex",
+  "gate": "M1 blind holdout conformance",
+  "date": "2026-09-11",
+  "candidate": {
+    "schema_version": "0.1-candidate",
+    "path": "architecture/CBM-V0.1-CANDIDATE.md",
+    "sha256_at_freeze": "22392650f6a63531bb7cb034c55c68e612970df13557747787050f84269aed58",
+    "sha256_after_holdout": "22392650f6a63531bb7cb034c55c68e612970df13557747787050f84269aed58",
+    "unchanged": true
+  },
+  "opened_pages": [
+    {
+      "id": "F-RND",
+      "source": "data/Fedra - Jean Racine - 2013.pdf",
+      "pdf_page": 33,
+      "result": "PASS"
+    },
+    {
+      "id": "W-RND",
+      "source": "data/Testes de Invasão Uma introdução prática ao hacking (Weidman, G.).pdf",
+      "pdf_page": 558,
+      "printed_page_label": "559",
+      "result": "PASS_WITH_EXTENSION"
+    }
+  ],
+  "adjacent_pages_opened": false,
+  "extensions_observed": [
+    "technical.terminal_input",
+    "editorial.omission_marker"
+  ],
+  "universal_core_changes": 0,
+  "schema_invariant_changes": 0,
+  "model_gap": 0,
+  "model_failure": 0,
+  "report": "planning/M1-HOLDOUT-CONFORMANCE.md",
+  "next_gate": "CBM v0.1 promotion review"
+}

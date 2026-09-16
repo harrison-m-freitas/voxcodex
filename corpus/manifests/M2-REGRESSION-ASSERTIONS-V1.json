@@ -1,0 +1,328 @@
+{
+  "schema": "voxcodex.m2_regression_assertions.v1",
+  "version": "1.0-frozen",
+  "date": "2026-09-14",
+  "status": "FROZEN",
+  "purpose": "Freeze semantic/structural regression expectations before M2 implementation tuning; avoid moving the test target or coupling to serialization/IDs.",
+  "baseline_cbm": "architecture/CBM-V0.1.md",
+  "baseline_m2_design": "architecture/M2-DESIGN-V0.1.md",
+  "case_count": 9,
+  "assertion_count": 42,
+  "cases": [
+    {
+      "case_id": "F1",
+      "source": "Fedra",
+      "scope": "PDF p.6",
+      "assertions": [
+        {
+          "assertion_id": "F1-A01",
+          "layer": "Reconstruction",
+          "description": "Ato I and Cena I are reconstructed as distinct logical divisions rather than page artifacts.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "F1-A02",
+          "layer": "CBM",
+          "description": "Participant declaration, SpeakerCue, Speech and Character remain distinct; SpeakerCue is sibling of Speech, not its child/field.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "F1-A03",
+          "layer": "CBM",
+          "description": "VerseLine units are addressable and preserve source order/lineation.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "F1-A04",
+          "layer": "Reconstruction",
+          "description": "Physical page end does not close an open speech merely because the page ends.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "F1-A05",
+          "layer": "Provenance",
+          "description": "Source-derived units remain traceable to the source page/evidence.",
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "case_id": "F2",
+      "source": "Fedra",
+      "scope": "PDF pp.10-11",
+      "assertions": [
+        {
+          "assertion_id": "F2-A01",
+          "layer": "Reconstruction",
+          "description": "Open structural state survives page/chunk boundaries and reconciles cross-page speech continuity.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "F2-A02",
+          "layer": "CBM",
+          "description": "Scene transitions are represented without fabricating entry/exit events not explicit in the edition.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "F2-A03",
+          "layer": "CBM",
+          "description": "Declared participant state remains distinct from inferred semantic transitions.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "F2-A04",
+          "layer": "Reconstruction",
+          "description": "Page boundary is not promoted to logical document boundary.",
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "case_id": "W1",
+      "source": "Weidman",
+      "scope": "PDF p.112",
+      "assertions": [
+        {
+          "assertion_id": "W1-A01",
+          "layer": "Reconstruction",
+          "description": "Running header/folio are identified as recurrent physical/editorial material, not duplicate logical chapters.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "W1-A02",
+          "layer": "CBM",
+          "description": "Listing editorial container remains distinct from CodeBlock and TerminalTranscript content nature.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "W1-A03",
+          "layer": "Reconstruction",
+          "description": "Terminal transcript and Bash source code are reconstructed as different structures.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "W1-A04",
+          "layer": "Evidence",
+          "description": "Typography/layout remain available as evidence without a universal bold/monospace semantic shortcut.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "W1-A05",
+          "layer": "Fidelity",
+          "description": "Local literal-sensitive content can carry stricter fidelity than surrounding textual prose.",
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "case_id": "W2",
+      "source": "Weidman",
+      "scope": "PDF p.96",
+      "assertions": [
+        {
+          "assertion_id": "W2-A01",
+          "layer": "CBM",
+          "description": "Table topology preserves rows, columns and cell membership rather than flattening to plain text.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "W2-A02",
+          "layer": "Fidelity",
+          "description": "Surface lexeme such as 011 is preserved independently from typed/normalized interpretation.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "W2-A03",
+          "layer": "Reconstruction",
+          "description": "Editorial callout marker interleaved with terminal-like content remains distinguishable from program output.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "W2-A04",
+          "layer": "Reconstruction",
+          "description": "Cross-page section continuity is preserved.",
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "case_id": "C1",
+      "source": "Leandro Lima",
+      "scope": "PDF pp.6-7 and 38-39",
+      "assertions": [
+        {
+          "assertion_id": "C1-A01",
+          "layer": "Reconstruction",
+          "description": "Multi-column physical layout is separated from logical reading order.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C1-A02",
+          "layer": "Reconstruction",
+          "description": "Paragraph continuity may cross columns/pages and remain one logical unit.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C1-A03",
+          "layer": "CBM",
+          "description": "Footnote marker and footnote body are separate units connected by explicit relation.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C1-A04",
+          "layer": "Provenance",
+          "description": "Layout-caused dehyphenation/reconstruction preserves source evidence and derivation.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C1-A05",
+          "layer": "CBM",
+          "description": "External scripture/bibliographic references remain external targets rather than copied canonical content.",
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "case_id": "C2",
+      "source": "Eternally Regressing Knight",
+      "scope": "PT-BR chapter slices C2-A/C2-B",
+      "assertions": [
+        {
+          "assertion_id": "C2-A01",
+          "layer": "CBM",
+          "description": "Narrative utterance does not require theatrical SpeakerCue; speaker may be relation/inference or remain unknown.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C2-A02",
+          "layer": "CBM",
+          "description": "Semantic function spanning a whole block can be a DocumentNode role; inline occurrence can be Annotation/span without structural inflation.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C2-A03",
+          "layer": "CBM",
+          "description": "Narrative order remains document order; flashback/story chronology is not substituted for source order.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C2-A04",
+          "layer": "CBM",
+          "description": "Scene break, embedded song/verse and internal thought are representable without new universal primitives.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C2-A05",
+          "layer": "Provenance",
+          "description": "EN and PT-BR manifestations remain distinct sources; translation alignment is not silently merged.",
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "case_id": "C3",
+      "source": "Calculus 8e",
+      "scope": "PDF pp.83,87,139,145",
+      "assertions": [
+        {
+          "assertion_id": "C3-A01",
+          "layer": "Evidence",
+          "description": "Mathematical visual/glyph/layout evidence is retained even when PDF text layer is plausible but semantically corrupt.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C3-A02",
+          "layer": "CBM",
+          "description": "FormulaPayload distinguishes source representation from reconstructed representation with provenance.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C3-A03",
+          "layer": "CBM",
+          "description": "Inline formula nodes and text fragments can participate in one shared logical order.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C3-A04",
+          "layer": "CBM",
+          "description": "Figure panels are individually addressable/anchorable.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "C3-A05",
+          "layer": "CBM",
+          "description": "Pedagogical structures such as Definition/Example/Solution/Exercise use roles/relations without new universal core primitives.",
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "case_id": "F-RND",
+      "source": "Fedra",
+      "scope": "PDF p.33",
+      "assertions": [
+        {
+          "assertion_id": "FR-A01",
+          "layer": "Reconstruction",
+          "description": "A page may begin mid-speech with open structural state and no fabricated local speaker.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "FR-A02",
+          "layer": "CBM",
+          "description": "SpeakerCue and Speech remain sibling structures connected semantically.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "FR-A03",
+          "layer": "CBM",
+          "description": "Scene VI and participant declaration are represented explicitly without inferred stage events.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "FR-A04",
+          "layer": "CBM",
+          "description": "VerseLine ordering/identity survives the page boundary.",
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "case_id": "W-RND",
+      "source": "Weidman",
+      "scope": "PDF p.558",
+      "assertions": [
+        {
+          "assertion_id": "WR-A01",
+          "layer": "Reconstruction",
+          "description": "Running header/folio do not duplicate logical chapter and paragraph continuation is preserved.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "WR-A02",
+          "layer": "CBM",
+          "description": "Listing may contain terminal interaction plus editorial omission marker without flattening.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "WR-A03",
+          "layer": "Evidence",
+          "description": "Typography can support input-vs-echo reconstruction without becoming a universal semantic rule.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "WR-A04",
+          "layer": "CBM",
+          "description": "Roles technical.terminal_input and editorial.omission_marker are accepted extensions under CBM v0.1.",
+          "blocking": true
+        },
+        {
+          "assertion_id": "WR-A05",
+          "layer": "CBM",
+          "description": "Editorial note and external URL remain source editorial/reference content, distinct from generated assistance.",
+          "blocking": true
+        }
+      ]
+    }
+  ]
+}
