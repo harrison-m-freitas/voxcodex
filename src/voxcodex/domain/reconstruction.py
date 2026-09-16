@@ -43,10 +43,19 @@ class ReconstructionUnit(FrozenModel):
     provenance_ref: str
 
 
+class StructuralContinuation(FrozenModel):
+    id: str
+    structural_kind: str
+    surface: str
+    evidence_refs: tuple[ArtifactRef, ...]
+    fragment_refs: tuple[str, ...]
+
+
 class OpenStructuralState(FrozenModel):
     open_units: tuple[str, ...] = ()
     pending_continuations: tuple[str, ...] = ()
     unresolved_boundaries: tuple[str, ...] = ()
+    continuations: tuple[StructuralContinuation, ...] = ()
 
 
 class ReconstructionIssue(FrozenModel):
