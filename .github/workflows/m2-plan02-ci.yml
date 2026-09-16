@@ -29,4 +29,4 @@ jobs:
           uv run voxcodex corpus status --registry corpus/COMPATIBILITY-CORPUS-V1.json
       - name: Run Plan 02 source evidence gate
         run: |
-          uv run pytest tests/unit/domain/test_evidence_contracts.py tests/unit/adapters tests/integration/adapters -v
+          uv run pytest tests/unit/domain/test_evidence_contracts.py tests/unit/adapters tests/integration/adapters tests/integration/cli -v
