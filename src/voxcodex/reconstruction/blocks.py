@@ -21,6 +21,21 @@ class VisualRegionCandidate(FrozenModel):
     bbox: NormalizedGeometry
 
 
+class BlockTextDerivation(FrozenModel):
+    kind: str
+    evidence_refs: tuple[str, ...]
+    source_surfaces: tuple[str, ...]
+    reconstructed_surface: str
+
+
+class ReconstructedTextBlock(FrozenModel):
+    id: str
+    evidence_refs: tuple[str, ...]
+    source_surfaces: tuple[str, ...]
+    reconstructed_text: str
+    derivations: tuple[BlockTextDerivation, ...] = ()
+
+
 def group_visual_lines(
     units: Sequence[EvidenceUnit],
     profile: ReconstructionProfile,
@@ -120,6 +135,64 @@ def group_visual_regions(
         )
 
     return tuple(sorted(regions, key=lambda region: (region.bbox.x0, region.bbox.y0, region.id)))
+
+
+def reconstruct_text_block(
+    units: Sequence[EvidenceUnit],
+    profile: ReconstructionProfile,
+) -> ReconstructedTextBlock:
+    textual = [unit for unit in units if unit.surface is not None]
+    evidence_refs = tuple(unit.id for unit in textual)
+    source_surfaces = tuple(unit.surface or "" for unit in textual)
+    derivations: list[BlockTextDerivation] = []
+
+    if not source_surfaces:
+        reconstructed_text = ""
+    else:
+        parts = [source_surfaces[0]]
+        for index, surface in enumerate(source_surfaces[1:], start=1):
+            previous = parts[-1]
+            if (
+                profile.layout_dehyphenation
+                and previous.endswith("-")
+                and _starts_with_lexical_letter(surface)
+            ):
+                combined = previous[:-1] + surface
+                parts[-1] = combined
+                derivations.append(
+                    BlockTextDerivation(
+                        kind="layout_dehyphenation",
+                        evidence_refs=(evidence_refs[index - 1], evidence_refs[index]),
+                        source_surfaces=(source_surfaces[index - 1], surface),
+                        reconstructed_surface=combined,
+                    )
+                )
+            else:
+                parts.append(surface)
+        reconstructed_text = " ".join(parts)
+
+    digest = sha256_bytes(
+        canonical_json_bytes(
+            {
+                "evidence_refs": evidence_refs,
+                "source_surfaces": source_surfaces,
+                "reconstructed_text": reconstructed_text,
+                "derivations": [item.model_dump(mode="json") for item in derivations],
+            }
+        )
+    )
+    return ReconstructedTextBlock(
+        id=f"reconstructed-block:{digest}",
+        evidence_refs=evidence_refs,
+        source_surfaces=source_surfaces,
+        reconstructed_text=reconstructed_text,
+        derivations=tuple(derivations),
+    )
+
+
+def _starts_with_lexical_letter(surface: str) -> bool:
+    stripped = surface.lstrip()
+    return bool(stripped) and stripped[0].isalpha()
 
 
 def _candidate_id(kind: str, refs: tuple[str, ...]) -> str:
