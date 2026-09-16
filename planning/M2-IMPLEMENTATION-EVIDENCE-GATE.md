@@ -4,16 +4,25 @@
 **Milestone:** M2.2 — Source Artifact & Evidence Model  
 **Implementation plan:** `docs/superpowers/plans/2026-09-14-m2-02-source-evidence.md`  
 **Candidate branch:** `m2-plan02-source-evidence`  
-**Candidate commit verified in CI:** `d9a4dad70910524c9d77b98b24403718f3400b5e`  
-**GitHub Actions run:** `35121795618`  
-**Job:** `104881130283`  
-**Overall gate status:** `BLOCKED_LOCAL_CORPUS`
+**Last fully verified implementation commit before promotion record:** `47d2cef6763773b24aac5f1b47815b2a903de0a0`  
+**GitHub Actions run:** `35121925701`  
+**Job:** `104881560566`  
+**Overall implementation status:** `PROMOTED_WITH_LOCAL_CORPUS_WAIVER`  
+**Evidence conformance status:** `BLOCKED_LOCAL_CORPUS`
 
-## Gate interpretation
+## Promotion decision
 
-The implementation-level Source Evidence pipeline is green in the reproducible CI environment. The final known-slice physical-evidence conformance cannot be promoted to PASS in GitHub Actions because the fixed source PDFs are intentionally not published or versioned.
+Plan 02 is administratively promoted to unblock Plan 03 by explicit project-owner instruction on 2026-09-16.
 
-This is an environmental/data-availability boundary, not a relaxed assertion. The four known-slice regressions are implemented and collected, but they are skipped when the local source corpus is absent. Promotion of Plan 02 remains blocked until those four regressions execute against the fixed local editions with zero skips and their snapshot digests are recorded here.
+This promotion is a **waiver of the local-corpus completion prerequisite**, not a conversion of missing evidence into a PASS. The physical known-slice conformance remains open until F1/W1/C1/C3 execute locally against the fixed editions with zero skips and their digests are recorded here.
+
+The distinction is normative for implementation tracking:
+
+- implementation may proceed to M2.3 Reconstruction;
+- Source Evidence CI behavior is verified;
+- holdout quarantine remains mandatory;
+- the M2.2 known-slice evidence-accountability gate is still incomplete;
+- downstream final candidate/freeze may not treat this waiver as evidence that the four physical regressions passed.
 
 ## Reproducible environment
 
@@ -38,7 +47,7 @@ uv run pytest tests/unit tests/integration/storage tests/integration/corpus -v
 uv run voxcodex corpus status --registry corpus/COMPATIBILITY-CORPUS-V1.json
 ```
 
-Result:
+Result from run `35121925701`:
 
 ```text
 29 passed
@@ -108,7 +117,7 @@ Result:
 4 passed
 ```
 
-The integration guard still raises before source-path I/O for unrevealed M2 holdouts.
+The integration guard raises before source-path I/O for unrevealed M2 holdouts.
 
 ## Known-slice local completion command
 
@@ -119,7 +128,7 @@ VOXCODEX_KNOWN_CORPUS_DIR="$PWD/data" \
 uv run pytest tests/regression/test_evidence_known_slices.py -v -s
 ```
 
-Required result before promotion:
+Required result for **full evidence conformance**:
 
 ```text
 4 passed
@@ -161,7 +170,7 @@ No holdout SourceArtifact was opened, unpacked, parsed, extracted or used for im
 
 ## Gate decision
 
-Current decision: **DO NOT PROMOTE PLAN 02 YET.**
+Current decision: **PLAN 02 PROMOTED FOR IMPLEMENTATION CONTINUITY UNDER EXPLICIT WAIVER; EVIDENCE CONFORMANCE REMAINS OPEN.**
 
 Completed and verified:
 
@@ -175,10 +184,10 @@ Completed and verified:
 - quarantine-before-I/O behavior;
 - known-slice regression harness.
 
-Remaining blocking evidence:
+Deferred evidence debt carried into later gates:
 
 1. execute F1/W1/C1/C3 against the fixed local source corpus;
 2. obtain `4 passed, 0 skipped`;
 3. record snapshot and partition digests above;
-4. rerun the quarantine regression after recording the digests;
-5. only then change this gate from `BLOCKED_LOCAL_CORPUS` to `PASS` and promote Plan 02.
+4. rerun quarantine after recording the digests;
+5. do not treat the administrative promotion as a substitute for these results during final candidate/freeze review.
