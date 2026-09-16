@@ -41,5 +41,9 @@ jobs:
       - name: Run M2 Reconstruction tests when present
         run: |
           if [ -d tests/unit/reconstruction ] || [ -f tests/unit/domain/test_reconstruction_contracts.py ]; then
-            uv run pytest tests/unit/domain/test_reconstruction_contracts.py tests/unit/reconstruction -v
+            uv run pytest \
+              tests/unit/domain/test_reconstruction_contracts.py \
+              tests/unit/reconstruction \
+              tests/regression/test_cross_page_reconstruction.py \
+              -v
           fi
