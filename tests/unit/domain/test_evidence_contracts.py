@@ -1,6 +1,7 @@
 from datetime import UTC, datetime
 
 import pytest
+from hypothesis import given, strategies as st
 from pydantic import ValidationError
 
 from voxcodex.domain.common import ArtifactRef
@@ -99,3 +100,22 @@ def test_snapshot_references_immutable_partition_artifacts():
     assert snapshot.partition_refs == (partition_ref,)
     with pytest.raises(ValidationError):
         snapshot.id = "snapshot:mutated"
+
+
+INVALID_NORMALIZED_COORDINATES = st.one_of(
+    st.just(float("nan")),
+    st.just(float("inf")),
+    st.just(float("-inf")),
+    st.floats(max_value=-1e-9, allow_nan=False, allow_infinity=False),
+    st.floats(min_value=1.000000001, max_value=1e6, allow_nan=False, allow_infinity=False),
+)
+
+
+@pytest.mark.parametrize("coordinate", ("x0", "y0", "x1", "y1"))
+@given(INVALID_NORMALIZED_COORDINATES)
+def test_normalized_geometry_rejects_nonfinite_and_out_of_range_values(coordinate, value):
+    payload = {"x0": 0.0, "y0": 0.0, "x1": 1.0, "y1": 1.0}
+    payload[coordinate] = value
+
+    with pytest.raises(ValidationError):
+        NormalizedGeometry(**payload)
