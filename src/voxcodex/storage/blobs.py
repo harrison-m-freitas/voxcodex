@@ -58,5 +58,12 @@ class LocalBlobStore:
             raise BlobIntegrityError(f"blob integrity check failed for {ref.sha256}")
         return data
 
+    def read_digest(self, digest: str) -> bytes:
+        path = self.path_for(BlobRef(sha256=digest, byte_size=0))
+        data = path.read_bytes()
+        if sha256_bytes(data) != digest:
+            raise BlobIntegrityError(f"blob integrity check failed for {digest}")
+        return data
+
     def import_file(self, path: Path) -> BlobRef:
         return self.put_bytes(Path(path).read_bytes())
