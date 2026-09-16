@@ -44,6 +44,7 @@ jobs:
             uv run pytest \
               tests/unit/domain/test_reconstruction_contracts.py \
               tests/unit/reconstruction \
+              tests/integration/reconstruction \
               tests/regression/test_cross_page_reconstruction.py \
               tests/regression/test_structured_reconstruction.py \
               -v
