@@ -25,6 +25,10 @@ class ReconstructionProfile(FrozenModel):
     max_inline_gap: float = Field(default=0.08, gt=0.0, le=1.0)
     region_x_tolerance: float = Field(default=0.08, ge=0.0, le=1.0)
     layout_dehyphenation: bool = False
+    classification_resolve_threshold: float = Field(default=0.80, ge=0.0, le=1.0)
+    heading_min_relative_font_size: float = Field(default=1.20, gt=0.0)
+    running_header_min_recurrence: int = Field(default=3, ge=2)
+    speaker_cue_max_chars: int = Field(default=32, ge=1)
 
 
 class ReconstructionUnit(FrozenModel):
