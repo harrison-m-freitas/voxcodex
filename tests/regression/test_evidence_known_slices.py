@@ -92,6 +92,14 @@ def _all_units(loaded):
     return [unit for _partition, units in loaded for unit in units]
 
 
+def _emit_digest(case_id: str, snapshot) -> None:
+    partition_digests = ",".join(ref.digest for ref in snapshot.partition_refs)
+    print(
+        f"KNOWN_SLICE {case_id} snapshot_digest={snapshot.snapshot_digest} "
+        f"partition_digests={partition_digests}"
+    )
+
+
 def test_f1_fedra_page_6_retains_surface_lineation_and_geometry(tmp_path: Path):
     path = _require_exact_source("Fedra - Jean Racine - 2013.pdf")
     snapshot, loaded = _extract_pages(
@@ -112,11 +120,12 @@ def test_f1_fedra_page_6_retains_surface_lineation_and_geometry(tmp_path: Path):
     assert "HIPÓLITO" in surface
     assert all(unit.native_geometry is not None for unit in spans if unit.surface)
     assert all(unit.normalized_geometry is not None for unit in spans if unit.surface)
+    _emit_digest("F1", snapshot)
 
 
 def test_w1_weidman_page_112_retains_typography_layout_and_literal_surface(tmp_path: Path):
     path = _require_glob_source("Testes de Invas*.pdf")
-    _snapshot, loaded = _extract_pages(
+    snapshot, loaded = _extract_pages(
         path,
         tmp_path,
         [111],
@@ -132,6 +141,7 @@ def test_w1_weidman_page_112_retains_typography_layout_and_literal_surface(tmp_p
     assert len(fonts) >= 2
     assert len(sizes) >= 2
     assert all(unit.normalized_geometry is not None for unit in spans)
+    _emit_digest("W1", snapshot)
 
 
 def test_c1_multicolumn_slices_retain_physical_geometry(tmp_path: Path):
@@ -149,6 +159,7 @@ def test_c1_multicolumn_slices_retain_physical_geometry(tmp_path: Path):
     assert min(x0_values) < 0.4
     assert max(x0_values) > 0.5
     assert all(unit.native_geometry is not None for unit in spans)
+    _emit_digest("C1", snapshot)
 
 
 def test_c3_math_slices_retain_glyph_layout_and_visual_assets(tmp_path: Path):
@@ -171,3 +182,4 @@ def test_c3_math_slices_retain_glyph_layout_and_visual_assets(tmp_path: Path):
     assert any(unit.native_geometry is not None for unit in glyphs)
     assert any(unit.normalized_geometry is not None for unit in glyphs)
     assert any(unit.normalized_geometry is not None for unit in assets)
+    _emit_digest("C3", snapshot)
