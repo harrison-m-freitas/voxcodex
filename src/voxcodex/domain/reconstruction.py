@@ -29,6 +29,7 @@ class ReconstructionProfile(FrozenModel):
     heading_min_relative_font_size: float = Field(default=1.20, gt=0.0)
     running_header_min_recurrence: int = Field(default=3, ge=2)
     speaker_cue_max_chars: int = Field(default=32, ge=1)
+    table_axis_tolerance: float = Field(default=0.04, gt=0.0, le=0.25)
 
 
 class ReconstructionUnit(FrozenModel):
