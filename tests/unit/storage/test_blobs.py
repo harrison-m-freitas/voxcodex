@@ -36,3 +36,14 @@ def test_read_detects_corruption(tmp_path: Path):
 
     with pytest.raises(BlobIntegrityError):
         store.read_bytes(ref)
+
+
+def test_read_digest_rehydrates_content_addressed_blob(tmp_path: Path):
+    store = LocalBlobStore(tmp_path / "blobs")
+    ref = store.put_bytes(b"partition payload")
+
+    assert store.read_digest(ref.sha256) == b"partition payload"
+
+    store.path_for(ref).write_bytes(b"tampered payload")
+    with pytest.raises(BlobIntegrityError):
+        store.read_digest(ref.sha256)
