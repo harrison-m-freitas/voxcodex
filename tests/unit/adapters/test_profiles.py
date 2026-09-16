@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import base64
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -11,9 +10,7 @@ from voxcodex.domain.source import SourceArtifact
 import pymupdf
 
 
-_ONE_PIXEL_PNG = base64.b64decode(
-    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Y9Zl1sAAAAASUVORK5CYII="
-)
+_ONE_PIXEL_PPM = b"P6\n1 1\n255\n\xff\x00\x00"
 
 
 def make_source(path: Path, media_type: str) -> SourceArtifact:
@@ -36,7 +33,7 @@ def test_pdf_profile_reports_text_and_image_only_pages(tmp_path: Path):
     text_page = document.new_page()
     text_page.insert_text((72, 72), "Texto pesquisavel", fontsize=12)
     image_page = document.new_page()
-    image_page.insert_image(pymupdf.Rect(72, 72, 144, 144), stream=_ONE_PIXEL_PNG)
+    image_page.insert_image(pymupdf.Rect(72, 72, 144, 144), stream=_ONE_PIXEL_PPM)
     document.save(path)
     document.close()
 
