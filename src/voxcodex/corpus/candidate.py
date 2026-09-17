@@ -266,6 +266,73 @@ def build_repository_candidate(
     )
 
 
+def load_frozen_candidate(
+    path: Path,
+) -> tuple[ImplementationCandidateManifest, str]:
+    if not path.is_file():
+        raise CandidateReadinessError(f"frozen candidate manifest is missing: {path}")
+
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise CandidateReadinessError(f"frozen candidate manifest is unreadable: {path}") from exc
+    if not isinstance(data, dict):
+        raise CandidateReadinessError("frozen candidate manifest must be a JSON object")
+
+    frozen_digest = data.pop("candidate_digest", None)
+    if not isinstance(frozen_digest, str) or not frozen_digest:
+        raise CandidateReadinessError(
+            "frozen candidate manifest is missing candidate_digest"
+        )
+
+    try:
+        manifest = ImplementationCandidateManifest.model_validate(data)
+    except ValueError as exc:
+        raise CandidateReadinessError(
+            "frozen candidate manifest does not satisfy the candidate contract"
+        ) from exc
+
+    _assert_ready(manifest)
+    recomputed = candidate_digest(manifest)
+    if recomputed != frozen_digest:
+        raise CandidateReadinessError(
+            "candidate digest mismatch: frozen candidate content has changed"
+        )
+    return manifest, frozen_digest
+
+
+def verify_repository_candidate(
+    *,
+    repo_root: Path,
+    candidate_path: Path,
+    regression_report_path: Path,
+) -> ArtifactRef:
+    frozen, frozen_digest = load_frozen_candidate(candidate_path)
+    current = build_repository_candidate(
+        repo_root=repo_root,
+        git_commit_sha=frozen.git_commit_sha,
+        regression_report_path=regression_report_path,
+    )
+    _assert_ready(current)
+
+    if current.model_dump(mode="json", exclude_none=True) != frozen.model_dump(
+        mode="json", exclude_none=True
+    ):
+        raise CandidateReadinessError(
+            "repository no longer matches frozen candidate"
+        )
+    if candidate_digest(current) != frozen_digest:
+        raise CandidateReadinessError(
+            "repository no longer matches frozen candidate digest"
+        )
+
+    return ArtifactRef(
+        id=frozen.candidate_id,
+        digest=frozen_digest,
+        kind="implementation_candidate_manifest",
+    )
+
+
 def freeze_candidate(
     manifest: ImplementationCandidateManifest,
     *,
