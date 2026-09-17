@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from voxcodex.corpus import candidate as candidate_module
 from voxcodex.corpus.candidate import (
     CandidateReadinessError,
     ImplementationCandidateManifest,
@@ -107,3 +108,15 @@ def test_freeze_writes_deterministic_manifest_and_returns_artifact_ref(tmp_path:
     assert written["candidate_id"] == manifest.candidate_id
     assert written["holdouts_withheld"] == ["CC-05", "CC-07", "CC-14", "CC-18"]
     assert written["candidate_digest"] == artifact.digest
+
+
+
+def test_load_frozen_candidate_rejects_tampered_manifest(tmp_path: Path) -> None:
+    output = tmp_path / "candidate.json"
+    freeze_candidate(_manifest(), output_path=output)
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    payload["git_commit_sha"] = "9" * 40
+    output.write_text(json.dumps(payload, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+
+    with pytest.raises(CandidateReadinessError, match="digest"):
+        candidate_module.load_frozen_candidate(output)
