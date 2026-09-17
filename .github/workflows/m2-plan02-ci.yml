@@ -1,12 +1,14 @@
-name: M2 Plan 02 CI
+name: M2 Implementation CI
 
 on:
   push:
     branches:
       - m2-plan02-source-evidence
+      - m2-plan03-reconstruction
   pull_request:
     branches:
       - main
+      - m2-plan02-source-evidence
 
 jobs:
   test:
@@ -34,5 +36,20 @@ jobs:
         run: |
           uv run pytest tests/integration/cli -v
       - name: Run M2 quarantine regression
+        run: |
+          uv run pytest tests/unit/corpus/test_quarantine.py tests/integration/corpus -v
+      - name: Run M2 Reconstruction implementation tests
+        run: |
+          uv run pytest \
+            tests/unit/domain/test_reconstruction_contracts.py \
+            tests/unit/reconstruction \
+            tests/integration/reconstruction \
+            tests/regression/test_cross_page_reconstruction.py \
+            tests/regression/test_structured_reconstruction.py \
+            -v
+      - name: Run M2 Reconstruction plan gate
+        run: |
+          uv run pytest tests/unit/reconstruction tests/integration/reconstruction tests/regression -v
+      - name: Re-run quarantine after Reconstruction gate
         run: |
           uv run pytest tests/unit/corpus/test_quarantine.py tests/integration/corpus -v
