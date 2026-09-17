@@ -59,8 +59,12 @@ jobs:
           if [ -d tests/unit/cbm ]; then
             uv run pytest tests/unit/cbm -v
           fi
-      - name: Run M2 Materialization tests when present
+      - name: Run M2 Materialization and validation tests when present
         run: |
-          if [ -d tests/unit/materialization ]; then
-            uv run pytest tests/unit/materialization -v
+          paths=()
+          [ -d tests/unit/materialization ] && paths+=(tests/unit/materialization)
+          [ -d tests/unit/validation ] && paths+=(tests/unit/validation)
+          [ -d tests/integration/materialization ] && paths+=(tests/integration/materialization)
+          if [ ${#paths[@]} -gt 0 ]; then
+            uv run pytest "${paths[@]}" -v
           fi
