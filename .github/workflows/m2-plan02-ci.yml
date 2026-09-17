@@ -99,9 +99,14 @@ jobs:
           if [ ${#paths[@]} -gt 0 ]; then
             uv run pytest "${paths[@]}" -v
           fi
-      - name: Generate M2 implementation candidate when prefreeze report exists
+      - name: Verify frozen M2 implementation candidate when present
         run: |
-          if [ -f planning/M2-PREFREEZE-REGRESSION-REPORT.json ]; then
+          if [ -f M2-IMPLEMENTATION-CANDIDATE-V1.json ]; then
+            uv run voxcodex candidate verify \
+              --repo-root . \
+              --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT.json \
+              --candidate M2-IMPLEMENTATION-CANDIDATE-V1.json
+          elif [ -f planning/M2-PREFREEZE-REGRESSION-REPORT.json ]; then
             uv run voxcodex candidate freeze \
               --repo-root . \
               --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT.json \
