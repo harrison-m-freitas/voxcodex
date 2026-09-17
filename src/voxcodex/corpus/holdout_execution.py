@@ -4,6 +4,10 @@ import json
 from pathlib import Path
 from typing import Any
 
+from voxcodex.corpus.evolution import SchemaEvolutionObservation
+from voxcodex.corpus.runner import ResultClass
+from voxcodex.validation.policies import EvidenceAccountability
+
 from voxcodex.corpus.candidate import (
     load_frozen_candidate,
     verify_repository_candidate,
@@ -39,6 +43,50 @@ class HoldoutRevealRecord(FrozenModel):
     actor: str
     context: str
     reveal_version: str
+
+
+class HoldoutCaseReport(FrozenModel):
+    holdout_id: str
+    corpus_case_id: str
+    selected_scope: dict[str, object]
+    source_digest_verified: bool
+    evidence_snapshot_ref: str | None = None
+    evidence_snapshot_digest: str | None = None
+    reconstruction_snapshot_ref: str | None = None
+    reconstruction_snapshot_digest: str | None = None
+    canonical_revision_ref: str | None = None
+    frozen_revision_digest: str | None = None
+    validation_report_ref: str | None = None
+    validation_result: str | None = None
+    evidence_accountability: tuple[EvidenceAccountability, ...] = ()
+    result_class: ResultClass
+    diagnostic: str
+    evolution_observation: SchemaEvolutionObservation | None = None
+
+
+class HoldoutRunReport(FrozenModel):
+    candidate_id: str
+    candidate_digest: str
+    holdout_freeze_digest: str
+    reveal_version: str
+    cases: tuple[HoldoutCaseReport, ...]
+
+
+def frozen_holdout_case_ids(selection_manifest_path: Path) -> tuple[str, ...]:
+    manifest = _load_object(selection_manifest_path, label="selection manifest")
+    entries = manifest.get("holdouts", ())
+    if not isinstance(entries, list):
+        raise HoldoutPreflightError("selection manifest holdouts must be a list")
+    case_ids = tuple(
+        str(entry.get("corpus_case_id", ""))
+        for entry in entries
+        if isinstance(entry, dict)
+    )
+    if not case_ids or any(not case_id for case_id in case_ids):
+        raise HoldoutPreflightError("selection manifest has invalid holdout case ids")
+    if len(set(case_ids)) != len(case_ids):
+        raise HoldoutPreflightError("selection manifest has duplicate holdout case ids")
+    return case_ids
 
 
 def _load_object(path: Path, *, label: str) -> dict[str, Any]:
