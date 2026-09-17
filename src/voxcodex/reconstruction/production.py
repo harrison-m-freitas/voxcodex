@@ -15,7 +15,7 @@ from voxcodex.domain.reconstruction import (
     ReconstructionUnit,
     StageResult,
 )
-from voxcodex.materialization.mappings import RoleProfileRegistry
+from voxcodex.materialization.mappings import RoleMappingRegistry
 from voxcodex.reconstruction.blocks import group_visual_lines, group_visual_regions
 from voxcodex.reconstruction.classifiers import BlockFeatures, classify_block
 from voxcodex.reconstruction.structured import (
@@ -167,7 +167,7 @@ def _markdown_pending(
     if not isinstance(raw_roles, dict):
         raise ValueError("m2 pipeline markdown_roles config is missing")
     roles = {str(key): str(value) for key, value in raw_roles.items()}
-    registry = RoleProfileRegistry.v01_defaults()
+    registry = RoleMappingRegistry.v01_defaults()
 
     pending: list[_PendingUnit] = []
     for unit in evidence_units:
@@ -197,7 +197,7 @@ def _pdf_pending(
     profile: ReconstructionProfile,
 ) -> tuple[_PendingUnit, ...]:
     pending: list[_PendingUnit] = []
-    registry = RoleProfileRegistry.v01_defaults()
+    registry = RoleMappingRegistry.v01_defaults()
 
     pages = sorted({_page_index(unit) for unit in evidence_units})
     for page_index in pages:
