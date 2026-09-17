@@ -24,7 +24,7 @@ jobs:
         run: uv run python -m voxcodex.domain.cbm.schema_snapshots schemas/cbm/0.1
       - name: Commit generated schemas
         run: |
-          if git diff --quiet -- schemas/cbm/0.1 && [ -d schemas/cbm/0.1 ]; then
+          if [ -z "$(git status --porcelain -- schemas/cbm/0.1)" ]; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
