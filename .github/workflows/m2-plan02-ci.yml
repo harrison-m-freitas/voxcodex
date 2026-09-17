@@ -95,7 +95,12 @@ jobs:
           [ -f tests/unit/corpus/test_runner.py ] && paths+=(tests/unit/corpus/test_runner.py)
           [ -d tests/corpus ] && paths+=(tests/corpus)
           [ -f tests/unit/corpus/test_candidate.py ] && paths+=(tests/unit/corpus/test_candidate.py)
+          [ -f tests/unit/corpus/test_candidate_v2.py ] && paths+=(tests/unit/corpus/test_candidate_v2.py)
           [ -f tests/unit/corpus/test_holdout_reveal.py ] && paths+=(tests/unit/corpus/test_holdout_reveal.py)
+          [ -f tests/unit/corpus/test_holdout_execution.py ] && paths+=(tests/unit/corpus/test_holdout_execution.py)
+          [ -f tests/unit/reconstruction/test_production.py ] && paths+=(tests/unit/reconstruction/test_production.py)
+          [ -f tests/integration/corpus/test_m2_pipeline_processor.py ] && paths+=(tests/integration/corpus/test_m2_pipeline_processor.py)
+          [ -f tests/integration/cli/test_holdout_run_cli.py ] && paths+=(tests/integration/cli/test_holdout_run_cli.py)
           if [ ${#paths[@]} -gt 0 ]; then
             uv run pytest "${paths[@]}" -v
           fi
