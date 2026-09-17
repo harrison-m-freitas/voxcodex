@@ -287,6 +287,10 @@ def candidate_freeze(
         resolve_path=True,
     ),
     git_commit_sha: str = typer.Option(..., "--git-commit-sha"),
+    candidate_id: str = typer.Option(
+        "m2-implementation-candidate-v1",
+        "--candidate-id",
+    ),
     output: Path = typer.Option(..., "--output"),
 ) -> None:
     try:
@@ -294,6 +298,7 @@ def candidate_freeze(
             repo_root=repo_root,
             git_commit_sha=git_commit_sha,
             regression_report_path=regression_report,
+            candidate_id=candidate_id,
         )
         artifact = freeze_candidate(manifest, output_path=output)
     except (CandidateReadinessError, FileNotFoundError, ValueError) as exc:
