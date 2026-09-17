@@ -14,6 +14,11 @@ from voxcodex.application.evidence import (
 from voxcodex.application.trace import TraceApplication, UnknownTraceArtifactError
 from voxcodex.corpus.holdouts import QuarantinedCaseError
 from voxcodex.corpus.registry import CorpusRegistry
+from voxcodex.digests import canonical_json_bytes, sha256_bytes
+from voxcodex.domain.processing import ProcessorIdentity
+from voxcodex.execution.planner import ExecutionConfig, PipelineStage, plan_to_cbm
+from voxcodex.execution.runner import execute_plan
+from voxcodex.materialization.builder import CanonicalTargetContext
 
 app = typer.Typer(name="voxcodex", no_args_is_help=True)
 corpus_app = typer.Typer(name="corpus", no_args_is_help=True)
@@ -28,6 +33,89 @@ def _home() -> Path:
 
 def _application() -> EvidenceApplication:
     return EvidenceApplication(_home())
+
+
+def _execution_config() -> ExecutionConfig:
+    def stage(
+        name: str,
+        *,
+        processor_name: str,
+        schema_versions: tuple[str, ...],
+        uses_target_context: bool = False,
+    ) -> PipelineStage:
+        semantic_config_digest = sha256_bytes(
+            canonical_json_bytes(
+                {
+                    "stage": name,
+                    "profile": "m2-default:0.1",
+                    "schema_versions": schema_versions,
+                }
+            )
+        )
+        return PipelineStage(
+            name=name,
+            activity_type=name,
+            processor=ProcessorIdentity(
+                kind="python",
+                name=processor_name,
+                version="0.1.0",
+            ),
+            semantic_config_digest=semantic_config_digest,
+            profile_versions=("m2-default:0.1",),
+            schema_versions=schema_versions,
+            uses_target_context=uses_target_context,
+            estimated_usage={"work_units": 1},
+        )
+
+    return ExecutionConfig(
+        stages=(
+            stage(
+                "evidence",
+                processor_name="source_evidence",
+                schema_versions=("evidence:0.1",),
+            ),
+            stage(
+                "reconstruction",
+                processor_name="reconstruction",
+                schema_versions=("evidence:0.1", "reconstruction:0.1"),
+            ),
+            stage(
+                "materialization",
+                processor_name="cbm_materialization",
+                schema_versions=("reconstruction:0.1", "cbm:0.1"),
+                uses_target_context=True,
+            ),
+        )
+    )
+
+
+def _build_execution_plan(
+    source_id: str,
+    *,
+    target: str,
+    work_ref: str,
+    edition_ref: str,
+    assertion_provenance_ref: str,
+):
+    if target != "cbm":
+        raise typer.BadParameter("--target currently supports only cbm")
+    application = _application()
+    source_ref = application.metadata.get_artifact(source_id)
+    if source_ref is None or source_ref.kind != "source_artifact":
+        raise typer.BadParameter(f"unknown source artifact: {source_id}")
+    target_context = CanonicalTargetContext(
+        work_ref=work_ref,
+        edition_ref=edition_ref,
+        source_artifact_refs=(source_id,),
+        assertion_provenance_ref=assertion_provenance_ref,
+    )
+    plan = plan_to_cbm(
+        source_ref,
+        target_context,
+        _execution_config(),
+        metadata_store=application.metadata,
+    )
+    return application, plan
 
 
 @app.command("ingest")
@@ -51,6 +139,55 @@ def trace(object_id: str = typer.Argument(...)) -> None:
         raise typer.BadParameter(f"unknown artifact: {object_id}") from exc
     for record in records:
         typer.echo(json.dumps(record, sort_keys=True, separators=(",", ":")))
+
+
+@app.command("plan")
+def plan_command(
+    source_id: str = typer.Argument(...),
+    target: str = typer.Option("cbm", "--target"),
+    work_ref: str = typer.Option(..., "--work-ref"),
+    edition_ref: str = typer.Option(..., "--edition-ref"),
+    assertion_provenance_ref: str = typer.Option(..., "--assertion-provenance-ref"),
+) -> None:
+    _, plan = _build_execution_plan(
+        source_id,
+        target=target,
+        work_ref=work_ref,
+        edition_ref=edition_ref,
+        assertion_provenance_ref=assertion_provenance_ref,
+    )
+    typer.echo(f"target={plan.target}")
+    typer.echo(f"reuse={plan.reuse_count}")
+    typer.echo(f"process={plan.process_count}")
+    typer.echo(
+        "estimated_usage="
+        + json.dumps(plan.estimated_usage, sort_keys=True, separators=(",", ":"))
+    )
+
+
+@app.command("run")
+def run_command(
+    source_id: str = typer.Argument(...),
+    target: str = typer.Option("cbm", "--target"),
+    work_ref: str = typer.Option(..., "--work-ref"),
+    edition_ref: str = typer.Option(..., "--edition-ref"),
+    assertion_provenance_ref: str = typer.Option(..., "--assertion-provenance-ref"),
+) -> None:
+    application, plan = _build_execution_plan(
+        source_id,
+        target=target,
+        work_ref=work_ref,
+        edition_ref=edition_ref,
+        assertion_provenance_ref=assertion_provenance_ref,
+    )
+    try:
+        result = execute_plan(plan, metadata_store=application.metadata)
+    except RuntimeError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"reused={result.reused_activity_count}")
+    typer.echo(f"executed={result.executed_activity_count}")
+    for ref in result.final_output_refs:
+        typer.echo(f"output_ref={ref.id}")
 
 
 @corpus_app.command("status")

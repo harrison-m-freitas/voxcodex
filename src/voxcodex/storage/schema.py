@@ -17,7 +17,9 @@ processing_activities = Table(
     Column("id", String, primary_key=True),
     Column("type", String, nullable=False),
     Column("status", String, nullable=False),
+    Column("activity_fingerprint", String(64), nullable=True),
     Column("payload_json", Text, nullable=False),
+    Index("ix_processing_activities_fingerprint", "activity_fingerprint"),
 )
 
 derivations = Table(

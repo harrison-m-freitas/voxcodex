@@ -6,6 +6,7 @@ on:
       - m2-plan02-source-evidence
       - m2-plan03-reconstruction
       - m2-plan04-cbm-materialization
+      - m2-plan05-reprocessing-provenance
   pull_request:
     branches:
       - main
@@ -77,3 +78,11 @@ jobs:
       - name: Re-run quarantine after Canonical gate
         run: |
           uv run pytest tests/unit/corpus/test_quarantine.py tests/integration/corpus -v
+      - name: Run M2 Execution tests when present
+        run: |
+          paths=()
+          [ -d tests/unit/execution ] && paths+=(tests/unit/execution)
+          [ -d tests/integration/execution ] && paths+=(tests/integration/execution)
+          if [ ${#paths[@]} -gt 0 ]; then
+            uv run pytest "${paths[@]}" -v
+          fi

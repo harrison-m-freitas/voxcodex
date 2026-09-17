@@ -50,13 +50,19 @@ class MetadataStore:
                 insert(artifacts).values(id=record.id, digest=record.digest, kind=record.kind)
             )
 
-    def register_activity(self, activity: ProcessingActivity) -> None:
+    def register_activity(
+        self,
+        activity: ProcessingActivity,
+        *,
+        activity_fingerprint: str | None = None,
+    ) -> None:
         with self.engine.begin() as connection:
             connection.execute(
                 insert(processing_activities).values(
                     id=activity.id,
                     type=activity.type,
                     status=activity.status,
+                    activity_fingerprint=activity_fingerprint,
                     payload_json=activity.model_dump_json(),
                 )
             )
@@ -98,6 +104,61 @@ class MetadataStore:
                     ],
                 )
 
+    def find_reusable_output(self, activity_fingerprint: str) -> tuple[ArtifactRef, ...]:
+        """Return outputs from an already successful semantically identical activity.
+
+        Cache reuse is a lookup only: this method never creates a new activity or
+        derivation, preserving the original producing lineage as causal authority.
+        """
+        with self.engine.connect() as connection:
+            activity_row = connection.execute(
+                select(processing_activities.c.id)
+                .where(
+                    processing_activities.c.activity_fingerprint == activity_fingerprint,
+                    processing_activities.c.status == "succeeded",
+                )
+                .order_by(processing_activities.c.id)
+                .limit(1)
+            ).one_or_none()
+            if activity_row is None:
+                return ()
+
+            rows = connection.execute(
+                select(artifacts.c.id, artifacts.c.digest, artifacts.c.kind)
+                .select_from(
+                    derivations
+                    .join(
+                        derivation_outputs,
+                        derivations.c.id == derivation_outputs.c.derivation_id,
+                    )
+                    .join(artifacts, artifacts.c.id == derivation_outputs.c.artifact_ref)
+                )
+                .where(derivations.c.activity_ref == activity_row.id)
+                .order_by(artifacts.c.id)
+            ).all()
+
+        return tuple(ArtifactRef(id=row.id, digest=row.digest, kind=row.kind) for row in rows)
+
+    def get_producing_activity(self, ref: ArtifactRef) -> ProcessingActivity | None:
+        with self.engine.connect() as connection:
+            row = connection.execute(
+                select(processing_activities.c.payload_json)
+                .select_from(
+                    derivation_outputs
+                    .join(derivations, derivation_outputs.c.derivation_id == derivations.c.id)
+                    .join(
+                        processing_activities,
+                        derivations.c.activity_ref == processing_activities.c.id,
+                    )
+                )
+                .where(derivation_outputs.c.artifact_ref == ref.id)
+                .order_by(processing_activities.c.id)
+                .limit(1)
+            ).one_or_none()
+        if row is None:
+            return None
+        return ProcessingActivity.model_validate_json(row.payload_json)
+
     def get_downstream(self, ref: ArtifactRef) -> set[ArtifactRef]:
         discovered: dict[str, ArtifactRef] = {}
         pending: deque[str] = deque([ref.id])
@@ -117,6 +178,35 @@ class MetadataStore:
                         .join(artifacts, artifacts.c.id == derivation_outputs.c.artifact_ref)
                     )
                     .where(derivation_inputs.c.artifact_ref == current)
+                ).all()
+                for row in rows:
+                    artifact = ArtifactRef(id=row.id, digest=row.digest, kind=row.kind)
+                    discovered[artifact.id] = artifact
+                    if artifact.id not in visited:
+                        visited.add(artifact.id)
+                        pending.append(artifact.id)
+
+        return set(discovered.values())
+
+    def get_upstream(self, ref: ArtifactRef) -> set[ArtifactRef]:
+        discovered: dict[str, ArtifactRef] = {}
+        pending: deque[str] = deque([ref.id])
+        visited: set[str] = {ref.id}
+
+        with self.engine.connect() as connection:
+            while pending:
+                current = pending.popleft()
+                rows = connection.execute(
+                    select(artifacts.c.id, artifacts.c.digest, artifacts.c.kind)
+                    .select_from(
+                        derivation_outputs
+                        .join(
+                            derivation_inputs,
+                            derivation_outputs.c.derivation_id == derivation_inputs.c.derivation_id,
+                        )
+                        .join(artifacts, artifacts.c.id == derivation_inputs.c.artifact_ref)
+                    )
+                    .where(derivation_outputs.c.artifact_ref == current)
                 ).all()
                 for row in rows:
                     artifact = ArtifactRef(id=row.id, digest=row.digest, kind=row.kind)
