@@ -59,3 +59,8 @@ jobs:
           if [ -d tests/unit/cbm ]; then
             uv run pytest tests/unit/cbm -v
           fi
+      - name: Run M2 Materialization tests when present
+        run: |
+          if [ -d tests/unit/materialization ]; then
+            uv run pytest tests/unit/materialization -v
+          fi
