@@ -5,6 +5,7 @@ on:
     branches:
       - m2-plan02-source-evidence
       - m2-plan03-reconstruction
+      - m2-plan04-cbm-materialization
   pull_request:
     branches:
       - main
@@ -53,3 +54,8 @@ jobs:
       - name: Re-run quarantine after Reconstruction gate
         run: |
           uv run pytest tests/unit/corpus/test_quarantine.py tests/integration/corpus -v
+      - name: Run M2 CBM contracts when present
+        run: |
+          if [ -d tests/unit/cbm ]; then
+            uv run pytest tests/unit/cbm -v
+          fi
