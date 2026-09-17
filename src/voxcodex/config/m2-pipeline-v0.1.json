@@ -1,0 +1,28 @@
+{
+  "schema": "voxcodex.m2_pipeline_config.v1",
+  "version": "0.1.0",
+  "pdf": {
+    "glyph_runs": true
+  },
+  "reconstruction": {
+    "baseline_tolerance": 0.02,
+    "max_inline_gap": 0.08,
+    "region_x_tolerance": 0.08,
+    "layout_dehyphenation": false,
+    "classification_resolve_threshold": 0.8,
+    "heading_min_relative_font_size": 1.2,
+    "running_header_min_recurrence": 3,
+    "speaker_cue_max_chars": 32,
+    "table_axis_tolerance": 0.04
+  },
+  "markdown_roles": {
+    "heading_open": "text.heading",
+    "paragraph_open": "text.paragraph",
+    "fence": "technical.code_block",
+    "bullet_list_open": "text.list",
+    "ordered_list_open": "text.list",
+    "list_item_open": "text.list_item"
+  },
+  "fallback_role": "text.paragraph",
+  "formula_requires_math_glyph_shape": true
+}
