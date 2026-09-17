@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from datetime import UTC, datetime
 from decimal import Decimal
 
 from sqlalchemy import create_engine, func, select
 
-from voxcodex.domain.processing import ProcessorIdentity
+from voxcodex.domain.processing import ProcessingActivity, ProcessorIdentity
 from voxcodex.execution.planner import PipelineStage, PlannedActivity
 from voxcodex.execution.usage import ActualUsageMetrics, PricingPolicy, UsageEstimator
 from voxcodex.storage.metadata import MetadataStore
@@ -69,6 +70,17 @@ def test_actual_usage_records_pages_duration_and_bytes_and_can_be_persisted():
     metadata.create_all(engine)
     store = MetadataStore(engine)
     estimator = UsageEstimator()
+    now = datetime(2026, 9, 17, tzinfo=UTC)
+    store.register_activity(
+        ProcessingActivity(
+            id="activity:pdf:1",
+            type="pdf_text_extraction",
+            processor=ProcessorIdentity(kind="python", name="pdf.extract", version="1.0.0"),
+            started_at=now,
+            completed_at=now,
+            status="succeeded",
+        )
+    )
 
     record = estimator.record_actual(
         "activity:pdf:1",
