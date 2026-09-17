@@ -3,6 +3,8 @@ from __future__ import annotations
 from collections.abc import Callable, Mapping
 from datetime import UTC, datetime
 
+from pydantic import model_validator
+
 from voxcodex.domain.common import ArtifactRef, FrozenModel
 from voxcodex.domain.processing import Derivation, ProcessingActivity
 from voxcodex.execution.fingerprint import ActivityFingerprint
@@ -12,6 +14,37 @@ from voxcodex.storage.metadata import MetadataStore
 
 
 StageExecutor = Callable[[PlannedActivity, tuple[ArtifactRef, ...]], tuple[ArtifactRef, ...]]
+
+
+class ExecutionOutputComponent(FrozenModel):
+    artifact_ref: ArtifactRef
+    complete: bool
+
+
+class ExecutionOutputManifest(FrozenModel):
+    components: tuple[ExecutionOutputComponent, ...] = ()
+    aggregate_output_ref: ArtifactRef | None = None
+    aggregate_complete: bool = False
+
+    @model_validator(mode="after")
+    def validate_aggregate(self) -> "ExecutionOutputManifest":
+        if self.aggregate_complete and self.aggregate_output_ref is None:
+            raise ValueError("a complete aggregate requires aggregate_output_ref")
+        return self
+
+    @property
+    def reusable_component_refs(self) -> tuple[ArtifactRef, ...]:
+        return tuple(
+            component.artifact_ref
+            for component in self.components
+            if component.complete
+        )
+
+    @property
+    def reusable_aggregate_ref(self) -> ArtifactRef | None:
+        if not self.aggregate_complete:
+            return None
+        return self.aggregate_output_ref
 
 
 class ExecutionResult(FrozenModel):
