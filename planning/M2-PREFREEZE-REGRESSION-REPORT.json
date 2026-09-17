@@ -1,0 +1,75 @@
+{
+  "schema_version": "1",
+  "status": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+  "selective_reprocessing_status": "PASS",
+  "local_corpus_waiver": "Physical compatibility SourceArtifacts registered outside the repository are not mounted in GitHub Actions. Skipped physical-source checks are not counted as physical-conformance PASS; support classification and semantic contract gates remain executable in CI.",
+  "holdouts_withheld": [
+    "CC-05",
+    "CC-07",
+    "CC-14",
+    "CC-18"
+  ],
+  "frozen_assertion_manifest": {
+    "path": "corpus/manifests/M2-REGRESSION-ASSERTIONS-V1.json",
+    "sha256": "60cadbb29497e07c7c9a622337fd4c19df0afd7822948b43c442d3312e8ede9c",
+    "assertion_count": 42,
+    "status": "FROZEN"
+  },
+  "evidence": [
+    {
+      "gate": "m2_plan05_reprocessing_provenance",
+      "status": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+      "run_id": 35280023568,
+      "detail": "Plan 05 final branch verification; selective reprocessing subgate PASS and provenance/cache invariants green."
+    },
+    {
+      "gate": "frozen_assertions",
+      "status": "PASS",
+      "run_id": 35281317506,
+      "detail": "42/42 frozen semantic assertion observations execute with explicit operators and auditable diagnostics; this does not substitute for unavailable physical SourceArtifact execution in CI."
+    },
+    {
+      "gate": "non_holdout_support_classification",
+      "status": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+      "run_id": 35281736953,
+      "detail": "All 26 non-holdout cases receive explicit support classification. Tier 1 PDF/Markdown dispatch is covered; physical registered SourceArtifact availability remains subject to the local-corpus waiver."
+    },
+    {
+      "gate": "cross_format_equivalence",
+      "status": "PASS",
+      "run_id": 35281946772,
+      "detail": "Canonical structure signature engine is green. Known non-holdout pairs are explicitly deferred when either manifestation is outside the frozen support tier; no unsupported adapter was added to force equivalence."
+    },
+    {
+      "gate": "candidate_readiness_contract",
+      "status": "PASS",
+      "run_id": 35282082200,
+      "detail": "Candidate freeze rejects incomplete manifests, non-green regression/selective-reprocessing state, and blocking Tier 1 model/processing failures."
+    },
+    {
+      "gate": "candidate_freeze_cli",
+      "status": "PASS",
+      "run_id": 35282483313,
+      "detail": "Repository-bound candidate freeze CLI and the complete M2 workflow are green after canonical holdout ordering was fixed."
+    }
+  ],
+  "capability_boundary": {
+    "claimed": [
+      "Tier 1 PDF and Markdown evidence/reconstruction/materialization execution contracts",
+      "42 frozen M2 regression semantic assertions execute through explicit operators",
+      "selective reprocessing with provenance-safe dependency reuse and invalidation",
+      "supported-format canonical structure comparison independent of operational IDs and source locators"
+    ],
+    "not_claimed": [
+      "Blind-holdout conformance before reveal",
+      "General HTML, EPUB or DOCX processing support",
+      "Physical compatibility-corpus conformance for SourceArtifacts absent from CI",
+      "Cross-format equivalence when either member is outside the supported tier"
+    ]
+  },
+  "holdout_integrity": {
+    "state": "FROZEN_UNREVEALED",
+    "source_artifacts_accessed": false,
+    "reveal_authorized": false
+  }
+}
