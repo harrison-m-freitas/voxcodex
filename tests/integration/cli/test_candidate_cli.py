@@ -106,3 +106,42 @@ def test_candidate_verify_cli_rejects_self_consistent_manifest_with_repository_d
 
     assert result.exit_code != 0
     assert "repository no longer matches frozen candidate" in result.output
+
+
+
+def test_candidate_freeze_cli_can_create_v2_with_semantic_tree_binding(tmp_path: Path) -> None:
+    report = tmp_path / "regression-report.json"
+    report.write_text(
+        json.dumps(
+            {
+                "status": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+                "selective_reprocessing_status": "PASS",
+                "local_corpus_waiver": "registered SourceArtifacts are not mounted in public CI",
+            }
+        ),
+        encoding="utf-8",
+    )
+    output = tmp_path / "M2-IMPLEMENTATION-CANDIDATE-V2.json"
+
+    result = runner.invoke(
+        app,
+        [
+            "candidate",
+            "freeze",
+            "--repo-root",
+            str(REPO_ROOT),
+            "--regression-report",
+            str(report),
+            "--git-commit-sha",
+            "b" * 40,
+            "--candidate-id",
+            "m2-implementation-candidate-v2",
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    assert payload["candidate_id"] == "m2-implementation-candidate-v2"
+    assert payload["implementation_tree_digest"]
