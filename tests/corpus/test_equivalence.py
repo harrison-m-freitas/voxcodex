@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from voxcodex.corpus.assertions import (
+from voxcodex.corpus.equivalence import (
     canonical_structure_signature,
     compare_canonical_structures,
 )
