@@ -1,0 +1,225 @@
+{
+  "candidate_digest": "666271411488ab2563263efda93a8aa5d182396098eac92e8a356aa69dbfacf9",
+  "candidate_id": "m2-implementation-candidate-v1",
+  "capability_claims": [
+    "Tier 1 PDF and Markdown evidence/reconstruction/materialization execution contracts",
+    "42 frozen M2 regression semantic assertions execute through explicit operators",
+    "selective reprocessing preserves provenance-safe dependency reuse and invalidation",
+    "supported-format canonical structure comparison excludes operational IDs and source locators"
+  ],
+  "corpus_freeze_manifest_digest": "779dc939659257d917abd41e9a6bf24fbefd37b8f3e04aa870b34192656aa6ea",
+  "git_commit_sha": "2b20be89d01aa1add802d3fff91d9e3d4fb43719",
+  "holdout_freeze_manifest_digest": "427d21b9b7872e3b152bc4eb956d82bb2f14e7fd4f102d3b0775e8ce8af42f06",
+  "holdouts_withheld": [
+    "CC-05",
+    "CC-07",
+    "CC-14",
+    "CC-18"
+  ],
+  "known_classifications": [
+    {
+      "case_id": "CC-01",
+      "diagnostic": "Experimental / HTML saved-page bundle is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-02",
+      "diagnostic": "Experimental / HTML saved-page bundle is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-03",
+      "diagnostic": "Experimental / HTML documentation archive is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-04",
+      "diagnostic": "covered by the pre-freeze non-holdout regression gate; physical SourceArtifact availability is governed by the report waiver scope",
+      "quarantined": false,
+      "result_class": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+      "support_tier": "Tier 1"
+    },
+    {
+      "case_id": "CC-06",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-08",
+      "diagnostic": "Experimental / HTML saved-page bundle is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-09",
+      "diagnostic": "Experimental / DOCX is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-10",
+      "diagnostic": "Experimental / Plain text (TXT) is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-11",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-12",
+      "diagnostic": "covered by the pre-freeze non-holdout regression gate; physical SourceArtifact availability is governed by the report waiver scope",
+      "quarantined": false,
+      "result_class": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+      "support_tier": "Tier 1"
+    },
+    {
+      "case_id": "CC-13",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-15",
+      "diagnostic": "Experimental / Rendered HTML documentation archive (ZIP) is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-16",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-17",
+      "diagnostic": "Experimental / HTML download bundle (ZIP) is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-19",
+      "diagnostic": "covered by the pre-freeze non-holdout regression gate; physical SourceArtifact availability is governed by the report waiver scope",
+      "quarantined": false,
+      "result_class": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+      "support_tier": "Tier 1"
+    },
+    {
+      "case_id": "CC-20",
+      "diagnostic": "Experimental / HTML saved-page bundle is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-21",
+      "diagnostic": "Experimental / HTML saved-page bundle is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-22",
+      "diagnostic": "covered by the pre-freeze non-holdout regression gate; physical SourceArtifact availability is governed by the report waiver scope",
+      "quarantined": false,
+      "result_class": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+      "support_tier": "Tier 1"
+    },
+    {
+      "case_id": "CC-23",
+      "diagnostic": "Experimental / Scanned PDF is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-24",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-25",
+      "diagnostic": "covered by the pre-freeze non-holdout regression gate; physical SourceArtifact availability is governed by the report waiver scope",
+      "quarantined": false,
+      "result_class": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+      "support_tier": "Tier 1"
+    },
+    {
+      "case_id": "CC-26",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-27",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-28",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-29",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    },
+    {
+      "case_id": "CC-30",
+      "diagnostic": "Experimental / EPUB3 is outside the frozen Tier 1 PDF/Markdown capability claim",
+      "quarantined": false,
+      "result_class": "DEFERRED_BY_SUPPORT_TIER",
+      "support_tier": "Experimental"
+    }
+  ],
+  "local_corpus_waiver": "Physical compatibility SourceArtifacts registered outside the repository are not mounted in GitHub Actions. Skipped physical-source checks are not counted as physical-conformance PASS; support classification and semantic contract gates remain executable in CI.",
+  "processor_versions": {
+    "canonical_equivalence": "1",
+    "cbm_materialization": "0.1.0",
+    "corpus_runner": "1",
+    "frozen_assertion_runner": "1",
+    "reconstruction": "0.1.0",
+    "source_evidence": "0.1.0"
+  },
+  "python_version": "3.14.7",
+  "regression_assertion_manifest_digest": "60cadbb29497e07c7c9a622337fd4c19df0afd7822948b43c442d3312e8ede9c",
+  "regression_report_digest": "fbb0e2f2ba828b5500d599ee7584710ba2344e7a2edde66f07f0f90c1e0cd586",
+  "regression_status": "PASS_WITH_LOCAL_CORPUS_WAIVER",
+  "selective_reprocessing_status": "PASS",
+  "semantic_config_digests": {
+    "evidence": "6a8613340e7538e8bb9cf86509f353f406cf8fada3dfed22c7713cdb4a4fdd90",
+    "materialization": "cfc1d0c8aed1908d958ae8afdb371006cf20d0c5b81e2a7dda34dfb9299e9e91",
+    "reconstruction": "e1cd4a2be8d13fa2e046ad3d5104634684e783b9c569bb9a64d72d1a24812a2e"
+  },
+  "uv_lock_sha256": "dc9b358033f8786e24d3a48f02800c2e57fe4e66215ae291a9689eec22a3d39c",
+  "uv_version": "0.12.13",
+  "validation_policy_digest": "723f40ba5e807ae49e3c7ab94045171ff179397f92cb6fac3fe2d307dbaa928e"
+}
