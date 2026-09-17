@@ -6,6 +6,7 @@ from pathlib import Path
 from typer.testing import CliRunner
 
 from voxcodex.cli import app
+from voxcodex.digests import canonical_json_bytes, sha256_bytes
 
 
 runner = CliRunner()
@@ -53,3 +54,55 @@ def test_candidate_freeze_cli_binds_repository_state_without_revealing_holdouts(
     assert payload["regression_report_digest"]
     assert payload["holdouts_withheld"] == ["CC-05", "CC-07", "CC-14", "CC-18"]
     assert "candidate_digest=" in result.output
+
+
+
+def test_candidate_verify_cli_accepts_frozen_repository_candidate() -> None:
+    result = runner.invoke(
+        app,
+        [
+            "candidate",
+            "verify",
+            "--repo-root",
+            str(REPO_ROOT),
+            "--regression-report",
+            str(REPO_ROOT / "planning" / "M2-PREFREEZE-REGRESSION-REPORT.json"),
+            "--candidate",
+            str(REPO_ROOT / "M2-IMPLEMENTATION-CANDIDATE-V1.json"),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "candidate_id=m2-implementation-candidate-v1" in result.output
+    assert "candidate_digest=666271411488ab2563263efda93a8aa5d182396098eac92e8a356aa69dbfacf9" in result.output
+    assert "git_commit_sha=2b20be89d01aa1add802d3fff91d9e3d4fb43719" in result.output
+
+
+def test_candidate_verify_cli_rejects_self_consistent_manifest_with_repository_drift(
+    tmp_path: Path,
+) -> None:
+    source = REPO_ROOT / "M2-IMPLEMENTATION-CANDIDATE-V1.json"
+    payload = json.loads(source.read_text(encoding="utf-8"))
+    payload["regression_report_digest"] = "0" * 64
+    unsigned = dict(payload)
+    unsigned.pop("candidate_digest")
+    payload["candidate_digest"] = sha256_bytes(canonical_json_bytes(unsigned))
+    candidate = tmp_path / "candidate.json"
+    candidate.write_text(json.dumps(payload, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+
+    result = runner.invoke(
+        app,
+        [
+            "candidate",
+            "verify",
+            "--repo-root",
+            str(REPO_ROOT),
+            "--regression-report",
+            str(REPO_ROOT / "planning" / "M2-PREFREEZE-REGRESSION-REPORT.json"),
+            "--candidate",
+            str(candidate),
+        ],
+    )
+
+    assert result.exit_code != 0
+    assert "repository no longer matches frozen candidate" in result.output
