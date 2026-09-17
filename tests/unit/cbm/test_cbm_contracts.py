@@ -1,14 +1,19 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+from pathlib import Path
 
 import pytest
 from pydantic import ValidationError
 
 from voxcodex.domain.cbm.content import ContentFragment, DocumentNode, Surface
 from voxcodex.domain.cbm.document import CanonicalDocument, CanonicalRevision
+from voxcodex.domain.cbm.schema_snapshots import SCHEMA_MODELS, schema_text
 from voxcodex.domain.cbm.semantic import Annotation, Relation, SemanticRegistry
 from voxcodex.domain.cbm.structured import FormulaPayload, TableCell, TablePayload
+
+
+SCHEMA_ROOT = Path(__file__).resolve().parents[3] / "schemas" / "cbm" / "0.1"
 
 
 def test_content_fragment_requires_exactly_one_document_node_owner_and_is_frozen():
@@ -166,3 +171,16 @@ def test_unknown_fields_are_rejected_on_core_models():
             provenance_ref="derivation:1",
             invented_core_field=True,
         )
+
+
+def test_json_schema_snapshots_are_complete_and_deterministic():
+    expected_files = {f"{name}.schema.json" for name in SCHEMA_MODELS}
+    actual_files = {path.name for path in SCHEMA_ROOT.glob("*.schema.json")}
+    assert actual_files == expected_files
+
+    for name, model in sorted(SCHEMA_MODELS.items()):
+        path = SCHEMA_ROOT / f"{name}.schema.json"
+        first = schema_text(model)
+        second = schema_text(model)
+        assert first == second
+        assert path.read_text(encoding="utf-8") == first
