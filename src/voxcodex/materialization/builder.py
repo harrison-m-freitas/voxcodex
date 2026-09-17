@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+from collections.abc import Mapping
 from typing import Any, Literal
 
 from pydantic import Field
@@ -182,6 +183,8 @@ def build_canonical_draft(
     units: tuple[ReconstructionUnit, ...],
     target_context: CanonicalTargetContext,
     role_mappings: RoleMappingRegistry,
+    source_anchor_refs_by_unit: Mapping[str, tuple[str, ...]] | None = None,
+    structured_payload_refs_by_unit: Mapping[str, str] | None = None,
 ) -> CanonicalDraft:
     document_seed = {
         "work_ref": target_context.work_ref,
@@ -251,6 +254,16 @@ def build_canonical_draft(
                 order_key=unit.order_key,
                 node_class=mapping.node_class,
                 role=mapping.cbm_role,
+                structured_payload_ref=(
+                    structured_payload_refs_by_unit.get(unit.id)
+                    if structured_payload_refs_by_unit is not None
+                    else None
+                ),
+                source_anchor_refs=(
+                    source_anchor_refs_by_unit.get(unit.id, ())
+                    if source_anchor_refs_by_unit is not None
+                    else ()
+                ),
                 provenance_ref=unit.provenance_ref,
             )
         )
