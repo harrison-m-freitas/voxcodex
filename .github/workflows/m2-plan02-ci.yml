@@ -7,6 +7,7 @@ on:
       - m2-plan03-reconstruction
       - m2-plan04-cbm-materialization
       - m2-plan05-reprocessing-provenance
+      - m2-plan06-corpus-candidate-freeze
   pull_request:
     branches:
       - main
@@ -83,6 +84,18 @@ jobs:
           paths=()
           [ -d tests/unit/execution ] && paths+=(tests/unit/execution)
           [ -d tests/integration/execution ] && paths+=(tests/integration/execution)
+          if [ ${#paths[@]} -gt 0 ]; then
+            uv run pytest "${paths[@]}" -v
+          fi
+      - name: Run M2 Corpus and candidate-freeze tests when present
+        run: |
+          paths=()
+          [ -f tests/unit/corpus/test_assertions.py ] && paths+=(tests/unit/corpus/test_assertions.py)
+          [ -f tests/regression/test_frozen_assertions.py ] && paths+=(tests/regression/test_frozen_assertions.py)
+          [ -f tests/unit/corpus/test_runner.py ] && paths+=(tests/unit/corpus/test_runner.py)
+          [ -d tests/corpus ] && paths+=(tests/corpus)
+          [ -f tests/unit/corpus/test_candidate.py ] && paths+=(tests/unit/corpus/test_candidate.py)
+          [ -f tests/unit/corpus/test_holdout_reveal.py ] && paths+=(tests/unit/corpus/test_holdout_reveal.py)
           if [ ${#paths[@]} -gt 0 ]; then
             uv run pytest "${paths[@]}" -v
           fi
