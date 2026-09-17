@@ -24,6 +24,15 @@ from voxcodex.corpus.holdouts import (
     QuarantinedCaseError,
     reveal_holdouts,
 )
+from voxcodex.corpus.holdout_execution import (
+    HoldoutCaseReport,
+    HoldoutPreflightError,
+    HoldoutRevealRecord,
+    HoldoutRunReport,
+    frozen_holdout_case_ids,
+    verify_holdout_preflight,
+)
+from voxcodex.corpus.m2_pipeline import M2PipelineProcessor
 from voxcodex.corpus.registry import CorpusRegistry
 from voxcodex.digests import canonical_json_bytes, sha256_bytes
 from voxcodex.domain.processing import ProcessorIdentity
@@ -380,3 +389,154 @@ def holdouts_reveal(
     typer.echo(f"holdout_manifest_digest={record.holdout_manifest_digest}")
     typer.echo(f"actor={record.actor}")
     typer.echo(f"context={record.context}")
+
+
+
+@corpus_app.command("run-holdouts")
+def corpus_run_holdouts(
+    repo_root: Path = typer.Option(
+        Path("."),
+        "--repo-root",
+        exists=True,
+        file_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    candidate: Path = typer.Option(
+        ...,
+        "--candidate",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    regression_report: Path = typer.Option(
+        ...,
+        "--regression-report",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    selection_manifest: Path = typer.Option(
+        ...,
+        "--selection-manifest",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    holdout_manifest: Path = typer.Option(
+        ...,
+        "--holdout-manifest",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    reveal_record: Path = typer.Option(
+        ...,
+        "--reveal-record",
+        dir_okay=False,
+        resolve_path=True,
+    ),
+    registry: Path = typer.Option(
+        ...,
+        "--registry",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    output: Path = typer.Option(..., "--output", resolve_path=True),
+) -> None:
+    if output.exists():
+        raise typer.BadParameter(f"blind holdout report already exists: {output}")
+
+    try:
+        case_ids = frozen_holdout_case_ids(selection_manifest)
+        corpus_registry = CorpusRegistry.load(registry)
+
+        # All integrity/reveal preflights complete before the processor is even
+        # constructed. A failed preflight therefore cannot cause source I/O.
+        specs = tuple(
+            verify_holdout_preflight(
+                repo_root=repo_root,
+                candidate_path=candidate,
+                regression_report_path=regression_report,
+                selection_manifest_path=selection_manifest,
+                holdout_freeze_manifest_path=holdout_manifest,
+                reveal_record_path=reveal_record,
+                corpus_case_id=case_id,
+            )
+            for case_id in case_ids
+        )
+        missing_registry_cases = tuple(
+            spec.corpus_case_id
+            for spec in specs
+            if spec.corpus_case_id not in corpus_registry.case_ids
+        )
+        if missing_registry_cases:
+            raise HoldoutPreflightError(
+                "frozen holdout cases are absent from corpus registry: "
+                + ", ".join(missing_registry_cases)
+            )
+
+        frozen_candidate, candidate_digest = load_frozen_candidate(candidate)
+        if not reveal_record.is_file():
+            raise HoldoutPreflightError(
+                f"reveal record is missing; blind source access remains blocked: {reveal_record}"
+            )
+        reveal = HoldoutRevealRecord.model_validate_json(reveal_record.read_bytes())
+
+        processor = M2PipelineProcessor(
+            repo_root / ".voxcodex" / "blind-holdout-v1" / candidate_digest
+        )
+        case_reports: list[HoldoutCaseReport] = []
+        for spec in specs:
+            source_path = repo_root / spec.source_relative_path
+            case_run = processor.process(spec, source_path)
+            case_reports.append(
+                HoldoutCaseReport.model_validate(
+                    case_run.model_dump(mode="json", exclude_none=True)
+                )
+            )
+
+        report = HoldoutRunReport(
+            candidate_id=frozen_candidate.candidate_id,
+            candidate_digest=candidate_digest,
+            holdout_freeze_digest=specs[0].holdout_freeze_digest,
+            reveal_version=reveal.reveal_version,
+            cases=tuple(case_reports),
+        )
+        output.parent.mkdir(parents=True, exist_ok=True)
+        serialized = (
+            json.dumps(
+                report.model_dump(mode="json", exclude_none=True),
+                sort_keys=True,
+                indent=2,
+            )
+            + "\n"
+        )
+        try:
+            with output.open("x", encoding="utf-8") as handle:
+                handle.write(serialized)
+        except FileExistsError as exc:
+            raise HoldoutPreflightError(
+                f"blind holdout report already exists: {output}"
+            ) from exc
+    except (
+        CandidateReadinessError,
+        HoldoutPreflightError,
+        FileNotFoundError,
+        KeyError,
+        OSError,
+        ValueError,
+    ) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+    typer.echo(f"candidate_id={report.candidate_id}")
+    typer.echo(f"candidate_digest={report.candidate_digest}")
+    for case in report.cases:
+        typer.echo(f"{case.corpus_case_id}={case.result_class}")
+    typer.echo(f"output={output}")
