@@ -1,10 +1,14 @@
 from __future__ import annotations
 
 import json
+import platform
+import subprocess
 from pathlib import Path
+from typing import Any
 
-from voxcodex.digests import canonical_json_bytes, sha256_bytes
+from voxcodex.digests import canonical_json_bytes, semantic_digest, sha256_bytes
 from voxcodex.domain.common import ArtifactRef, FrozenModel
+from voxcodex.validation.policies import m2_poc_strict
 
 
 class CandidateReadinessError(ValueError):
@@ -101,6 +105,163 @@ def _assert_ready(manifest: ImplementationCandidateManifest) -> None:
 def candidate_digest(manifest: ImplementationCandidateManifest) -> str:
     payload = manifest.model_dump(mode="json", exclude_none=True)
     return sha256_bytes(canonical_json_bytes(payload))
+
+
+def _file_digest(path: Path) -> str:
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    return sha256_bytes(path.read_bytes())
+
+
+def _stage_config_digest(stage: str, schema_versions: tuple[str, ...]) -> str:
+    return sha256_bytes(
+        canonical_json_bytes(
+            {
+                "stage": stage,
+                "profile": "m2-default:0.1",
+                "schema_versions": schema_versions,
+            }
+        )
+    )
+
+
+def _uv_version() -> str:
+    try:
+        completed = subprocess.run(
+            ["uv", "--version"],
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return "unavailable"
+    if completed.returncode != 0:
+        return "unavailable"
+    text = completed.stdout.strip()
+    if not text:
+        return "unavailable"
+    parts = text.split()
+    return parts[1] if len(parts) > 1 else text
+
+
+def _load_json(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"expected object in {path}")
+    return data
+
+
+def build_repository_candidate(
+    *,
+    repo_root: Path,
+    git_commit_sha: str,
+    regression_report_path: Path,
+) -> ImplementationCandidateManifest:
+    root = repo_root.resolve()
+    report = _load_json(regression_report_path)
+    registry = _load_json(root / "corpus" / "COMPATIBILITY-CORPUS-V1.json")
+
+    holdouts = tuple(
+        str(case_id)
+        for case_id in registry.get("blind_holdouts", {}).get("reserved_case_ids", ())
+    )
+    if set(holdouts) != {"CC-05", "CC-07", "CC-14", "CC-18"}:
+        raise CandidateReadinessError(
+            "holdouts_withheld must match the frozen M2 v1 set before candidate freeze"
+        )
+
+    regression_status = str(report.get("status", ""))
+    classifications: list[KnownClassification] = []
+    for entry in registry.get("cases", ()):
+        if not isinstance(entry, dict):
+            continue
+        case_id = str(entry.get("corpus_case_id", ""))
+        if not case_id or case_id in holdouts:
+            continue
+        support_tier = str(entry.get("support_tier", "Experimental"))
+        manifestation = str(entry.get("acquired_manifestation_format", "unknown"))
+        tier1_supported = support_tier.casefold() == "tier 1" and (
+            "pdf" in manifestation.casefold() or "markdown" in manifestation.casefold()
+        )
+        if tier1_supported:
+            result_class = regression_status
+            diagnostic = (
+                "covered by the pre-freeze non-holdout regression gate; physical "
+                "SourceArtifact availability is governed by the report waiver scope"
+            )
+        else:
+            result_class = "DEFERRED_BY_SUPPORT_TIER"
+            diagnostic = (
+                f"{support_tier} / {manifestation} is outside the frozen Tier 1 "
+                "PDF/Markdown capability claim"
+            )
+        classifications.append(
+            KnownClassification(
+                case_id=case_id,
+                support_tier=support_tier,
+                result_class=result_class,
+                quarantined=False,
+                diagnostic=diagnostic,
+            )
+        )
+
+    return ImplementationCandidateManifest(
+        candidate_id="m2-implementation-candidate-v1",
+        git_commit_sha=git_commit_sha,
+        uv_lock_sha256=_file_digest(root / "uv.lock"),
+        python_version=platform.python_version(),
+        uv_version=_uv_version(),
+        processor_versions={
+            "source_evidence": "0.1.0",
+            "reconstruction": "0.1.0",
+            "cbm_materialization": "0.1.0",
+            "frozen_assertion_runner": "1",
+            "corpus_runner": "1",
+            "canonical_equivalence": "1",
+        },
+        semantic_config_digests={
+            "evidence": _stage_config_digest("evidence", ("evidence:0.1",)),
+            "reconstruction": _stage_config_digest(
+                "reconstruction",
+                ("evidence:0.1", "reconstruction:0.1"),
+            ),
+            "materialization": _stage_config_digest(
+                "materialization",
+                ("reconstruction:0.1", "cbm:0.1"),
+            ),
+        },
+        validation_policy_digest=semantic_digest(m2_poc_strict()),
+        regression_assertion_manifest_digest=_file_digest(
+            root / "corpus" / "manifests" / "M2-REGRESSION-ASSERTIONS-V1.json"
+        ),
+        corpus_freeze_manifest_digest=_file_digest(
+            root / "COMPATIBILITY-CORPUS-V1-FREEZE-MANIFEST.json"
+        ),
+        holdout_freeze_manifest_digest=_file_digest(
+            root / "M2-HOLDOUT-V1-FREEZE-MANIFEST.json"
+        ),
+        regression_report_digest=_file_digest(regression_report_path),
+        capability_claims=(
+            "Tier 1 PDF and Markdown evidence/reconstruction/materialization execution contracts",
+            "42 frozen M2 regression semantic assertions execute through explicit operators",
+            "selective reprocessing preserves provenance-safe dependency reuse and invalidation",
+            "supported-format canonical structure comparison excludes operational IDs and source locators",
+        ),
+        known_classifications=tuple(classifications),
+        regression_status=regression_status,
+        selective_reprocessing_status=str(
+            report.get("selective_reprocessing_status", "")
+        ),
+        local_corpus_waiver=(
+            str(report["local_corpus_waiver"])
+            if report.get("local_corpus_waiver") is not None
+            else None
+        ),
+        holdouts_withheld=holdouts,
+    )
 
 
 def freeze_candidate(
