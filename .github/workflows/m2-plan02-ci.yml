@@ -124,3 +124,20 @@ jobs:
           print('M2_CANDIDATE_B64=' + base64.b64encode(payload).decode('ascii'))
           PY
           fi
+
+      - name: Generate M2 implementation candidate V2 freeze artifact
+        run: |
+          if [ ! -f M2-IMPLEMENTATION-CANDIDATE-V2.json ] && [ -f planning/M2-PREFREEZE-REGRESSION-REPORT-V2.json ]; then
+            uv run voxcodex candidate freeze \
+              --repo-root . \
+              --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT-V2.json \
+              --git-commit-sha "2b7daad66713da004bb3cb7c3fabf39f5fd755b5" \
+              --candidate-id m2-implementation-candidate-v2 \
+              --output /tmp/M2-IMPLEMENTATION-CANDIDATE-V2.json
+            python - <<'PY'
+          import base64
+          from pathlib import Path
+          payload = Path('/tmp/M2-IMPLEMENTATION-CANDIDATE-V2.json').read_bytes()
+          print('M2_CANDIDATE_V2_B64=' + base64.b64encode(payload).decode('ascii'))
+          PY
+          fi
