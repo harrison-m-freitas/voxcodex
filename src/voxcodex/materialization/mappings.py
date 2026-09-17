@@ -83,7 +83,13 @@ class RoleMappingRegistry(FrozenModel):
             "pedagogy.tool_marker",
         }
 
-        mappings: list[RoleMapping] = []
+        mappings: list[RoleMapping] = [
+            RoleMapping(
+                reconstruction_role="document.root",
+                node_class="root",
+                cbm_role="document.root",
+            )
+        ]
         for role in sorted(division_roles):
             mappings.append(RoleMapping(reconstruction_role=role, node_class="division", cbm_role=role))
         for role in sorted(declaration_roles):
