@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+from pathlib import Path
 
 import pytest
 from pydantic import ValidationError
 
+from voxcodex.digests import canonical_json_bytes
 from voxcodex.domain.cbm.content import ContentFragment, Surface
 from voxcodex.domain.cbm.document import CanonicalDocument, CanonicalRevision, DocumentNode
+from voxcodex.domain.cbm.schema import schema_snapshots
 from voxcodex.domain.cbm.semantic import Annotation, Relation, SemanticRegistry
 from voxcodex.domain.cbm.structured import FormulaPayload, TableCell
 
@@ -139,3 +142,22 @@ def test_canonical_revision_frozen_requirements_are_representable() -> None:
     assert revision.provenance_manifest_ref == "manifest:provenance"
     assert revision.validation_report_ref == "validation:1"
     assert revision.content_digest == "a" * 64
+
+
+def test_json_schema_snapshots_are_deterministic_and_checked_in() -> None:
+    first = schema_snapshots()
+    second = schema_snapshots()
+    assert first == second
+
+    repo_root = Path(__file__).resolve().parents[3]
+    schema_root = repo_root / "schemas" / "cbm" / "0.1"
+    assert set(first) == {
+        "document.schema.json",
+        "content.schema.json",
+        "semantic.schema.json",
+        "structured.schema.json",
+        "provenance.schema.json",
+        "validation.schema.json",
+    }
+    for filename, schema in first.items():
+        assert (schema_root / filename).read_bytes() == canonical_json_bytes(schema) + b"\n"
