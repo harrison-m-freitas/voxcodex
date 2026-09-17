@@ -40,16 +40,16 @@ def test_semantic_registry_is_membership_authority_without_reverse_refs() -> Non
         target_ref="node:paragraph",
         annotation_type="linguistic.normalization",
         value={"normalized_text": "alpha"},
-        epistemic_status="source_supported",
+        epistemic_status="explicit",
         evidence_refs=("anchor:1",),
         provenance_ref="activity:1",
     )
     relation = Relation(
         id="relation:1",
         subject_ref="node:paragraph",
-        predicate="semantic.refers_to",
+        predicate="document.refers_to",
         object_ref="entity:1",
-        epistemic_status="asserted",
+        epistemic_status="explicit",
         evidence_refs=("anchor:1",),
         provenance_ref="activity:1",
     )
@@ -68,10 +68,11 @@ def test_semantic_registry_is_membership_authority_without_reverse_refs() -> Non
 def test_table_cell_content_refs_are_non_owning() -> None:
     cell = TableCell(
         id="table-cell:1",
-        row_index=0,
-        column_index=0,
+        row=0,
+        column=0,
         row_span=1,
         column_span=1,
+        cell_role="body",
         content_refs=("fragment:1",),
     )
 
