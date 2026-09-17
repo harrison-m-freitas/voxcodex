@@ -121,7 +121,7 @@ The preflight runs before SourceArtifact resolution.
 
 It must verify:
 
-- `M2-IMPLEMENTATION-CANDIDATE-V1.json` is internally authentic;
+- the candidate manifest supplied to preflight is internally authentic; for the real blind run this must be `M2-IMPLEMENTATION-CANDIDATE-V2.json`;
 - current repository bindings still match the frozen candidate;
 - `M2-HOLDOUT-V1-FREEZE-MANIFEST.json` digest equals the candidate binding;
 - a valid one-way `M2-HOLDOUT-REVEAL-V1.json` exists;
@@ -218,15 +218,15 @@ The CLI should support a synthetic-fixture root for tests, but production invoca
 
 ## 8. Blind protocol and candidate versioning
 
-The current candidate digest `666271411488ab2563263efda93a8aa5d182396098eac92e8a356aa69dbfacf9` is preserved as a valid historical **pre-reveal superseded candidate**. It must not be deleted or rewritten.
+The current `M2-IMPLEMENTATION-CANDIDATE-V1.json` with digest `666271411488ab2563263efda93a8aa5d182396098eac92e8a356aa69dbfacf9` is preserved as a valid historical **pre-reveal superseded candidate**. It must not be deleted, renamed, or rewritten.
 
 Because this executor adds semantically relevant production wiring before reveal, the repository will:
 
 1. implement and regression-test the executor while holdouts remain unrevealed;
 2. rerun the full M2 gates;
 3. produce a new pre-freeze regression report if its bound implementation evidence changes;
-4. freeze a new M2 implementation candidate with a new digest;
-5. verify the CI only checks that new frozen candidate afterward;
+4. freeze `M2-IMPLEMENTATION-CANDIDATE-V2.json` with candidate id `m2-implementation-candidate-v2` and a new digest;
+5. update CI so the blind-run branch verifies V2 and never regenerates or substitutes V1;
 6. require the one-way reveal acknowledgement against that candidate;
 7. reveal and run the four holdouts without tuning.
 
@@ -339,6 +339,6 @@ This design is complete when:
 2. `voxcodex corpus run-holdouts` cannot access a source before candidate/reveal preflight;
 3. the four real holdouts remain untouched during implementation;
 4. all existing regressions remain green without relaxing assertions;
-5. a replacement implementation candidate is frozen before reveal;
-6. CI verifies rather than regenerates that replacement candidate;
+5. `M2-IMPLEMENTATION-CANDIDATE-V2.json` is frozen before reveal while V1 remains unchanged as historical evidence;
+6. CI verifies V2 rather than regenerating it or falling back to V1;
 7. the repository is ready for a single explicit irreversible reveal followed immediately by blind execution without tuning.
