@@ -12,6 +12,11 @@ from voxcodex.application.evidence import (
     UnknownArtifactError,
 )
 from voxcodex.application.trace import TraceApplication, UnknownTraceArtifactError
+from voxcodex.corpus.candidate import (
+    CandidateReadinessError,
+    build_repository_candidate,
+    freeze_candidate,
+)
 from voxcodex.corpus.holdouts import QuarantinedCaseError
 from voxcodex.corpus.registry import CorpusRegistry
 from voxcodex.digests import canonical_json_bytes, sha256_bytes
@@ -23,8 +28,10 @@ from voxcodex.materialization.builder import CanonicalTargetContext
 app = typer.Typer(name="voxcodex", no_args_is_help=True)
 corpus_app = typer.Typer(name="corpus", no_args_is_help=True)
 evidence_app = typer.Typer(name="evidence", no_args_is_help=True)
+candidate_app = typer.Typer(name="candidate", no_args_is_help=True)
 app.add_typer(corpus_app, name="corpus")
 app.add_typer(evidence_app, name="evidence")
+app.add_typer(candidate_app, name="candidate")
 
 
 def _home() -> Path:
@@ -251,3 +258,38 @@ def evidence_show(snapshot_id: str = typer.Argument(...)) -> None:
     typer.echo(f"adapter={adapter}")
     typer.echo(f"snapshot_digest={snapshot.snapshot_digest}")
     typer.echo(f"partitions={len(snapshot.partition_refs)}")
+
+
+@candidate_app.command("freeze")
+def candidate_freeze(
+    repo_root: Path = typer.Option(
+        Path("."),
+        "--repo-root",
+        exists=True,
+        file_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    regression_report: Path = typer.Option(
+        ...,
+        "--regression-report",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    git_commit_sha: str = typer.Option(..., "--git-commit-sha"),
+    output: Path = typer.Option(..., "--output"),
+) -> None:
+    try:
+        manifest = build_repository_candidate(
+            repo_root=repo_root,
+            git_commit_sha=git_commit_sha,
+            regression_report_path=regression_report,
+        )
+        artifact = freeze_candidate(manifest, output_path=output)
+    except (CandidateReadinessError, FileNotFoundError, ValueError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"candidate_id={artifact.id}")
+    typer.echo(f"candidate_digest={artifact.digest}")
+    typer.echo(f"output={output}")
