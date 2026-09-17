@@ -218,6 +218,46 @@ def build_repository_candidate(
         )
 
     regression_status = str(report.get("status", ""))
+
+    processor_versions = {
+        "source_evidence": "0.1.0",
+        "reconstruction": "0.1.0",
+        "cbm_materialization": "0.1.0",
+        "frozen_assertion_runner": "1",
+        "corpus_runner": "1",
+        "canonical_equivalence": "1",
+    }
+    semantic_config_digests = {
+        "evidence": _stage_config_digest("evidence", ("evidence:0.1",)),
+        "reconstruction": _stage_config_digest(
+            "reconstruction",
+            ("evidence:0.1", "reconstruction:0.1"),
+        ),
+        "materialization": _stage_config_digest(
+            "materialization",
+            ("reconstruction:0.1", "cbm:0.1"),
+        ),
+    }
+    capability_claims = [
+        "Tier 1 PDF and Markdown evidence/reconstruction/materialization execution contracts",
+        "42 frozen M2 regression semantic assertions execute through explicit operators",
+        "selective reprocessing preserves provenance-safe dependency reuse and invalidation",
+        "supported-format canonical structure comparison excludes operational IDs and source locators",
+    ]
+    if candidate_id == "m2-implementation-candidate-v2":
+        processor_versions.update(
+            {
+                "production_reconstruction_stage": "0.1.0",
+                "m2_pipeline_processor": "0.1.0",
+            }
+        )
+        semantic_config_digests["m2_pipeline"] = _file_digest(
+            root / "src" / "voxcodex" / "config" / "m2-pipeline-v0.1.json"
+        )
+        capability_claims.append(
+            "frozen-scope blind holdout executor composes Evidence, Reconstruction, CBM materialization, and strict Validation without post-reveal tuning"
+        )
+
     classifications: list[KnownClassification] = []
     for entry in registry.get("cases", ()):
         if not isinstance(entry, dict):
@@ -263,25 +303,8 @@ def build_repository_candidate(
         uv_lock_sha256=_file_digest(root / "uv.lock"),
         python_version=platform.python_version(),
         uv_version=_uv_version(),
-        processor_versions={
-            "source_evidence": "0.1.0",
-            "reconstruction": "0.1.0",
-            "cbm_materialization": "0.1.0",
-            "frozen_assertion_runner": "1",
-            "corpus_runner": "1",
-            "canonical_equivalence": "1",
-        },
-        semantic_config_digests={
-            "evidence": _stage_config_digest("evidence", ("evidence:0.1",)),
-            "reconstruction": _stage_config_digest(
-                "reconstruction",
-                ("evidence:0.1", "reconstruction:0.1"),
-            ),
-            "materialization": _stage_config_digest(
-                "materialization",
-                ("reconstruction:0.1", "cbm:0.1"),
-            ),
-        },
+        processor_versions=processor_versions,
+        semantic_config_digests=semantic_config_digests,
         validation_policy_digest=semantic_digest(m2_poc_strict()),
         regression_assertion_manifest_digest=_file_digest(
             root / "corpus" / "manifests" / "M2-REGRESSION-ASSERTIONS-V1.json"
@@ -293,12 +316,7 @@ def build_repository_candidate(
             root / "M2-HOLDOUT-V1-FREEZE-MANIFEST.json"
         ),
         regression_report_digest=_file_digest(regression_report_path),
-        capability_claims=(
-            "Tier 1 PDF and Markdown evidence/reconstruction/materialization execution contracts",
-            "42 frozen M2 regression semantic assertions execute through explicit operators",
-            "selective reprocessing preserves provenance-safe dependency reuse and invalidation",
-            "supported-format canonical structure comparison excludes operational IDs and source locators",
-        ),
+        capability_claims=tuple(capability_claims),
         known_classifications=tuple(classifications),
         regression_status=regression_status,
         selective_reprocessing_status=str(
