@@ -1,56 +1,16 @@
-name: M2 Implementation CI
+name: Superseded M2 CI
 
 on:
-  push:
-    branches:
-      - m2-plan02-source-evidence
-      - m2-plan03-reconstruction
-      - m2-plan04-materialization-validation
-  pull_request:
-    branches:
-      - main
-      - m2-plan02-source-evidence
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  test:
+  superseded:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v6
-        with:
-          python-version: '3.14.7'
-      - name: Install uv
-        run: python -m pip install 'uv==0.12.13'
-      - name: Sync
-        run: uv sync --frozen
-      - name: Run Plan 01 gate
-        env:
-          VOXCODEX_DATABASE_URL: sqlite:////tmp/voxcodex-plan01.db
+      - name: Superseded branch guard
         run: |
-          uv run alembic upgrade head
-          uv run pytest tests/unit tests/integration/storage tests/integration/corpus -v
-          uv run voxcodex corpus status --registry corpus/COMPATIBILITY-CORPUS-V1.json
-      - name: Run M2 Evidence implementation gate
-        run: |
-          uv run pytest tests/unit/domain/test_evidence_contracts.py tests/unit/adapters tests/integration/adapters tests/regression/test_evidence_known_slices.py -v
-      - name: Run M2 Evidence CLI integration
-        run: |
-          uv run pytest tests/integration/cli -v
-      - name: Run M2 quarantine regression
-        run: |
-          uv run pytest tests/unit/corpus/test_quarantine.py tests/integration/corpus -v
-      - name: Run M2 Reconstruction implementation tests
-        run: |
-          uv run pytest \
-            tests/unit/domain/test_reconstruction_contracts.py \
-            tests/unit/reconstruction \
-            tests/integration/reconstruction \
-            tests/regression/test_cross_page_reconstruction.py \
-            tests/regression/test_structured_reconstruction.py \
-            -v
-      - name: Run M2 Reconstruction plan gate
-        run: |
-          uv run pytest tests/unit/reconstruction tests/integration/reconstruction tests/regression -v
-      - name: Re-run quarantine after Reconstruction gate
-        run: |
-          uv run pytest tests/unit/corpus/test_quarantine.py tests/integration/corpus -v
+          echo "Historical branch only. Do not use as an implementation base."
+          echo "Normative lineage continues from m2-plan04-cbm-materialization."
