@@ -68,3 +68,12 @@ jobs:
           if [ ${#paths[@]} -gt 0 ]; then
             uv run pytest "${paths[@]}" -v
           fi
+      - name: Run M2 Canonical implementation gate
+        run: |
+          uv run pytest tests/unit/cbm tests/unit/materialization tests/unit/validation tests/integration/materialization tests/regression/test_materialization_known_cases.py -v
+      - name: Verify canonical trace for six object kinds
+        run: |
+          uv run pytest tests/integration/cli/test_trace_cli.py -v
+      - name: Re-run quarantine after Canonical gate
+        run: |
+          uv run pytest tests/unit/corpus/test_quarantine.py tests/integration/corpus -v
