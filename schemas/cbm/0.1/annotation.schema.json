@@ -1,0 +1,67 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "annotation_type": {
+      "pattern": "^[A-Za-z0-9_]+(?:\\.[A-Za-z0-9_]+)+$",
+      "title": "Annotation Type",
+      "type": "string"
+    },
+    "confidence_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Confidence Ref"
+    },
+    "epistemic_status": {
+      "enum": [
+        "explicit",
+        "derived",
+        "inferred",
+        "human_asserted"
+      ],
+      "title": "Epistemic Status",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "provenance_ref": {
+      "title": "Provenance Ref",
+      "type": "string"
+    },
+    "target_ref": {
+      "title": "Target Ref",
+      "type": "string"
+    },
+    "value": {
+      "additionalProperties": true,
+      "title": "Value",
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "target_ref",
+    "annotation_type",
+    "value",
+    "epistemic_status",
+    "provenance_ref"
+  ],
+  "title": "Annotation",
+  "type": "object"
+}

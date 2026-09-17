@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "aliases": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Aliases",
+      "type": "array"
+    },
+    "canonical_label": {
+      "title": "Canonical Label",
+      "type": "string"
+    },
+    "entity_class": {
+      "enum": [
+        "person",
+        "character",
+        "organization",
+        "place",
+        "concept",
+        "work",
+        "artifact",
+        "software",
+        "other"
+      ],
+      "title": "Entity Class",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "provenance_ref": {
+      "title": "Provenance Ref",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "entity_class",
+    "canonical_label",
+    "provenance_ref"
+  ],
+  "title": "Entity",
+  "type": "object"
+}

@@ -1,0 +1,67 @@
+{
+  "$defs": {
+    "FidelityConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "enum": [
+            "lexical",
+            "character",
+            "structure",
+            "symbolic",
+            "ordering"
+          ],
+          "title": "Dimension",
+          "type": "string"
+        },
+        "requirement": {
+          "const": "preserve_exactly",
+          "default": "preserve_exactly",
+          "title": "Requirement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dimension"
+      ],
+      "title": "FidelityConstraint",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "fidelity_constraints": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/FidelityConstraint"
+      },
+      "title": "Fidelity Constraints",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "reconstructed_representation_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Reconstructed Representation Refs",
+      "type": "array"
+    },
+    "source_representation_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Representation Refs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "title": "FormulaPayload",
+  "type": "object"
+}

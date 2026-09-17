@@ -1,0 +1,114 @@
+{
+  "$defs": {
+    "FidelityConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "enum": [
+            "lexical",
+            "character",
+            "structure",
+            "symbolic",
+            "ordering"
+          ],
+          "title": "Dimension",
+          "type": "string"
+        },
+        "requirement": {
+          "const": "preserve_exactly",
+          "default": "preserve_exactly",
+          "title": "Requirement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dimension"
+      ],
+      "title": "FidelityConstraint",
+      "type": "object"
+    },
+    "Surface": {
+      "additionalProperties": false,
+      "properties": {
+        "language": {
+          "default": "und",
+          "title": "Language",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "Surface",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "fidelity_constraints": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/FidelityConstraint"
+      },
+      "title": "Fidelity Constraints",
+      "type": "array"
+    },
+    "fragment_class": {
+      "enum": [
+        "text",
+        "literal",
+        "marker",
+        "symbol"
+      ],
+      "title": "Fragment Class",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "order_key": {
+      "title": "Order Key",
+      "type": "string"
+    },
+    "owner_node_ref": {
+      "title": "Owner Node Ref",
+      "type": "string"
+    },
+    "provenance_ref": {
+      "title": "Provenance Ref",
+      "type": "string"
+    },
+    "role": {
+      "pattern": "^[A-Za-z0-9_]+(?:\\.[A-Za-z0-9_]+)+$",
+      "title": "Role",
+      "type": "string"
+    },
+    "source_anchor_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Anchor Refs",
+      "type": "array"
+    },
+    "surface": {
+      "$ref": "#/$defs/Surface"
+    }
+  },
+  "required": [
+    "id",
+    "owner_node_ref",
+    "order_key",
+    "fragment_class",
+    "role",
+    "surface",
+    "provenance_ref"
+  ],
+  "title": "ContentFragment",
+  "type": "object"
+}

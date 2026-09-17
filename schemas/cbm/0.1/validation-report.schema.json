@@ -1,0 +1,103 @@
+{
+  "$defs": {
+    "ValidationCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "object_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Object Refs",
+          "type": "array"
+        },
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error",
+            "critical"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "WARN",
+            "FAIL"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "status",
+        "message"
+      ],
+      "title": "ValidationCheck",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ValidationCheck"
+      },
+      "title": "Checks",
+      "type": "array"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "result": {
+      "enum": [
+        "PASS",
+        "WARN",
+        "FAIL"
+      ],
+      "title": "Result",
+      "type": "string"
+    },
+    "revision_ref": {
+      "title": "Revision Ref",
+      "type": "string"
+    },
+    "validation_policy_ref": {
+      "title": "Validation Policy Ref",
+      "type": "string"
+    },
+    "validator_suite_version": {
+      "title": "Validator Suite Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "revision_ref",
+    "validation_policy_ref",
+    "validator_suite_version",
+    "result",
+    "created_at"
+  ],
+  "title": "ValidationReport",
+  "type": "object"
+}

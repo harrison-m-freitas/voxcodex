@@ -1,0 +1,151 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "canonical_document_ref": {
+      "title": "Canonical Document Ref",
+      "type": "string"
+    },
+    "content_digest": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Content Digest"
+    },
+    "content_registry_ref": {
+      "title": "Content Registry Ref",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "created_by_activity_ref": {
+      "title": "Created By Activity Ref",
+      "type": "string"
+    },
+    "entity_registry_ref": {
+      "title": "Entity Registry Ref",
+      "type": "string"
+    },
+    "fidelity_manifest_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fidelity Manifest Ref"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "lifecycle_state": {
+      "enum": [
+        "building",
+        "validated",
+        "frozen",
+        "superseded",
+        "invalid"
+      ],
+      "title": "Lifecycle State",
+      "type": "string"
+    },
+    "node_registry_ref": {
+      "title": "Node Registry Ref",
+      "type": "string"
+    },
+    "parent_revision_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Parent Revision Refs",
+      "type": "array"
+    },
+    "provenance_manifest_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provenance Manifest Ref"
+    },
+    "revision_number": {
+      "minimum": 1,
+      "title": "Revision Number",
+      "type": "integer"
+    },
+    "root_node_ref": {
+      "title": "Root Node Ref",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "semantic_registry_ref": {
+      "title": "Semantic Registry Ref",
+      "type": "string"
+    },
+    "source_mapping_manifest_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Mapping Manifest Ref"
+    },
+    "structured_payload_registry_ref": {
+      "title": "Structured Payload Registry Ref",
+      "type": "string"
+    },
+    "validation_report_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Validation Report Ref"
+    }
+  },
+  "required": [
+    "id",
+    "canonical_document_ref",
+    "revision_number",
+    "schema_version",
+    "root_node_ref",
+    "node_registry_ref",
+    "content_registry_ref",
+    "entity_registry_ref",
+    "semantic_registry_ref",
+    "structured_payload_registry_ref",
+    "lifecycle_state",
+    "created_by_activity_ref",
+    "created_at"
+  ],
+  "title": "CanonicalRevision",
+  "type": "object"
+}

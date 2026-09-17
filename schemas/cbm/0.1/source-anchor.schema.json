@@ -1,0 +1,172 @@
+{
+  "$defs": {
+    "NormalizedRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "coordinate_space": {
+          "default": "normalized",
+          "title": "Coordinate Space",
+          "type": "string"
+        },
+        "height": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Height",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0.0,
+          "maximum": 1.0,
+          "title": "Width",
+          "type": "number"
+        },
+        "x": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "title": "NormalizedRegion",
+      "type": "object"
+    },
+    "SourceLocator": {
+      "additionalProperties": false,
+      "properties": {
+        "printed_page_label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Printed Page Label"
+        },
+        "region": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NormalizedRegion"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "source_page_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Page Index"
+        },
+        "text_range": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextRange"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "SourceLocator",
+      "type": "object"
+    },
+    "TextRange": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "evidence_ref": {
+          "title": "Evidence Ref",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "evidence_ref",
+        "start",
+        "end"
+      ],
+      "title": "TextRange",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "confidence_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Confidence Ref"
+    },
+    "evidence_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "extraction_ref": {
+      "title": "Extraction Ref",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "locator": {
+      "$ref": "#/$defs/SourceLocator"
+    },
+    "source_artifact_ref": {
+      "title": "Source Artifact Ref",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "source_artifact_ref",
+    "locator",
+    "extraction_ref"
+  ],
+  "title": "SourceAnchor",
+  "type": "object"
+}

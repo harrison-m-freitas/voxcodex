@@ -1,0 +1,60 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "active_revision_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Active Revision Ref"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "edition_ref": {
+      "title": "Edition Ref",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "revision_refs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Revision Refs",
+      "type": "array"
+    },
+    "source_artifact_refs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Source Artifact Refs",
+      "type": "array"
+    },
+    "work_ref": {
+      "title": "Work Ref",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "work_ref",
+    "edition_ref",
+    "source_artifact_refs",
+    "revision_refs",
+    "created_at"
+  ],
+  "title": "CanonicalDocument",
+  "type": "object"
+}

@@ -1,0 +1,66 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "confidence_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Confidence Ref"
+    },
+    "epistemic_status": {
+      "enum": [
+        "explicit",
+        "derived",
+        "inferred",
+        "human_asserted"
+      ],
+      "title": "Epistemic Status",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Refs",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "object_ref": {
+      "title": "Object Ref",
+      "type": "string"
+    },
+    "predicate": {
+      "pattern": "^[A-Za-z0-9_]+(?:\\.[A-Za-z0-9_]+)+$",
+      "title": "Predicate",
+      "type": "string"
+    },
+    "provenance_ref": {
+      "title": "Provenance Ref",
+      "type": "string"
+    },
+    "subject_ref": {
+      "title": "Subject Ref",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "subject_ref",
+    "predicate",
+    "object_ref",
+    "epistemic_status",
+    "provenance_ref"
+  ],
+  "title": "Relation",
+  "type": "object"
+}

@@ -1,0 +1,128 @@
+{
+  "$defs": {
+    "FidelityConstraint": {
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "enum": [
+            "lexical",
+            "character",
+            "structure",
+            "symbolic",
+            "ordering"
+          ],
+          "title": "Dimension",
+          "type": "string"
+        },
+        "requirement": {
+          "const": "preserve_exactly",
+          "default": "preserve_exactly",
+          "title": "Requirement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dimension"
+      ],
+      "title": "FidelityConstraint",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "child_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Child Refs",
+      "type": "array"
+    },
+    "content_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Content Refs",
+      "type": "array"
+    },
+    "fidelity_constraints": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/FidelityConstraint"
+      },
+      "title": "Fidelity Constraints",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "node_class": {
+      "enum": [
+        "root",
+        "division",
+        "block",
+        "structured_block",
+        "declaration",
+        "asset"
+      ],
+      "title": "Node Class",
+      "type": "string"
+    },
+    "order_key": {
+      "title": "Order Key",
+      "type": "string"
+    },
+    "parent_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Ref"
+    },
+    "provenance_ref": {
+      "title": "Provenance Ref",
+      "type": "string"
+    },
+    "role": {
+      "pattern": "^[A-Za-z0-9_]+(?:\\.[A-Za-z0-9_]+)+$",
+      "title": "Role",
+      "type": "string"
+    },
+    "source_anchor_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Anchor Refs",
+      "type": "array"
+    },
+    "structured_payload_ref": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Structured Payload Ref"
+    }
+  },
+  "required": [
+    "id",
+    "order_key",
+    "node_class",
+    "role",
+    "provenance_ref"
+  ],
+  "title": "DocumentNode",
+  "type": "object"
+}
