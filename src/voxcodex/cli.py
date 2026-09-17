@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import os
 from pathlib import Path
 
@@ -10,6 +11,7 @@ from voxcodex.application.evidence import (
     EvidenceApplication,
     UnknownArtifactError,
 )
+from voxcodex.application.trace import TraceApplication, UnknownTraceArtifactError
 from voxcodex.corpus.holdouts import QuarantinedCaseError
 from voxcodex.corpus.registry import CorpusRegistry
 
@@ -20,9 +22,12 @@ app.add_typer(corpus_app, name="corpus")
 app.add_typer(evidence_app, name="evidence")
 
 
+def _home() -> Path:
+    return Path(os.environ.get("VOXCODEX_HOME", ".voxcodex"))
+
+
 def _application() -> EvidenceApplication:
-    home = Path(os.environ.get("VOXCODEX_HOME", ".voxcodex"))
-    return EvidenceApplication(home)
+    return EvidenceApplication(_home())
 
 
 @app.command("ingest")
@@ -36,6 +41,16 @@ def ingest(
     typer.echo(f"source_id={source.id}")
     typer.echo(f"checksum={source.checksum}")
     typer.echo(f"media_type={source.media_type}")
+
+
+@app.command("trace")
+def trace(object_id: str = typer.Argument(...)) -> None:
+    try:
+        records = TraceApplication(_home()).trace(object_id)
+    except UnknownTraceArtifactError as exc:
+        raise typer.BadParameter(f"unknown artifact: {object_id}") from exc
+    for record in records:
+        typer.echo(json.dumps(record, sort_keys=True, separators=(",", ":")))
 
 
 @corpus_app.command("status")
