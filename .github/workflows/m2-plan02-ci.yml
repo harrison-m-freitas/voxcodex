@@ -99,3 +99,18 @@ jobs:
           if [ ${#paths[@]} -gt 0 ]; then
             uv run pytest "${paths[@]}" -v
           fi
+      - name: Generate M2 implementation candidate when prefreeze report exists
+        run: |
+          if [ -f planning/M2-PREFREEZE-REGRESSION-REPORT.json ]; then
+            uv run voxcodex candidate freeze \
+              --repo-root . \
+              --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT.json \
+              --git-commit-sha "$GITHUB_SHA" \
+              --output /tmp/M2-IMPLEMENTATION-CANDIDATE-V1.json
+            python - <<'PY'
+          import base64
+          from pathlib import Path
+          payload = Path('/tmp/M2-IMPLEMENTATION-CANDIDATE-V1.json').read_bytes()
+          print('M2_CANDIDATE_B64=' + base64.b64encode(payload).decode('ascii'))
+          PY
+          fi
