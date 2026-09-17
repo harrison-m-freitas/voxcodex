@@ -19,7 +19,11 @@ from voxcodex.corpus.candidate import (
     load_frozen_candidate,
     verify_repository_candidate,
 )
-from voxcodex.corpus.holdouts import QuarantinedCaseError
+from voxcodex.corpus.holdouts import (
+    HoldoutRevealError,
+    QuarantinedCaseError,
+    reveal_holdouts,
+)
 from voxcodex.corpus.registry import CorpusRegistry
 from voxcodex.digests import canonical_json_bytes, sha256_bytes
 from voxcodex.domain.processing import ProcessorIdentity
@@ -31,9 +35,11 @@ app = typer.Typer(name="voxcodex", no_args_is_help=True)
 corpus_app = typer.Typer(name="corpus", no_args_is_help=True)
 evidence_app = typer.Typer(name="evidence", no_args_is_help=True)
 candidate_app = typer.Typer(name="candidate", no_args_is_help=True)
+holdouts_app = typer.Typer(name="holdouts", no_args_is_help=True)
 app.add_typer(corpus_app, name="corpus")
 app.add_typer(evidence_app, name="evidence")
 app.add_typer(candidate_app, name="candidate")
+app.add_typer(holdouts_app, name="holdouts")
 
 
 def _home() -> Path:
@@ -337,3 +343,35 @@ def candidate_verify(
     typer.echo(f"candidate_id={artifact.id}")
     typer.echo(f"candidate_digest={artifact.digest}")
     typer.echo(f"git_commit_sha={manifest.git_commit_sha}")
+
+
+
+@holdouts_app.command("reveal")
+def holdouts_reveal(
+    candidate: Path = typer.Option(
+        ...,
+        "--candidate",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    ack: str = typer.Option(..., "--ack"),
+    holdout_manifest: Path = typer.Option(
+        Path("M2-HOLDOUT-V1-FREEZE-MANIFEST.json"),
+        "--holdout-manifest",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+) -> None:
+    try:
+        record = reveal_holdouts(candidate, holdout_manifest, ack)
+    except (HoldoutRevealError, FileNotFoundError, ValueError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"reveal_version={record.reveal_version}")
+    typer.echo(f"candidate_digest={record.candidate_digest}")
+    typer.echo(f"holdout_manifest_digest={record.holdout_manifest_digest}")
+    typer.echo(f"actor={record.actor}")
+    typer.echo(f"context={record.context}")
