@@ -5,6 +5,7 @@ on:
     branches:
       - m2-plan02-source-evidence
       - m2-plan03-reconstruction
+      - m2-plan04-materialization-validation
   pull_request:
     branches:
       - main
