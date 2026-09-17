@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, datetime
 from pathlib import Path
 
 from sqlalchemy import create_engine
@@ -84,6 +84,7 @@ def _evidence_snapshot() -> EvidenceSnapshot:
 
 
 def _engine(tmp_path: Path, now: datetime) -> tuple[ReconstructionEngine, MetadataStore]:
+    tmp_path.mkdir(parents=True, exist_ok=True)
     sql_engine = create_engine(f"sqlite:///{tmp_path / 'metadata.db'}")
     metadata.create_all(sql_engine)
     metadata_store = MetadataStore(sql_engine)
