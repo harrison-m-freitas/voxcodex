@@ -16,6 +16,8 @@ from voxcodex.corpus.candidate import (
     CandidateReadinessError,
     build_repository_candidate,
     freeze_candidate,
+    load_frozen_candidate,
+    verify_repository_candidate,
 )
 from voxcodex.corpus.holdouts import QuarantinedCaseError
 from voxcodex.corpus.registry import CorpusRegistry
@@ -293,3 +295,45 @@ def candidate_freeze(
     typer.echo(f"candidate_id={artifact.id}")
     typer.echo(f"candidate_digest={artifact.digest}")
     typer.echo(f"output={output}")
+
+
+
+@candidate_app.command("verify")
+def candidate_verify(
+    repo_root: Path = typer.Option(
+        Path("."),
+        "--repo-root",
+        exists=True,
+        file_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    regression_report: Path = typer.Option(
+        ...,
+        "--regression-report",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+    candidate: Path = typer.Option(
+        ...,
+        "--candidate",
+        exists=True,
+        dir_okay=False,
+        readable=True,
+        resolve_path=True,
+    ),
+) -> None:
+    try:
+        manifest, _ = load_frozen_candidate(candidate)
+        artifact = verify_repository_candidate(
+            repo_root=repo_root,
+            candidate_path=candidate,
+            regression_report_path=regression_report,
+        )
+    except (CandidateReadinessError, FileNotFoundError, ValueError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"candidate_id={artifact.id}")
+    typer.echo(f"candidate_digest={artifact.digest}")
+    typer.echo(f"git_commit_sha={manifest.git_commit_sha}")
