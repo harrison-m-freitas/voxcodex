@@ -165,8 +165,10 @@ def build_repository_candidate(
     registry = _load_json(root / "corpus" / "COMPATIBILITY-CORPUS-V1.json")
 
     holdouts = tuple(
-        str(case_id)
-        for case_id in registry.get("blind_holdouts", {}).get("reserved_case_ids", ())
+        sorted(
+            str(case_id)
+            for case_id in registry.get("blind_holdouts", {}).get("reserved_case_ids", ())
+        )
     )
     if set(holdouts) != {"CC-05", "CC-07", "CC-14", "CC-18"}:
         raise CandidateReadinessError(
