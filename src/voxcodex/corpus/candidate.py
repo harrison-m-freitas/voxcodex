@@ -26,6 +26,7 @@ class KnownClassification(FrozenModel):
 class ImplementationCandidateManifest(FrozenModel):
     candidate_id: str
     git_commit_sha: str
+    implementation_tree_digest: str | None = None
     uv_lock_sha256: str
     python_version: str
     uv_version: str
@@ -73,6 +74,13 @@ def _assert_ready(manifest: ImplementationCandidateManifest) -> None:
         raise CandidateReadinessError("semantic_config_digests must be bound before freeze")
     if not manifest.holdouts_withheld:
         raise CandidateReadinessError("holdouts_withheld must remain explicit before freeze")
+    if (
+        manifest.candidate_id == "m2-implementation-candidate-v2"
+        and not (manifest.implementation_tree_digest or "").strip()
+    ):
+        raise CandidateReadinessError(
+            "implementation_tree_digest must be bound before candidate v2 freeze"
+        )
 
     if manifest.regression_status not in _GREEN_REGRESSION:
         raise CandidateReadinessError(
@@ -111,6 +119,39 @@ def _file_digest(path: Path) -> str:
     if not path.is_file():
         raise FileNotFoundError(path)
     return sha256_bytes(path.read_bytes())
+
+
+def implementation_tree_digest(repo_root: Path) -> str:
+    root = repo_root.resolve()
+    semantic_inputs: list[Path] = []
+
+    source_root = root / "src" / "voxcodex"
+    if not source_root.is_dir():
+        raise CandidateReadinessError(
+            f"semantic implementation input missing: {source_root}"
+        )
+    semantic_inputs.extend(
+        sorted(
+            path
+            for path in source_root.rglob("*")
+            if path.is_file() and path.suffix in {".py", ".json"}
+        )
+    )
+    semantic_inputs.extend((root / "pyproject.toml", root / "uv.lock"))
+
+    entries: list[dict[str, str]] = []
+    for path in semantic_inputs:
+        if not path.is_file():
+            raise CandidateReadinessError(
+                f"semantic implementation input missing: {path}"
+            )
+        entries.append(
+            {
+                "path": path.relative_to(root).as_posix(),
+                "sha256": sha256_bytes(path.read_bytes()),
+            }
+        )
+    return sha256_bytes(canonical_json_bytes(entries))
 
 
 def _stage_config_digest(stage: str, schema_versions: tuple[str, ...]) -> str:
@@ -159,6 +200,7 @@ def build_repository_candidate(
     repo_root: Path,
     git_commit_sha: str,
     regression_report_path: Path,
+    candidate_id: str = "m2-implementation-candidate-v1",
 ) -> ImplementationCandidateManifest:
     root = repo_root.resolve()
     report = _load_json(regression_report_path)
@@ -211,8 +253,13 @@ def build_repository_candidate(
         )
 
     return ImplementationCandidateManifest(
-        candidate_id="m2-implementation-candidate-v1",
+        candidate_id=candidate_id,
         git_commit_sha=git_commit_sha,
+        implementation_tree_digest=(
+            implementation_tree_digest(root)
+            if candidate_id == "m2-implementation-candidate-v2"
+            else None
+        ),
         uv_lock_sha256=_file_digest(root / "uv.lock"),
         python_version=platform.python_version(),
         uv_version=_uv_version(),
@@ -312,6 +359,7 @@ def verify_repository_candidate(
         repo_root=repo_root,
         git_commit_sha=frozen.git_commit_sha,
         regression_report_path=regression_report_path,
+        candidate_id=frozen.candidate_id,
     )
     _assert_ready(current)
 
