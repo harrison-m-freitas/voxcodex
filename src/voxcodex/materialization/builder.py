@@ -7,7 +7,8 @@ from pydantic import Field
 
 from voxcodex.digests import canonical_json_bytes, sha256_bytes
 from voxcodex.domain.cbm.content import DocumentNode
-from voxcodex.domain.cbm.document import CanonicalDocument
+from voxcodex.domain.cbm.document import CanonicalDocument, CanonicalRevision
+from voxcodex.domain.cbm.validation import ValidationReport
 from voxcodex.domain.common import FrozenModel
 from voxcodex.domain.reconstruction import ReconstructionUnit
 from voxcodex.materialization.mappings import RoleMappingRegistry
@@ -52,8 +53,84 @@ class CanonicalDraft(FrozenModel):
     unmaterialized_unit_refs: tuple[str, ...] = ()
 
 
+class FrozenRevisionRecord(FrozenModel):
+    revision: CanonicalRevision
+    semantic_digest: str
+    authorizing_validation_report_ref: str
+    supplemental_validation_report_refs: tuple[str, ...] = ()
+
+
 def _stable_digest(payload: object) -> str:
     return sha256_bytes(canonical_json_bytes(payload))
+
+
+def revision_semantic_digest(revision: CanonicalRevision) -> str:
+    payload = {
+        "canonical_document_ref": revision.canonical_document_ref,
+        "revision_number": revision.revision_number,
+        "parent_revision_refs": list(revision.parent_revision_refs),
+        "schema_version": revision.schema_version,
+        "root_node_ref": revision.root_node_ref,
+        "node_registry_ref": revision.node_registry_ref,
+        "content_registry_ref": revision.content_registry_ref,
+        "entity_registry_ref": revision.entity_registry_ref,
+        "semantic_registry_ref": revision.semantic_registry_ref,
+        "structured_payload_registry_ref": revision.structured_payload_registry_ref,
+        "source_mapping_manifest_ref": revision.source_mapping_manifest_ref,
+        "fidelity_manifest_ref": revision.fidelity_manifest_ref,
+        "provenance_manifest_ref": revision.provenance_manifest_ref,
+    }
+    return _stable_digest(payload)
+
+
+def freeze_revision(
+    revision: CanonicalRevision,
+    validation_report: ValidationReport,
+) -> FrozenRevisionRecord:
+    if revision.lifecycle_state != "validated":
+        raise ValueError("only a validated revision can be frozen")
+    if validation_report.revision_ref != revision.id:
+        raise ValueError("validation report revision_ref does not match revision")
+    if validation_report.result != "PASS":
+        raise ValueError("validation report does not authorize freeze")
+    if revision.source_mapping_manifest_ref is None:
+        raise ValueError("freeze requires source_mapping_manifest_ref")
+    if revision.provenance_manifest_ref is None:
+        raise ValueError("freeze requires provenance_manifest_ref")
+
+    digest = revision_semantic_digest(revision)
+    frozen_payload = revision.model_dump(mode="python")
+    frozen_payload.update(
+        lifecycle_state="frozen",
+        validation_report_ref=validation_report.id,
+        content_digest=digest,
+    )
+    frozen_revision = CanonicalRevision.model_validate(frozen_payload)
+    return FrozenRevisionRecord(
+        revision=frozen_revision,
+        semantic_digest=digest,
+        authorizing_validation_report_ref=validation_report.id,
+    )
+
+
+def with_supplemental_validation(
+    frozen: FrozenRevisionRecord,
+    validation_report: ValidationReport,
+) -> FrozenRevisionRecord:
+    if frozen.revision.lifecycle_state != "frozen":
+        raise ValueError("supplemental validation requires a frozen revision")
+    if validation_report.revision_ref != frozen.revision.id:
+        raise ValueError("validation report revision_ref does not match revision")
+
+    supplemental = frozen.supplemental_validation_report_refs
+    if validation_report.id not in supplemental:
+        supplemental = (*supplemental, validation_report.id)
+    return FrozenRevisionRecord(
+        revision=frozen.revision,
+        semantic_digest=frozen.semantic_digest,
+        authorizing_validation_report_ref=frozen.authorizing_validation_report_ref,
+        supplemental_validation_report_refs=supplemental,
+    )
 
 
 def shard_registry_objects(
