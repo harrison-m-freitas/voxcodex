@@ -221,3 +221,20 @@ def test_positioned_asset_becomes_figure_candidate() -> None:
 
     assert "figure_candidate" in figure.properties
     assert tuple(ref.id for ref in figure.evidence_refs) == (asset.id,)
+
+
+
+def test_markdown_stage_maps_indented_code_block_to_existing_code_role() -> None:
+    result = _run(
+        _syntax("code_block", "    echo hi\n", 0),
+    )
+
+    assert result.units[1].properties["resolved_role"] == "technical.code_block"
+
+
+def test_markdown_stage_maps_html_block_to_existing_code_role() -> None:
+    result = _run(
+        _syntax("html_block", "<!-- marker -->\n", 0),
+    )
+
+    assert result.units[1].properties["resolved_role"] == "technical.code_block"
