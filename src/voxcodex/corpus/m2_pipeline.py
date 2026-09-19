@@ -580,33 +580,47 @@ def _evidence_accountability(
     evidence_units: tuple[EvidenceUnit, ...],
     canonical_ref_by_evidence: dict[str, str],
 ) -> tuple[EvidenceAccountability, ...]:
-    canonical_ranges = {
-        _text_range(unit)
+    canonical_syntax_ranges = tuple(
+        range_key
         for unit in evidence_units
-        if unit.id in canonical_ref_by_evidence and _text_range(unit) is not None
-    }
+        if unit.id in canonical_ref_by_evidence
+        and unit.evidence_class == "syntax_unit"
+        and (range_key := _text_range(unit)) is not None
+    )
     result: list[EvidenceAccountability] = []
     for unit in evidence_units:
         canonical_ref = canonical_ref_by_evidence.get(unit.id)
         if canonical_ref is not None:
-            significance = (
-                "significant"
-                if unit.evidence_class in {"text_span", "syntax_unit", "asset"}
-                else "non_significant"
-            )
             result.append(
                 EvidenceAccountability(
                     evidence_ref=unit.id,
-                    significance=significance,
+                    significance=(
+                        "significant"
+                        if _is_significant_evidence(unit)
+                        else "non_significant"
+                    ),
                     classification="canonicalized",
                     canonical_ref=canonical_ref,
                 )
             )
             continue
 
+        if unit.evidence_class == "text_span" and not (unit.surface or "").strip():
+            result.append(
+                EvidenceAccountability(
+                    evidence_ref=unit.id,
+                    significance="non_significant",
+                    classification="intentionally_noncanonical",
+                )
+            )
+            continue
+
         if unit.evidence_class == "syntax_unit":
             range_key = _text_range(unit)
-            if range_key is not None and range_key in canonical_ranges:
+            if range_key is not None and any(
+                outer_start <= range_key[0] and range_key[1] <= outer_end
+                for outer_start, outer_end in canonical_syntax_ranges
+            ):
                 result.append(
                     EvidenceAccountability(
                         evidence_ref=unit.id,
@@ -643,6 +657,11 @@ def _evidence_accountability(
         )
     return tuple(result)
 
+
+def _is_significant_evidence(unit: EvidenceUnit) -> bool:
+    if unit.evidence_class == "text_span":
+        return bool((unit.surface or "").strip())
+    return unit.evidence_class in {"syntax_unit", "asset"}
 
 def _text_range(unit: EvidenceUnit) -> tuple[int, int] | None:
     start = unit.source_locator.get("char_start")
