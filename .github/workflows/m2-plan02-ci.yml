@@ -125,3 +125,17 @@ jobs:
               --candidate M2-IMPLEMENTATION-CANDIDATE-V2.json
           fi
 
+
+      - name: Export exact Python 3.14.7 runtime
+        run: |
+          mkdir -p /tmp/voxcodex-v3-runtime
+          cp -a "$pythonLocation" /tmp/voxcodex-v3-runtime/python
+          cp -a .venv /tmp/voxcodex-v3-runtime/venv
+          cp -a src /tmp/voxcodex-v3-runtime/src
+          cp pyproject.toml uv.lock /tmp/voxcodex-v3-runtime/
+      - name: Upload exact V3 runtime artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: voxcodex-v3-python314-runtime
+          path: /tmp/voxcodex-v3-runtime
+          if-no-files-found: error
