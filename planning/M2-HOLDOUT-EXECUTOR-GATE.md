@@ -1,6 +1,6 @@
 # M2 Holdout Executor Gate
 
-Status: **READY FOR CANDIDATE V2 FREEZE**
+Status: **CANDIDATE V2 FROZEN / VERIFIED / READY FOR PHYSICAL NON-BLIND VALIDATION**
 
 Date: 2026-09-17
 
@@ -35,12 +35,17 @@ Historical candidate V1 remains unchanged:
 
 V1 was never used to reveal or execute the four M2 blind holdouts.
 
-Replacement target:
+Replacement candidate V2 is frozen:
 
 - file: `M2-IMPLEMENTATION-CANDIDATE-V2.json`
 - id: `m2-implementation-candidate-v2`
-- state: **NOT YET FROZEN**
-- implementation SHA: to be taken from the next full-green CI commit containing this gate and the V2 pre-freeze report.
+- candidate digest: `9c89f18b3c680a5d726adba9a4529f3326653f115543a57e207bd0d221ba3c0e`
+- implementation SHA: `2b7daad66713da004bb3cb7c3fabf39f5fd755b5`
+- implementation-tree digest: `6c71e4cebf9232de50ef97aa260da83b3d516d880b1a421d72f25453cf216ea3`
+- candidate-file commit: `93f921c24d469c23dbb8b9966b656be503d52547`
+- verify-only workflow commit: `124fc56e2e994c6c78caf8c95a49f179a59342f0`
+- final verify-only workflow run: `35288497263`
+- state: **FROZEN / VERIFIED**
 
 ## CI evidence
 
@@ -78,15 +83,27 @@ All pre-reveal executor tests used synthetic fixtures plus already-public frozen
 
 ## Remaining pre-reveal steps
 
-1. Run the complete CI on the exact commit containing this gate and the V2 pre-freeze report.
-2. Record that green commit SHA as the V2 implementation SHA.
-3. Generate `M2-IMPLEMENTATION-CANDIDATE-V2.json` reproducibly from that exact SHA.
-4. Commit the exact generated candidate bytes.
-5. Convert CI to mandatory V2 verify-only mode with no V1 fallback.
-6. Run the final pre-reveal CI.
+Candidate V2 freeze and verify-only CI are complete.
 
-Only after those steps is the repository allowed to reach the irreversible action:
+Before spending the blind holdouts, the preferred remaining reversible step is physical execution of the known Tier 1 non-holdout SourceArtifacts from the local corpus mount:
+
+- `CC-04`
+- `CC-12`
+- `CC-19`
+- `CC-22`
+- `CC-25`
+
+These physical SourceArtifacts are intentionally not stored in GitHub. Their results should either close or narrow the existing local-corpus waiver. A failure here must be resolved with a new candidate **before** any blind reveal.
+
+After that reversible validation, the repository is allowed to reach the irreversible action:
 
 `REVEAL_M2_HOLDOUTS_V1`
 
 No reveal is authorized by this document.
+
+
+## Repository physical-source availability check
+
+At verify-only head `124fc56e2e994c6c78caf8c95a49f179a59342f0`, GitHub contains no tracked `source/` files for the known Tier 1 non-holdout cases `CC-04`, `CC-12`, `CC-19`, `CC-22`, or `CC-25`.
+
+Therefore physical non-blind validation must run against the separately acquired local corpus bundle; this absence is the reason the GitHub CI retains the local-corpus waiver and is not interpreted as a physical PASS.
