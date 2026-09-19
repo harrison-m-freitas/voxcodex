@@ -1,0 +1,85 @@
+{
+  "schema": "voxcodex.m2_physical_nonblind_diagnostic.v1",
+  "date": "2026-09-19",
+  "candidate_id": "m2-implementation-candidate-v2",
+  "candidate_digest": "9c89f18b3c680a5d726adba9a4529f3326653f115543a57e207bd0d221ba3c0e",
+  "formal_conformance": false,
+  "formal_conformance_blocker": "Local execution environment provides Python 3.13.5, while the frozen candidate binds Python 3.14.7. Diagnostic-only shims were required for uuid.uuid7 and the unavailable rfc8785 package.",
+  "source_integrity": "PASS_ALL_FIVE",
+  "blind_holdouts_accessed": false,
+  "blind_holdouts": [
+    "CC-05",
+    "CC-07",
+    "CC-14",
+    "CC-18"
+  ],
+  "cases": [
+    {
+      "case_id": "CC-04",
+      "title": "Os Lusíadas",
+      "format": "PDF",
+      "physical_pages": 628,
+      "source_sha256": "da9dbb9206539fbb7348948a85ba9ae2b1368cb024145182a9e5321f45140ea2",
+      "source_digest_verified": true,
+      "result_class": "MODEL_FAILURE",
+      "validation_result": "FAIL",
+      "significant_suspected_loss": 63,
+      "diagnosis": "all 63 suspected-loss EvidenceUnits are whitespace-only text_span surfaces: 43 single-space and 20 double-space"
+    },
+    {
+      "case_id": "CC-12",
+      "title": "Histories, Vol. 1",
+      "format": "PDF",
+      "physical_pages": 770,
+      "source_sha256": "c7314d0e4cf0d9f39f65708a28bad3d67442da79908d53c684275a496979ac73",
+      "source_digest_verified": true,
+      "result_class": "MODEL_FAILURE",
+      "validation_result": "FAIL",
+      "significant_suspected_loss": 7,
+      "diagnosis": "all 7 suspected-loss EvidenceUnits are whitespace-only text_span surfaces"
+    },
+    {
+      "case_id": "CC-19",
+      "title": "CommonMark Specification — source spec.txt",
+      "format": "Markdown-like source text (TXT)",
+      "source_sha256": "bfef4ddc97276b6ab6c2a28ace48478e35b1c50e60cde9f517ab8ab030aa3b82",
+      "source_digest_verified": true,
+      "result_class": "MODEL_FAILURE",
+      "validation_result": "FAIL",
+      "significant_suspected_loss": 78,
+      "diagnosis": "74 emphasis syntax units are nested subranges of canonicalized blocks; 3 top-level indented code_block units and 1 HTML comment html_block remain unmapped"
+    },
+    {
+      "case_id": "CC-22",
+      "title": "Euclid — First Six Books of the Elements",
+      "format": "PDF",
+      "physical_pages": 228,
+      "source_sha256": "fa77c91ea6b1e31fe09dea4d9a4310e7f8345dba5be0563603f62e7742ffce5c",
+      "source_digest_verified": true,
+      "result_class": "MODEL_FAILURE",
+      "validation_result": "FAIL",
+      "significant_suspected_loss": 36,
+      "diagnosis": "all 36 suspected-loss EvidenceUnits are whitespace-only text_span surfaces"
+    },
+    {
+      "case_id": "CC-25",
+      "title": "NASA Systems Engineering Handbook",
+      "format": "PDF",
+      "physical_pages": 297,
+      "source_sha256": "8eeb4887a4dc57a23049da7dd2ed556833cf98e214b240468d987873164ff688",
+      "source_digest_verified": true,
+      "result_class": "MODEL_FAILURE",
+      "validation_result": "FAIL",
+      "significant_suspected_loss": 1,
+      "diagnosis": "the single suspected-loss EvidenceUnit is a whitespace-only text_span surface"
+    }
+  ],
+  "v3_fix_scope": [
+    "Classify whitespace-only text_span evidence as non-significant/intentionally_noncanonical when not otherwise represented.",
+    "Treat nested Markdown syntax ranges fully contained by canonicalized syntax ranges as redundant non-significant evidence rather than suspected loss.",
+    "Map Markdown code_block to technical.code_block.",
+    "Map Markdown html_block to technical.code_block for literal embedded block markup preservation in the current CBM v0.1 role vocabulary."
+  ],
+  "reveal_state": "FROZEN_UNREVEALED",
+  "reveal_authorized": false
+}
