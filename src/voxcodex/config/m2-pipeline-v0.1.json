@@ -21,7 +21,9 @@
     "fence": "technical.code_block",
     "bullet_list_open": "text.list",
     "ordered_list_open": "text.list",
-    "list_item_open": "text.list_item"
+    "list_item_open": "text.list_item",
+    "code_block": "technical.code_block",
+    "html_block": "technical.code_block"
   },
   "fallback_role": "text.paragraph",
   "formula_requires_math_glyph_shape": true
