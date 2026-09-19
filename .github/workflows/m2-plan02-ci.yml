@@ -8,6 +8,7 @@ on:
       - m2-plan04-cbm-materialization
       - m2-plan05-reprocessing-provenance
       - m2-plan06-corpus-candidate-freeze
+      - m2-plan06-candidate-v3-prefreeze
   pull_request:
     branches:
       - main
