@@ -112,19 +112,3 @@ jobs:
             --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT-V2.json \
             --candidate M2-IMPLEMENTATION-CANDIDATE-V2.json
 
-      - name: Export frozen V2 workspace artifact
-        run: |
-          mkdir -p /tmp/voxcodex-v2-export
-          cp -R src /tmp/voxcodex-v2-export/
-          cp pyproject.toml uv.lock /tmp/voxcodex-v2-export/
-          cp M2-IMPLEMENTATION-CANDIDATE-V2.json /tmp/voxcodex-v2-export/
-          cp planning/M2-PREFREEZE-REGRESSION-REPORT-V2.json /tmp/voxcodex-v2-export/
-          cp corpus/COMPATIBILITY-CORPUS-V1.json /tmp/voxcodex-v2-export/
-          cp M2-HOLDOUT-V1-FREEZE-MANIFEST.json /tmp/voxcodex-v2-export/
-          cp COMPATIBILITY-CORPUS-V1-FREEZE-MANIFEST.json /tmp/voxcodex-v2-export/
-      - name: Upload frozen V2 workspace artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: voxcodex-v2-frozen-workspace
-          path: /tmp/voxcodex-v2-export
-          if-no-files-found: error
