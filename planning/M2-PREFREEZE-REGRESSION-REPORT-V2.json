@@ -24,10 +24,7 @@
     "production_reconstruction": 35287477664,
     "m2_pipeline_processor": 35287924432,
     "blind_runner_cli": 35288130043,
-    "full_prefreeze_gate": 35288230172,
-    "final_prefreeze_exact_commit": 35288325613,
-    "candidate_v2_generation": 35288390666,
-    "candidate_v2_verify_only": 35288497263
+    "full_prefreeze_gate": 35288230172
   },
   "capability_boundary": {
     "claimed": [
@@ -48,13 +45,5 @@
     "source_artifacts_accessed": false,
     "source_artifacts_rehashed": false,
     "reveal_record_present": false
-  },
-  "candidate_frozen": {
-    "candidate_id": "m2-implementation-candidate-v2",
-    "candidate_digest": "9c89f18b3c680a5d726adba9a4529f3326653f115543a57e207bd0d221ba3c0e",
-    "implementation_sha": "2b7daad66713da004bb3cb7c3fabf39f5fd755b5",
-    "implementation_tree_digest": "6c71e4cebf9232de50ef97aa260da83b3d516d880b1a421d72f25453cf216ea3",
-    "candidate_file_commit": "93f921c24d469c23dbb8b9966b656be503d52547",
-    "verify_only_workflow_commit": "124fc56e2e994c6c78caf8c95a49f179a59342f0"
   }
 }
