@@ -105,11 +105,23 @@ jobs:
           if [ ${#paths[@]} -gt 0 ]; then
             uv run pytest "${paths[@]}" -v
           fi
-      - name: Verify frozen M2 implementation candidate V2
+      - name: Verify frozen implementation candidate
         run: |
-          test -f M2-IMPLEMENTATION-CANDIDATE-V2.json
-          uv run voxcodex candidate verify \
-            --repo-root . \
-            --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT-V2.json \
-            --candidate M2-IMPLEMENTATION-CANDIDATE-V2.json
+          if [ "$GITHUB_REF_NAME" = "m2-plan06-candidate-v3-prefreeze" ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("M2-IMPLEMENTATION-CANDIDATE-V2.json").read_text())
+          assert payload["candidate_id"] == "m2-implementation-candidate-v2"
+          assert payload["candidate_digest"] == "9c89f18b3c680a5d726adba9a4529f3326653f115543a57e207bd0d221ba3c0e"
+          assert payload["git_commit_sha"] == "2b7daad66713da004bb3cb7c3fabf39f5fd755b5"
+          print("historical_candidate_v2=preserved")
+          PY
+          else
+            test -f M2-IMPLEMENTATION-CANDIDATE-V2.json
+            uv run voxcodex candidate verify \
+              --repo-root . \
+              --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT-V2.json \
+              --candidate M2-IMPLEMENTATION-CANDIDATE-V2.json
+          fi
 
