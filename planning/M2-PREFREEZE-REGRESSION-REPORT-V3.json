@@ -1,0 +1,45 @@
+{
+  "schema": "voxcodex.m2_prefreeze_regression_report.v3",
+  "status": "PASS",
+  "selective_reprocessing_status": "PASS",
+  "physical_nonblind_tier1_status": "PASS_ALL_5",
+  "physical_nonblind_report": "planning/M2-PHYSICAL-NONBLIND-CONFORMANCE-V3.json",
+  "physical_nonblind_case_ids": [
+    "CC-04",
+    "CC-12",
+    "CC-19",
+    "CC-22",
+    "CC-25"
+  ],
+  "implementation_tree_digest": "3c5f6eac26c855579b27adc354fa31aeb21b278e3af0567189a59ebeaedcdb0f",
+  "python_version": "3.14.7",
+  "semantic_green_ci_run": 35607282725,
+  "holdout_executor_status": "PASS_SYNTHETIC_ONLY",
+  "real_holdout_sources_accessed": false,
+  "reveal_authorized": false,
+  "reveal_record_present": false,
+  "holdout_integrity": {
+    "state": "FROZEN_UNREVEALED",
+    "case_ids": [
+      "CC-05",
+      "CC-07",
+      "CC-14",
+      "CC-18"
+    ],
+    "source_access": false,
+    "source_rehash": false,
+    "reveal": false
+  },
+  "v2_regression_source": "planning/M2-PREFREEZE-REGRESSION-REPORT-V2.json",
+  "v2_known_physical_diagnostic": "planning/M2-PHYSICAL-NONBLIND-DIAGNOSTIC-V2.json",
+  "v3_corrections": [
+    "whitespace-only text_span evidence is non-significant when unmaterialized",
+    "nested Markdown syntax ranges contained by canonicalized block ranges are redundant non-significant evidence",
+    "Markdown code_block and html_block map to the existing technical.code_block role"
+  ],
+  "evidence_runs": {
+    "tdd_red": 35607205693,
+    "v3_semantic_green": 35607282725
+  },
+  "local_corpus_waiver": null
+}
