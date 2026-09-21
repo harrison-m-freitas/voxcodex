@@ -75,7 +75,8 @@ def _assert_ready(manifest: ImplementationCandidateManifest) -> None:
     if not manifest.holdouts_withheld:
         raise CandidateReadinessError("holdouts_withheld must remain explicit before freeze")
     if (
-        manifest.candidate_id == "m2-implementation-candidate-v2"
+        manifest.candidate_id
+        in {"m2-implementation-candidate-v2", "m2-implementation-candidate-v3"}
         and not (manifest.implementation_tree_digest or "").strip()
     ):
         raise CandidateReadinessError(
@@ -244,7 +245,7 @@ def build_repository_candidate(
         "selective reprocessing preserves provenance-safe dependency reuse and invalidation",
         "supported-format canonical structure comparison excludes operational IDs and source locators",
     ]
-    if candidate_id == "m2-implementation-candidate-v2":
+    if candidate_id in {"m2-implementation-candidate-v2", "m2-implementation-candidate-v3"}:
         processor_versions.update(
             {
                 "production_reconstruction_stage": "0.1.0",
@@ -297,7 +298,8 @@ def build_repository_candidate(
         git_commit_sha=git_commit_sha,
         implementation_tree_digest=(
             implementation_tree_digest(root)
-            if candidate_id == "m2-implementation-candidate-v2"
+            if candidate_id
+            in {"m2-implementation-candidate-v2", "m2-implementation-candidate-v3"}
             else None
         ),
         uv_lock_sha256=_file_digest(root / "uv.lock"),
