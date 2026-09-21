@@ -125,3 +125,24 @@ jobs:
               --candidate M2-IMPLEMENTATION-CANDIDATE-V2.json
           fi
 
+
+      - name: Generate Candidate V3 freeze artifact
+        if: github.ref_name == 'm2-plan06-candidate-v3-prefreeze'
+        run: |
+          uv run voxcodex candidate freeze \
+            --repo-root . \
+            --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT-V3.json \
+            --git-commit-sha 38c59a92983dbf9dd822b5618ab37770bd2d65ab \
+            --candidate-id m2-implementation-candidate-v3 \
+            --output /tmp/M2-IMPLEMENTATION-CANDIDATE-V3.json
+          uv run voxcodex candidate verify \
+            --repo-root . \
+            --regression-report planning/M2-PREFREEZE-REGRESSION-REPORT-V3.json \
+            --candidate /tmp/M2-IMPLEMENTATION-CANDIDATE-V3.json
+      - name: Upload Candidate V3 freeze artifact
+        if: github.ref_name == 'm2-plan06-candidate-v3-prefreeze'
+        uses: actions/upload-artifact@v4
+        with:
+          name: m2-implementation-candidate-v3
+          path: /tmp/M2-IMPLEMENTATION-CANDIDATE-V3.json
+          if-no-files-found: error
