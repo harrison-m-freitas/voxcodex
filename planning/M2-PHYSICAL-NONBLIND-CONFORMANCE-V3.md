@@ -1,10 +1,12 @@
 # M2 Physical Non-Blind Conformance — Candidate V3 Prefreeze
 
-Status: **PASS — PREFREEZE PHYSICAL NON-BLIND**
+Status: **PASS — ALL KNOWN NON-BLIND TIER 1**
 
-Five known Tier 1 SourceArtifacts were executed end-to-end with the V3 semantic implementation tree `a93e639ec5a10e1d9fd7c8a9c8993c961f1ac15056c20d93227a04939582c871` using the exact Python **3.14.7** runtime exported from green CI run `35446801856`.
+The five and only five known non-blind Tier 1 SourceArtifacts in Compatibility Corpus v1 were executed end-to-end against the final V3 semantic implementation tree `3c5f6eac26c855579b27adc354fa31aeb21b278e3af0567189a59ebeaedcdb0f`.
 
-All five physical source files matched their frozen SHA-256 and byte-size identities before processing. The strict `m2_poc_strict` ValidationPolicy passed in every case, and no case contained significant suspected loss.
+Execution used Python **3.14.7** and the frozen dependency environment from the green V3 CI runtime. The final Candidate V3 freeze-control source was overlaid byte-for-byte from Git blob `1fa43b0ddb7d712d13072900d17ccd84810a1ec6`; processing-pipeline sources were unchanged. CI run `35607282725` is green for the same semantic tree.
+
+All physical files matched their frozen SHA-256 and byte-size identities before processing. Every case passed `m2_poc_strict`, with zero significant suspected loss.
 
 | Case | Physical scope | Result |
 |---|---:|---|
@@ -14,6 +16,6 @@ All five physical source files matched their frozen SHA-256 and byte-size identi
 | CC-22 — Euclid — First Six Books | full PDF, 228 pages | PASS |
 | CC-25 — NASA Systems Engineering Handbook | full PDF, 297 pages | PASS |
 
-The execution used a deterministic prefreeze candidate binding because Candidate V3 did not yet have its final candidate digest. Therefore these runs establish **prefreeze physical behavior**, while final revision digests should be rebound after Candidate V3 is frozen.
+The remaining Tier 1 cases are exactly the four blind holdouts: `CC-05`, `CC-07`, `CC-14`, and `CC-18`. They remain **FROZEN / UNREVEALED** and no holdout bytes were opened, resolved, hashed, parsed, rendered, or processed.
 
-The blind holdouts `CC-05`, `CC-07`, `CC-14`, and `CC-18` remain **FROZEN / UNREVEALED**. No holdout bytes were opened, resolved, hashed, parsed, rendered, or processed.
+The physical runs used a deterministic prefreeze provenance binding because the final Candidate V3 digest does not exist until freeze. This does not relax or bypass the strict validation result; final candidate-bound provenance can be re-executed after freeze without tuning.
