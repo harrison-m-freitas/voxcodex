@@ -85,3 +85,20 @@ def test_candidate_v2_accepts_implementation_tree_digest() -> None:
     manifest = _base_v2(implementation_tree_digest="3" * 64)
 
     _assert_ready(manifest)
+
+
+
+def test_candidate_v3_requires_implementation_tree_digest() -> None:
+    manifest = _base_v2(candidate_id="m2-implementation-candidate-v3")
+
+    with pytest.raises(CandidateReadinessError, match="implementation_tree_digest"):
+        _assert_ready(manifest)
+
+
+def test_candidate_v3_accepts_implementation_tree_digest() -> None:
+    manifest = _base_v2(
+        candidate_id="m2-implementation-candidate-v3",
+        implementation_tree_digest="4" * 64,
+    )
+
+    _assert_ready(manifest)
