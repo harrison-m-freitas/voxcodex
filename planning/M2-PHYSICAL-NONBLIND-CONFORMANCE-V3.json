@@ -1,17 +1,22 @@
 {
   "schema": "voxcodex.m2_physical_nonblind_conformance.v1",
   "date": "2026-09-21",
-  "status": "PASS_PREFREEZE_PHYSICAL_NONBLIND",
-  "candidate_state": "V3_PREFREEZE_NOT_YET_FROZEN",
-  "implementation_tree_digest": "a93e639ec5a10e1d9fd7c8a9c8993c961f1ac15056c20d93227a04939582c871",
-  "prefreeze_candidate_binding": "67430deec6d2a72a436b90f4a421b337b8d71119152715a829e1121d10c0ce63",
+  "status": "PASS_PHYSICAL_NONBLIND",
+  "candidate_state": "V3_PREFREEZE_READY_FOR_FREEZE",
+  "implementation_tree_digest": "3c5f6eac26c855579b27adc354fa31aeb21b278e3af0567189a59ebeaedcdb0f",
+  "prefreeze_candidate_binding": "6436b8c94be4d76e3423b6f30af69056cb584b0720fa170af629e21a7463bd17",
   "runtime": {
     "python": "3.14.7",
     "source": "GitHub Actions setup-python runtime exported from green V3 CI",
     "workflow_run": 35446801856,
     "workflow_head_sha": "53bb96576d91eb27320158c70eadfdafb6246fb0",
     "artifact_id": 10585470577,
-    "artifact_digest": "sha256:2c353090ec21a18da36781b3b55889e762096c120676416ab553bb5cb5669c0e"
+    "artifact_digest": "sha256:2c353090ec21a18da36781b3b55889e762096c120676416ab553bb5cb5669c0e",
+    "final_semantic_overlay": {
+      "path": "src/voxcodex/corpus/candidate.py",
+      "git_blob_sha": "1fa43b0ddb7d712d13072900d17ccd84810a1ec6",
+      "note": "Exact Candidate V3 freeze-control source from green semantic commit; processing pipeline sources and runtime dependencies are unchanged from the exported 3.14.7 artifact."
+    }
   },
   "source_integrity": "PASS_ALL_FIVE_FROZEN_SHA256_AND_BYTE_SIZE",
   "blind_holdouts_accessed": false,
@@ -34,7 +39,8 @@
       "significant_suspected_loss": 0,
       "evidence_snapshot_digest": "bb9cd24283323aafc35b91871092b11893eee4e3b7a58808eefd4c6514e36b56",
       "reconstruction_snapshot_digest": "db7599ac1ccc5d0e12ed80296d80551530642aa499a4f1401792a594b174f555",
-      "prefreeze_frozen_revision_digest": "d18e5d59f1de1bf84b99b27a23bf8996a4823c63a254060fde76e1f7eca9a047"
+      "prefreeze_frozen_revision_digest": "a31ebe58fe89dd727daaff6fa7e06695014c0f904ab73cb543be3d6c0ea40beb",
+      "implementation_tree_digest": "3c5f6eac26c855579b27adc354fa31aeb21b278e3af0567189a59ebeaedcdb0f"
     },
     {
       "case_id": "CC-12",
@@ -47,7 +53,8 @@
       "significant_suspected_loss": 0,
       "evidence_snapshot_digest": "a3d6901d77611e7d821d80b2bbcaf2dbcecd06414a5ed421f4304b2af988f592",
       "reconstruction_snapshot_digest": "70725160a0a6636639d172fdc8f9886c60b0929dc7f763ec081a5206d0f8bd50",
-      "prefreeze_frozen_revision_digest": "5e49c7e4f8873e9752f5de694c3923b4d811dcacb7cc0a7a51fad1b9929077d0"
+      "prefreeze_frozen_revision_digest": "48640f6704980f11b9e2404d2f69305b32f7e8a3733aba6f1a9bfd054bf88b6d",
+      "implementation_tree_digest": "3c5f6eac26c855579b27adc354fa31aeb21b278e3af0567189a59ebeaedcdb0f"
     },
     {
       "case_id": "CC-19",
@@ -59,7 +66,8 @@
       "significant_suspected_loss": 0,
       "evidence_snapshot_digest": "ae84dc90cb378409e7a6c2ee3260e54812dc2cf6f7d7b893a83fe39a60b6eb1d",
       "reconstruction_snapshot_digest": "9fefb5c4d3dd1b1c5e59b419c3aace2690ee85a82639da6fe5af0681c27c0da5",
-      "prefreeze_frozen_revision_digest": "efc265f1c2d8ed2ebb101a05196beca6e05db324376edd6694af4970767b5424"
+      "prefreeze_frozen_revision_digest": "3dce3c303a8ba08c8b1eb159d9faa96624ece07f992c999cbf3a110da8475c52",
+      "implementation_tree_digest": "3c5f6eac26c855579b27adc354fa31aeb21b278e3af0567189a59ebeaedcdb0f"
     },
     {
       "case_id": "CC-22",
@@ -72,7 +80,8 @@
       "significant_suspected_loss": 0,
       "evidence_snapshot_digest": "d1d559b2c34fe38a68d0892c9d25a7630616a3349bc564517d2cd81a044b3b8c",
       "reconstruction_snapshot_digest": "a5662d4b2d99d512423d6391725835ad02b8fb62f77e271bd27b3a7b835e8a99",
-      "prefreeze_frozen_revision_digest": "1435a811280e6464c5c6f85c6d54d87c123d4cb7d9d469d27c0755fd5f8e5b77"
+      "prefreeze_frozen_revision_digest": "75ca12da00f3bc5e4433d4540bbba0bbd526a844a67da126b5fe33ca9954901b",
+      "implementation_tree_digest": "3c5f6eac26c855579b27adc354fa31aeb21b278e3af0567189a59ebeaedcdb0f"
     },
     {
       "case_id": "CC-25",
@@ -85,12 +94,19 @@
       "significant_suspected_loss": 0,
       "evidence_snapshot_digest": "df4c403bf78ea203cb6c178442e38885c31fe4b1d15f99462a2dd3cdda4acf54",
       "reconstruction_snapshot_digest": "de248937c92d629286b98e0f5dc4357999cc00e8ee7006ca65e289042100e784",
-      "prefreeze_frozen_revision_digest": "be47af7357d79d8f8cda228f2ca5320abadab784dda1f0bc083b5e7b012d9fff"
+      "prefreeze_frozen_revision_digest": "173af29c2c3367e35d8cb1693f33f8a49476ce13a7f6df98b186dc53f2a796a3",
+      "implementation_tree_digest": "3c5f6eac26c855579b27adc354fa31aeb21b278e3af0567189a59ebeaedcdb0f"
     }
   ],
   "notes": [
-    "The prefreeze candidate binding is a deterministic placeholder derived from the V3 implementation-tree digest because Candidate V3 had not yet been frozen during physical execution.",
-    "PASS/FAIL behavior is the evidence used for prefreeze promotion. Revision digests will be rebound after Candidate V3 receives its final candidate digest.",
+    "Candidate V3 was not yet frozen during physical execution, so a deterministic prefreeze candidate binding was used for provenance.",
+    "All five known non-blind Tier 1 cases in the frozen registry were executed in full and passed strict validation.",
+    "The only remaining Tier 1 cases are the four frozen blind holdouts CC-05, CC-07, CC-14, and CC-18.",
     "No blind holdout source bytes were opened, resolved, hashed, parsed, rendered, or processed."
-  ]
+  ],
+  "semantic_green_ci": {
+    "run_id": 35607282725,
+    "head_sha": "8701d89b95355242c38ebad1c2ca73f497c90972",
+    "conclusion": "SUCCESS"
+  }
 }
