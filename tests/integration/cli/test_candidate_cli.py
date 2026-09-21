@@ -145,3 +145,44 @@ def test_candidate_freeze_cli_can_create_v2_with_semantic_tree_binding(tmp_path:
     payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["candidate_id"] == "m2-implementation-candidate-v2"
     assert payload["implementation_tree_digest"]
+
+
+
+def test_candidate_freeze_cli_can_create_v3_with_pipeline_binding(tmp_path: Path) -> None:
+    report = tmp_path / "regression-report.json"
+    report.write_text(
+        json.dumps(
+            {
+                "status": "PASS",
+                "selective_reprocessing_status": "PASS",
+            }
+        ),
+        encoding="utf-8",
+    )
+    output = tmp_path / "M2-IMPLEMENTATION-CANDIDATE-V3.json"
+
+    result = runner.invoke(
+        app,
+        [
+            "candidate",
+            "freeze",
+            "--repo-root",
+            str(REPO_ROOT),
+            "--regression-report",
+            str(report),
+            "--git-commit-sha",
+            "c" * 40,
+            "--candidate-id",
+            "m2-implementation-candidate-v3",
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    assert payload["candidate_id"] == "m2-implementation-candidate-v3"
+    assert payload["implementation_tree_digest"]
+    assert payload["processor_versions"]["m2_pipeline_processor"] == "0.1.0"
+    assert payload["processor_versions"]["production_reconstruction_stage"] == "0.1.0"
+    assert payload["semantic_config_digests"]["m2_pipeline"]
